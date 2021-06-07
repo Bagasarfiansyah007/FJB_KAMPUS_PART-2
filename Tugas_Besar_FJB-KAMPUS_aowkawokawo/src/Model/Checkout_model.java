@@ -10,5 +10,5 @@ package Model;
  * @author AMS
  */
 public class Checkout_model {
-       
+       private int bagas;
 }
