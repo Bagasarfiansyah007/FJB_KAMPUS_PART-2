@@ -9,7 +9,6 @@ import Model.User_model;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import view.Login_GUI;
 import view.Register_GUI;
 
 /**
@@ -52,9 +51,8 @@ public class Registrasi_control {
                         "Warning",JOptionPane.WARNING_MESSAGE);
                 }
             }
-            
         }
-    }
+    }   
     
     public boolean cariData(ArrayList cari,String nim){
         boolean exist = false;
