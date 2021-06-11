@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control;
 
-/**
- *
- * @author AMS
- */
+import Model.User_model;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import view.Register_GUI;
+
+
 public class User_control {
     
 }
