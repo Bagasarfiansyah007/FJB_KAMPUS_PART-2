@@ -9,7 +9,6 @@ import Model.User_model;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import view.Login_GUI;
 import view.Register_GUI;
 
 /**
