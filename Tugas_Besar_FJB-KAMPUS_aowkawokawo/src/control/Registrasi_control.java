@@ -51,9 +51,8 @@ public class Registrasi_control {
                         "Warning",JOptionPane.WARNING_MESSAGE);
                 }
             }
-            
         }
-    }
+    }   
     
     public boolean cariData(ArrayList cari,String nim){
         boolean exist = false;
