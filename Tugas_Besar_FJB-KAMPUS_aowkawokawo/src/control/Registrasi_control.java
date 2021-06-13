@@ -24,26 +24,26 @@ public class Registrasi_control {
         this.registerForm = register;
     }
     
-    public void isiData(Register_GUI register,String nim, String nama, String fakultas, String noTelpon, String prodi, String Password, int saldo){
+    public void isiData(Register_GUI register,String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo){
         String saldoTxt = String.valueOf(register.getTxtSaldo());
         
         if (register.getTxtNim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Nim masih kosong!",
                 "Warning",JOptionPane.WARNING_MESSAGE);
         } else if (register.getTxtNama().isEmpty() || register.getTxtFakultas().isEmpty() || register.getTxtPassword().isEmpty() 
-                || register.getTxtProdi().isEmpty() || saldoTxt.isEmpty() || register.getTxtTelphone().isEmpty()) { 
+                || register.getTxtProdi().isEmpty() || saldoTxt.isEmpty() || register.getTxtTelphone().isEmpty() || register.getTxtEmail().isEmpty()) { 
             JOptionPane.showMessageDialog(null, "Ada field yang masih kosong",
                 "Warning",JOptionPane.WARNING_MESSAGE);
         } else {
             if (user.isEmpty()) {
                 user.add(new User_model(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
-                        register.getTxtTelphone(),register.getTxtProdi(),register.getTxtPassword(),register.getTxtSaldo()));
+                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(), register.getTxtPassword(),register.getTxtSaldo()));
                 JOptionPane.showMessageDialog(null, "sukses memasukan " + user.get(user.size() - 1).getNim(),
                 "Suskses",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 if (cariData(user,nim) == false) {
                     user.add(new User_model(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
-                        register.getTxtTelphone(),register.getTxtProdi(),register.getTxtPassword(),register.getTxtSaldo()));
+                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(),register.getTxtPassword(),register.getTxtSaldo()));
                         JOptionPane.showMessageDialog(null, "sukses memasukan " + user.get(user.size() - 1).getNim(),
                         "Suskses",JOptionPane.INFORMATION_MESSAGE);
                 } else {
