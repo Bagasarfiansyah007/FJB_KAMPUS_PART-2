@@ -29,17 +29,20 @@ public class Pembeli_GUI extends javax.swing.JFrame {
 
         CariBarangField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        TableBarang = new javax.swing.JScrollPane();
         TabelGambar = new javax.swing.JTable();
         BeliButton = new javax.swing.JButton();
         OkeSearchButton = new javax.swing.JButton();
-        AkunButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         Troli = new javax.swing.JButton();
+        AkunButton = new javax.swing.JButton();
+        BeliButton1 = new javax.swing.JButton();
         PaneDaftarBarang = new javax.swing.JScrollPane();
         DaftarBarangField = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        OkeSearchButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,25 +54,25 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 CariBarangFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(CariBarangField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 170, 30));
+        getContentPane().add(CariBarangField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 210, 30));
 
         TabelGambar.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         TabelGambar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID PENJUAL", "NAMA PRODUK", "KATEGORI", "STOK", "", "HARGA"
+                "ID PENJUAL", "NAMA PRODUK", "KATEGORI", "STOK", "HARGA"
             }
         ));
-        jScrollPane3.setViewportView(TabelGambar);
+        TableBarang.setViewportView(TabelGambar);
 
         BeliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         BeliButton.setText("Beli");
@@ -86,7 +89,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                    .addComponent(TableBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -96,10 +99,10 @@ public class Pembeli_GUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TableBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 600, 310));
@@ -113,14 +116,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         });
         getContentPane().add(OkeSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 70, 30));
 
-        AkunButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        AkunButton.setText("Update Akun");
-        AkunButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AkunButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(AkunButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 0, -1, 30));
+        jPanel2.setOpaque(false);
 
         Troli.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         Troli.setText("Troli");
@@ -129,7 +125,47 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 TroliActionPerformed(evt);
             }
         });
-        getContentPane().add(Troli, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 70, 30));
+
+        AkunButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        AkunButton.setText("Update Profil");
+        AkunButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AkunButtonActionPerformed(evt);
+            }
+        });
+
+        BeliButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        BeliButton1.setText("LogOut");
+        BeliButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BeliButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(320, Short.MAX_VALUE)
+                .addComponent(Troli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AkunButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BeliButton1)
+                .addGap(20, 20, 20))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Troli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AkunButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BeliButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 110, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 140));
 
         DaftarBarangField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         DaftarBarangField.setText("Daftar Barang");
@@ -147,8 +183,17 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         jLabel2.setText("FJB KAMPUS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, 170, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\almuhasibi\\edit\\2\\background_form1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        OkeSearchButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        OkeSearchButton1.setText("Oke");
+        OkeSearchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OkeSearchButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(OkeSearchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 70, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +217,14 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private void BeliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BeliButtonActionPerformed
+
+    private void OkeSearchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkeSearchButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OkeSearchButton1ActionPerformed
+
+    private void BeliButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BeliButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,16 +264,19 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AkunButton;
     private javax.swing.JButton BeliButton;
+    private javax.swing.JButton BeliButton1;
     private javax.swing.JTextField CariBarangField;
     private javax.swing.JLabel DaftarBarangField;
     private javax.swing.JButton OkeSearchButton;
+    private javax.swing.JButton OkeSearchButton1;
     private javax.swing.JScrollPane PaneDaftarBarang;
     private javax.swing.JTable TabelGambar;
+    private javax.swing.JScrollPane TableBarang;
     private javax.swing.JButton Troli;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
