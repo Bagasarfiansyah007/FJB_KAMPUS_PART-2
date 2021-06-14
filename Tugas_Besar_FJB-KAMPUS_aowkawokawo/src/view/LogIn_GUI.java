@@ -71,7 +71,7 @@ public class LogIn_GUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 85, 85));
         jLabel2.setText("LOG-IN");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 106, 50, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 50, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("E:\\almuhasibi\\edit\\2\\log-inFofm2.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
