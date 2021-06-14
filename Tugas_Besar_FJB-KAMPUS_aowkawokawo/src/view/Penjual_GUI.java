@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import view.InputDataBarang;
 
 /**
  *
@@ -32,9 +33,10 @@ public class Penjual_GUI extends javax.swing.JFrame {
         labelNamaApp = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         buttonJual = new javax.swing.JButton();
-        buttonUpdateAkun = new javax.swing.JButton();
+        buttonUpdateProfil = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
         labelNamaKlmpk = new javax.swing.JLabel();
+        buttonDaftarBarang = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,13 +61,13 @@ public class Penjual_GUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(220, 220, 220)
                         .addComponent(labelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(labelNamaApp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(labelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -75,11 +77,21 @@ public class Penjual_GUI extends javax.swing.JFrame {
         jPanel2.setOpaque(false);
 
         buttonJual.setText("Jual Barang");
-
-        buttonUpdateAkun.setText("Update Akun");
-        buttonUpdateAkun.addActionListener(new java.awt.event.ActionListener() {
+        buttonJual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonJualMouseClicked(evt);
+            }
+        });
+        buttonJual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonUpdateAkunActionPerformed(evt);
+                buttonJualActionPerformed(evt);
+            }
+        });
+
+        buttonUpdateProfil.setText("Update Profil");
+        buttonUpdateProfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateProfilActionPerformed(evt);
             }
         });
 
@@ -93,31 +105,43 @@ public class Penjual_GUI extends javax.swing.JFrame {
         labelNamaKlmpk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNamaKlmpk.setText("Nankatsu");
 
+        buttonDaftarBarang.setText("Daftar Barang");
+        buttonDaftarBarang.setToolTipText("");
+        buttonDaftarBarang.setPreferredSize(new java.awt.Dimension(74, 28));
+        buttonDaftarBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDaftarBarangActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(221, 221, 221)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonJual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(buttonUpdateProfil, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(buttonDaftarBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(buttonJual, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonDaftarBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonUpdateProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(59, 59, 59)
                 .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -129,13 +153,28 @@ public class Penjual_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonUpdateAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateAkunActionPerformed
+    private void buttonUpdateProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateProfilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonUpdateAkunActionPerformed
+    }//GEN-LAST:event_buttonUpdateProfilActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_buttonLogoutActionPerformed
+
+    private void buttonJualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJualActionPerformed
+        InputDataBarang btn1 = new InputDataBarang();
+        btn1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonJualActionPerformed
+
+    private void buttonJualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonJualMouseClicked
+
+    }//GEN-LAST:event_buttonJualMouseClicked
+
+    private void buttonDaftarBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarBarangActionPerformed
+        new DaftarBarang().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonDaftarBarangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,9 +212,10 @@ public class Penjual_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonDaftarBarang;
     private javax.swing.JButton buttonJual;
     private javax.swing.JButton buttonLogout;
-    private javax.swing.JButton buttonUpdateAkun;
+    private javax.swing.JButton buttonUpdateProfil;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

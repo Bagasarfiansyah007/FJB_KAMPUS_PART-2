@@ -233,10 +233,12 @@ public class Register_GUI extends javax.swing.JFrame {
         try {
             int saldo = Integer.parseInt(TxtSaldo.getText()); 
             control.isiData(this, getTxtNim(), getTxtNama(), getTxtFakultas(), getTxtTelphone(), getTxtProdi(), getTxtEmail(), getTxtPassword(), saldo);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Tipe data yang dimasukan Salah !",
                     "warning",JOptionPane.WARNING_MESSAGE);
         }
+        
     }//GEN-LAST:event_buttonRegisterActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
