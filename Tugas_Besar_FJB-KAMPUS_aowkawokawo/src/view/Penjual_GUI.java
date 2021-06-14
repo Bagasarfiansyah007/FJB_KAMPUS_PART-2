@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.event.MouseEvent;
+
 /**
  *
  * @author user
@@ -31,15 +33,14 @@ public class Penjual_GUI extends javax.swing.JFrame {
         labelMenu = new javax.swing.JLabel();
         labelNamaApp = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        buttonJual = new javax.swing.JButton();
         buttonUpdateAkun = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
         labelNamaKlmpk = new javax.swing.JLabel();
+        buttonDaftarBarang = new javax.swing.JButton();
+        buttonJual = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(607, 561));
-        setPreferredSize(new java.awt.Dimension(607, 561));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setOpaque(false);
@@ -76,14 +77,7 @@ public class Penjual_GUI extends javax.swing.JFrame {
 
         jPanel2.setOpaque(false);
 
-        buttonJual.setText("Jual Barang");
-        buttonJual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonJualActionPerformed(evt);
-            }
-        });
-
-        buttonUpdateAkun.setText("Update Akun");
+        buttonUpdateAkun.setText("Update Profil");
         buttonUpdateAkun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUpdateAkunActionPerformed(evt);
@@ -100,40 +94,65 @@ public class Penjual_GUI extends javax.swing.JFrame {
         labelNamaKlmpk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNamaKlmpk.setText("Nankatsu");
 
+        buttonDaftarBarang.setText("Daftar Barang");
+        buttonDaftarBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonDaftarBarangMouseClicked(evt);
+            }
+        });
+        buttonDaftarBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDaftarBarangActionPerformed(evt);
+            }
+        });
+
+        buttonJual.setText("Daftar Barang");
+        buttonJual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonJualMouseClicked(evt);
+            }
+        });
+        buttonJual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonJualActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(221, 221, 221)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonJual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(229, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonDaftarBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonJual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(buttonJual, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(59, 59, 59)
+                .addComponent(labelNamaKlmpk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 618, 470));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 620, 620));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,8 +165,20 @@ public class Penjual_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
+    private void buttonDaftarBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonDaftarBarangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDaftarBarangMouseClicked
+
+    private void buttonDaftarBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDaftarBarangActionPerformed
+
+    private void buttonJualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonJualMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonJualMouseClicked
+
     private void buttonJualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJualActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_buttonJualActionPerformed
 
     /**
@@ -186,6 +217,7 @@ public class Penjual_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonDaftarBarang;
     private javax.swing.JButton buttonJual;
     private javax.swing.JButton buttonLogout;
     private javax.swing.JButton buttonUpdateAkun;
