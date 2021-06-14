@@ -147,7 +147,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         jLabel2.setText("FJB KAMPUS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, 170, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\almuhasibi\\edit\\2\\background_form1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
