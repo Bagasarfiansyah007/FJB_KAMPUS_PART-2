@@ -16,18 +16,28 @@ public class User_model {
     private String fakultas;
     private String noTelpon;
     private String prodi;
+    private String email;
     private String Password;
     private int saldo;
     
     // Constructor
-    public User_model(String nim, String nama, String fakultas, String noTelpon, String prodi, String Password, int saldo) {
+    public User_model(String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo) {
         this.nim = nim;
         this.nama = nama;
         this.fakultas = fakultas;
         this.noTelpon = noTelpon;
         this.prodi = prodi;
+        this.email = email;
         this.Password = Password;
         this.saldo = saldo;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
     
     // Setter
