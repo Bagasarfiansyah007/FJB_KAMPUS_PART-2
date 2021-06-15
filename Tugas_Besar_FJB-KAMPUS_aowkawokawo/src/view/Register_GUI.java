@@ -241,6 +241,8 @@ public class Register_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonRegisterActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        LogIn_GUI loginGui = new LogIn_GUI();
+        loginGui.show();
         dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
     public String getTxtFakultas() {

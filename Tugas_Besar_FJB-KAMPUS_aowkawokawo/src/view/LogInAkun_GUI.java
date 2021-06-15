@@ -5,6 +5,8 @@
  */
 package view;
 
+import control.Login_control;
+
 /**
  *
  * @author USER
@@ -14,8 +16,15 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
     /**
      * Creates new form LogInAkun_GUI
      */
-    public LogInAkun_GUI() {
+    public static int alamatLogin;
+    public static Login_control control;
+    public LogInAkun_GUI(int index) {
         initComponents();
+        alamatLogin = index - 1;
+        control = new Login_control(this);
+        setNamaAkun(alamatLogin);
+        setNimAkun(alamatLogin);
+
     }
 
     /**
@@ -33,6 +42,8 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        namaTxt = new javax.swing.JLabel();
+        nimTxt = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,6 +82,7 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
         jPanel3.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Masuk Sebagai");
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -84,31 +96,45 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setText("Penjual");
 
+        namaTxt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        namaTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaTxt.setText("jLabel2");
+
+        nimTxt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        nimTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nimTxt.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(254, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(250, 250, 250))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(192, 192, 192)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namaTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nimTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(namaTxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nimTxt)
+                .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 610, 370));
@@ -119,6 +145,14 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setNamaAkun(int index) {
+        namaTxt.setText(control.user.get(index).getNama() + "-" + control.user.get(index).getFakultas());
+    }
+    
+    public void setNimAkun(int index) {
+        nimTxt.setText("( "+control.user.get(index).getNim() + " )");
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -153,7 +187,7 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LogInAkun_GUI().setVisible(true);
+                new LogInAkun_GUI(alamatLogin).setVisible(true);
             }
         });
     }
@@ -166,5 +200,7 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel namaTxt;
+    private javax.swing.JLabel nimTxt;
     // End of variables declaration//GEN-END:variables
 }

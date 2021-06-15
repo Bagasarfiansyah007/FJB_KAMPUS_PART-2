@@ -5,6 +5,10 @@
  */
 package view;
 
+import control.Login_control;
+import Database.DBconn;
+
+
 /**
  *
  * @author USER
@@ -14,8 +18,11 @@ public class LogIn_GUI extends javax.swing.JFrame {
     /**
      * Creates new form LogIn_GUI
      */
+    public static Login_control control;
+
     public LogIn_GUI() {
         initComponents();
+        control = new Login_control(this);
     }
 
     /**
@@ -27,11 +34,10 @@ public class LogIn_GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        RegisterBtn = new javax.swing.JButton();
+        MasukBtn = new javax.swing.JButton();
+        PasswordField = new javax.swing.JPasswordField();
         UsernameField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,36 +48,42 @@ public class LogIn_GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Register");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 90, 40));
+        RegisterBtn.setBackground(new java.awt.Color(255, 255, 255));
+        RegisterBtn.setText("Register");
+        RegisterBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 116, 114)));
+        getContentPane().add(RegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 40));
 
-        jButton1.setText("Masuk");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 90, 40));
-
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        MasukBtn.setBackground(new java.awt.Color(254, 116, 114));
+        MasukBtn.setForeground(new java.awt.Color(255, 255, 255));
+        MasukBtn.setText("Masuk");
+        MasukBtn.setBorder(null);
+        MasukBtn.setBorderPainted(false);
+        MasukBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                MasukBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 260, 40));
-        getContentPane().add(UsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 260, 40));
+        getContentPane().add(MasukBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 260, 40));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 85, 85));
-        jLabel4.setText("Password");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 70, 30));
+        PasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 260, 40));
+
+        UsernameField.setName(""); // NOI18N
+        getContentPane().add(UsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 260, 40));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 85, 85));
-        jLabel3.setText("Masukkan Username dan");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 180, 30));
+        jLabel3.setText("Masukkan Nim dan Password");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 85, 85));
         jLabel2.setText("LOG-IN");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 50, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/backg2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
@@ -118,10 +130,23 @@ public class LogIn_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_PasswordFieldActionPerformed
 
+    private void MasukBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasukBtnActionPerformed
+        control.cekDataUserLogin(this, getUsernameField(), getPasswordField());
+    }//GEN-LAST:event_MasukBtnActionPerformed
+
+    public String getUsernameField(){
+        return UsernameField.getText();
+    }
+    
+    public String getPasswordField(){
+        return PasswordField.getText();
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -158,16 +183,15 @@ public class LogIn_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MasukBtn;
+    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton RegisterBtn;
     private javax.swing.JTextField UsernameField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }

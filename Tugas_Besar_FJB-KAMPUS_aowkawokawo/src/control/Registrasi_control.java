@@ -10,20 +10,23 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.Register_GUI;
+import Database.DBconn;
+import java.util.List;
+import view.LogIn_GUI;
 
 /**
  *
  * @author AMS
  */
 public class Registrasi_control {
-    ArrayList<User_model> user;
+    List <User_model> user;
     Register_GUI registerForm;
     
     public Registrasi_control(Register_GUI register){
-        user = new ArrayList<User_model>();
+        user = DBconn.GetData();
         this.registerForm = register;
     }
-    
+
     public void isiData(Register_GUI register,String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo){
         String saldoTxt = String.valueOf(register.getTxtSaldo());
         
@@ -36,29 +39,29 @@ public class Registrasi_control {
                 "Warning",JOptionPane.WARNING_MESSAGE);
         } else {
             if (user.isEmpty()) {
-                user.add(new User_model(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
-                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(), register.getTxtPassword(),register.getTxtSaldo()));
-                JOptionPane.showMessageDialog(null, "sukses memasukan " + user.get(user.size() - 1).getNim(),
+                DBconn.InsertData(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
+                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(), register.getTxtPassword(),register.getTxtSaldo());
+                JOptionPane.showMessageDialog(null, "sukses memasukan " + nim,
                 "Suskses",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 if (cariData(user,nim) == false) {
-                    user.add(new User_model(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
-                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(),register.getTxtPassword(),register.getTxtSaldo()));
-                        JOptionPane.showMessageDialog(null, "sukses memasukan " + user.get(user.size() - 1).getNim(),
+                    DBconn.InsertData(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
+                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(), register.getTxtPassword(),register.getTxtSaldo());
+                        JOptionPane.showMessageDialog(null, "sukses memasukan " + nim,
                         "Suskses",JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Data dengan nim " + user.get(cariDataIndex(user,nim)).getNim() + " sudah ada !",
+                    JOptionPane.showMessageDialog(null, "Data dengan nim " + nim + " sudah ada !",
                         "Warning",JOptionPane.WARNING_MESSAGE);
                 }
             }
         }
     }   
     
-    public boolean cariData(ArrayList cari,String nim){
+    public boolean cariData(List cari,String nim){
         boolean exist = false;
         int index = 0;
         while (exist == false && index < user.size()){
-            if (nim.intern() == user.get(index).getNim()) {
+            if (nim.intern() == user.get(index).getNim().intern()) {
                 exist = true;
             }
             index = index + 1;
@@ -67,11 +70,24 @@ public class Registrasi_control {
         return exist;
     }
     
-    public int cariDataIndex(ArrayList cari,String nim){
+    public boolean cariData(List cari,String nim,String password){
         boolean exist = false;
         int index = 0;
         while (exist == false && index < user.size()){
-            if (nim.intern() == user.get(index).getNim()) {
+            if (nim.intern() == user.get(index).getNim().intern() && password.intern() == user.get(index).getPassword().intern()) {
+                exist = true;
+            }
+            index = index + 1;
+        }
+        
+        return exist;
+    }
+    
+    public int cariDataIndex(List cari,String nim,String password){
+        boolean exist = false;
+        int index = 0;
+        while (exist == false && index < user.size()){
+            if (nim.intern() == user.get(index).getNim().intern() && password.intern() == user.get(index).getPassword().intern()) {
                 exist = true;
             }
             index = index + 1;
@@ -80,5 +96,4 @@ public class Registrasi_control {
         return index;
     }
     
-   
 }
