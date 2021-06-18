@@ -51,6 +51,11 @@ public class LogIn_GUI extends javax.swing.JFrame {
         RegisterBtn.setBackground(new java.awt.Color(255, 255, 255));
         RegisterBtn.setText("Register");
         RegisterBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 116, 114)));
+        RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(RegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 40));
 
         MasukBtn.setBackground(new java.awt.Color(254, 116, 114));
@@ -137,6 +142,12 @@ public class LogIn_GUI extends javax.swing.JFrame {
     private void MasukBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MasukBtnActionPerformed
         control.cekDataUserLogin(this, getUsernameField(), getPasswordField());
     }//GEN-LAST:event_MasukBtnActionPerformed
+
+    private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
+       Register_GUI formregister = new Register_GUI();
+       formregister.show();
+       dispose();
+    }//GEN-LAST:event_RegisterBtnActionPerformed
 
     public String getUsernameField(){
         return UsernameField.getText();

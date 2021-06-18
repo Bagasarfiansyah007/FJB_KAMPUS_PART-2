@@ -18,7 +18,7 @@ public class Register_GUI extends javax.swing.JFrame {
      * Creates new form Register_GUI
      */
     public static Registrasi_control control;
-    public Register_GUI() {
+public Register_GUI() {
         initComponents();
         control = new Registrasi_control(this);
     }

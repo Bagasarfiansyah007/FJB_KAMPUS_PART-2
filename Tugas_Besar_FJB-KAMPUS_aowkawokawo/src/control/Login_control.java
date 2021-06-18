@@ -2,8 +2,6 @@ package control;
 
 import Database.DBconn;
 import Model.User_model;
-import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
 import javax.swing.JOptionPane;
 import view.LogInAkun_GUI;
@@ -44,7 +42,6 @@ public class Login_control {
                 }
                 index = index + 1;
             }
-            System.out.println(index);
             if (ketemu == true ) {
                 JOptionPane.showMessageDialog(null, "sukses Login sebagai " + nim,
                         "Suskses",JOptionPane.INFORMATION_MESSAGE);
