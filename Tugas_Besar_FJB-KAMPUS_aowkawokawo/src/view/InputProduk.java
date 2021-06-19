@@ -5,7 +5,7 @@
  */
 package view;
 
-import Database.DBconn;
+import Database.DBconn_produk;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,7 +41,7 @@ public class InputProduk extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtKodeProduk = new javax.swing.JTextField();
         txtNamaProduk = new javax.swing.JTextField();
-        comKategori = new javax.swing.JComboBox<>();
+        comKategori = new javax.swing.JComboBox<String>();
         txtStok = new javax.swing.JTextField();
         txtHarga = new javax.swing.JTextField();
         buttonSimpan = new javax.swing.JButton();
@@ -79,7 +79,12 @@ public class InputProduk extends javax.swing.JFrame {
             }
         });
 
-        comKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
+        comKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
+        comKategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comKategoriActionPerformed(evt);
+            }
+        });
 
         buttonSimpan.setText("Simpan");
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +188,7 @@ public class InputProduk extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNamaProdukActionPerformed
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
-        DBconn.insertProduk(txtKodeProduk.getText(), txtNamaProduk.getText(), comKategori.getSelectedItem().toString(), Integer.parseInt(txtStok.getText()), Integer.parseInt(txtHarga.getText()));
+        DBconn_produk.insertProduk(txtKodeProduk.getText(), txtNamaProduk.getText(), comKategori.getSelectedItem().toString(), Integer.parseInt(txtStok.getText()), Integer.parseInt(txtHarga.getText()));
         JOptionPane.showMessageDialog(null, txtNamaProduk.getText() + " Berhasil Disimpan");
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
@@ -191,6 +196,10 @@ public class InputProduk extends javax.swing.JFrame {
         new Penjual_GUI().setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonKembaliActionPerformed
+
+    private void comKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comKategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comKategoriActionPerformed
 
     /**
      * @param args the command line arguments

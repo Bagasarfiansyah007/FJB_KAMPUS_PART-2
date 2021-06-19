@@ -7,6 +7,7 @@ package view;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static view.DaftarBarang.conn;
 /**
  *
  * @author USER
@@ -28,8 +29,8 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     
     public Pembeli_GUI() {
         initComponents();
-        
         setNameColumnTable();
+        GetDataProduk();
     }
     
     public void setNameColumnTable(){
@@ -72,6 +73,36 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 
            
            
+           stmt.close();
+           conn.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void GetDataProduk(){
+        modelTable.getDataVector().removeAllElements();
+        modelTable.fireTableDataChanged();
+        
+        try{
+             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             stmt = conn.createStatement();
+                
+                
+           String sql = "SELECT * FROM produk";
+           rs = stmt.executeQuery(sql);
+           
+           
+           Object[] obj = new Object[5];
+           while(rs.next()){
+               
+               obj[0] = rs.getString("kode_produk");
+               obj[1] = rs.getString("nama_produk");
+               obj[2] = rs.getString("kategori");
+               obj[3] = rs.getString("stok");
+               obj[4] = rs.getString("harga");
+               modelTable.addRow(obj);
+           }
            stmt.close();
            conn.close();
         }catch(SQLException e){

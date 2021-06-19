@@ -15,13 +15,15 @@ import javax.swing.JOptionPane;
 public class Register_GUI extends javax.swing.JFrame {
 
 public static Registrasi_control control;
+private String fakultasKode;
 
 public Register_GUI() {
-        initComponents();
-        control = new Registrasi_control(this);
-        setComboValueFakultas();
+    initComponents();
+    control = new Registrasi_control(this);
+    setComboValueFakultas();
+    setComboValueProdi(fakultasKode);
 
-    }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -125,7 +127,19 @@ public Register_GUI() {
             }
         });
 
-        prodiCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        fakultasCombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fakultasComboMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fakultasComboMouseClicked(evt);
+            }
+        });
+        fakultasCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fakultasComboActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -238,6 +252,22 @@ public Register_GUI() {
         loginGui.show();
         dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void fakultasComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fakultasComboMouseClicked
+        
+    }//GEN-LAST:event_fakultasComboMouseClicked
+
+    private void fakultasComboMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fakultasComboMousePressed
+        
+        
+    }//GEN-LAST:event_fakultasComboMousePressed
+
+    private void fakultasComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fakultasComboActionPerformed
+        prodiCombo.removeAllItems();
+        fakultasKode = control.fakultas.get(fakultasCombo.getSelectedIndex()).getId_fakultas();
+        System.out.println(fakultasCombo.getSelectedIndex());
+        setComboValueProdi (fakultasKode);
+    }//GEN-LAST:event_fakultasComboActionPerformed
     
     // Getter
     public String getComboFakultas() {
@@ -281,20 +311,25 @@ public Register_GUI() {
     public void setComboValueFakultas (){
         for (int i = 0 ; i < control.fakultas.size();i++) {
             fakultasCombo.addItem(control.fakultas.get(i).getNama());
-            System.out.println(control.fakultas.size());
         }
     }
     
-    public void setComboValueProdi (){
-        for (int i = 0 ; i < control.prodi.size();i++) {
-            fakultasCombo.addItem(control.prodi.get(i).getNamaProdi());
-            System.out.println(control.prodi.size());
+    public void setComboValueProdi (String fakultasKode){
+        if (fakultasKode == null) {
+            for (int i = 0 ; i < control.prodi.size();i++) {
+                prodiCombo.addItem(control.prodi.get(i).getNamaProdi());
+            }
+        } else {
+            System.out.println(fakultasKode);
+            for (int i = 0 ; i < control.prodi.size();i++) {
+                if (fakultasKode.intern() == control.prodi.get(i).getKodeFakultas().intern()){
+                    prodiCombo.addItem(control.prodi.get(i).getNamaProdi());
+                }
+            }
         }
     }
     
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
