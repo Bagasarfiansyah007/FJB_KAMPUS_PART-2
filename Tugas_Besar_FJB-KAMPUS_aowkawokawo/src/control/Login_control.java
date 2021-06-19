@@ -1,6 +1,6 @@
 package control;
 
-import Database.DBconn;
+import Database.DBconn_user;
 import Model.User_model;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,19 +14,21 @@ public class Login_control {
     Registrasi_control registrasiControl;
 
     public Login_control(LogIn_GUI loginForm){
-        user = DBconn.GetData();
+        user = DBconn_user.GetDataUser();
         this.loginForm = loginForm;
     }
     
     public Login_control(LogInAkun_GUI menuPilihan){
-        user = DBconn.GetData();
+        user = DBconn_user.GetDataUser();
         this.menuPilihan = menuPilihan;
     }
     
     public void cekDataUserLogin (LogIn_GUI login,String nim,String password){
         if (login.getUsernameField().isEmpty() && login.getPasswordField().isEmpty()){
+            
             JOptionPane.showMessageDialog(null, "Tolong isi field nim dan password",
                 "Warning",JOptionPane.WARNING_MESSAGE);
+            
         } else if (login.getUsernameField().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Tolong isi field nim",
                 "Warning",JOptionPane.WARNING_MESSAGE);

@@ -5,16 +5,18 @@
  */
 package Database;
 
+import Model.Fakultas_model;
 import Model.User_model;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import view.Register_GUI;
 
 /**
  *
  * @author AMS
  */
-public class DBconn {
+public class DBconn_user {
         static final String DB_URL = "jdbc:mysql://localhost/Fjb_campus";
         static final String DB_USER = "root";
         static final String DB_PASS = "";
@@ -22,12 +24,22 @@ public class DBconn {
         static Statement stmt;
         static ResultSet rs;
 
-        public static void InsertData(String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo){
+        public static void InsertData(Register_GUI register){
             try{
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 stmt = conn.createStatement();  
-
+                
+                String nim = register.getTxtNim();
+                String nama = register.getTxtNama();
+                String fakultas = register.getComboFakultas();
+                String noTelpon = register.getTxtTelphone();
+                String prodi = register.getComboProdi();
+                String email = register.getTxtEmail();
+                String Password = register.getTxtPassword(); 
+                int saldo = register.getTxtSaldo();
+                
                 String sql = "INSERT INTO user(nim,nama,fakultas,prodi,email,telephone,password,saldo) VALUES ('"+nim+"','"+nama+"','"+fakultas+"','"+prodi+"','"+email+"','"+noTelpon+"','"+Password+"','"+saldo+"')";
+                
                 stmt.execute(sql);
                 stmt.close();
                 conn.close();
@@ -36,7 +48,7 @@ public class DBconn {
             }
         }
 
-        public static List<User_model> GetData(){
+        public static List<User_model> GetDataUser(){
             try{
                     ArrayList<User_model> userList = new ArrayList<User_model>();
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
@@ -62,4 +74,31 @@ public class DBconn {
                 return null;
             }
         }
+        
+        public static List<Fakultas_model> GetDataFakultas(){
+            try{
+                ArrayList<Fakultas_model> fakultasList = new ArrayList<Fakultas_model>();
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+
+                String sql = "SELECT * FROM Fakultas";
+                rs = stmt.executeQuery(sql);
+
+
+                while(rs.next()){
+                    fakultasList.add(new Fakultas_model(rs.getString("kode_fakultas"), rs.getString("nama_fakultas")));
+                }
+
+                stmt.close();
+                conn.close();
+
+                return fakultasList;
+
+            }catch(Exception e){
+                e.printStackTrace();
+                return null;
+            }
+        }
+        
+        
 }

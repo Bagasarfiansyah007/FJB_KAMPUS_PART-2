@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.Register_GUI;
-import Database.DBconn;
+import Database.DBconn_user;
+import Model.Fakultas_model;
+import Model.Prodi_model;
 import java.util.List;
 import view.LogIn_GUI;
 
@@ -19,43 +21,75 @@ import view.LogIn_GUI;
  * @author AMS
  */
 public class Registrasi_control {
-    List <User_model> user;
+    public List <User_model> user;
+    public List <Fakultas_model> fakultas;
+    public List <Prodi_model> prodi;
+
     Register_GUI registerForm;
     
     public Registrasi_control(Register_GUI register){
-        user = DBconn.GetData();
+        user = DBconn_user.GetDataUser();
+        fakultas = DBconn_user.GetDataFakultas() ;
         this.registerForm = register;
     }
 
     public void isiData(Register_GUI register,String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo){
-        String saldoTxt = String.valueOf(register.getTxtSaldo());
-        
-        if (register.getTxtNim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Nim masih kosong!",
-                "Warning",JOptionPane.WARNING_MESSAGE);
-        } else if (register.getTxtNama().isEmpty() || register.getTxtFakultas().isEmpty() || register.getTxtPassword().isEmpty() 
-                || register.getTxtProdi().isEmpty() || saldoTxt.isEmpty() || register.getTxtTelphone().isEmpty() || register.getTxtEmail().isEmpty()) { 
-            JOptionPane.showMessageDialog(null, "Ada field yang masih kosong",
-                "Warning",JOptionPane.WARNING_MESSAGE);
+        if (isNimEmpty(register) == true){
+            dialogFormWarning("Nim masih kosong!","Warning");
+        } else if (isTextFieldEmpty(register) == true) { 
+            dialogFormWarning ("Ada field yang masih kosong","Warning");
         } else {
-            if (user.isEmpty()) {
-                DBconn.InsertData(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
-                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(), register.getTxtPassword(),register.getTxtSaldo());
-                JOptionPane.showMessageDialog(null, "sukses memasukan " + nim,
-                "Suskses",JOptionPane.INFORMATION_MESSAGE);
+            if (isListEmpty(user) == true) {
+                DBconn_user.InsertData(register);
+                dialogFormSucsess(("sukses memasukan " + nim),"Suskses");
             } else {
                 if (cariData(user,nim) == false) {
-                    DBconn.InsertData(register.getTxtNim(),register.getTxtNama(),register.getTxtFakultas(),
-                        register.getTxtTelphone(),register.getTxtProdi(), register.getTxtEmail(), register.getTxtPassword(),register.getTxtSaldo());
-                        JOptionPane.showMessageDialog(null, "sukses memasukan " + nim,
-                        "Suskses",JOptionPane.INFORMATION_MESSAGE);
+                    DBconn_user.InsertData(register);
+                    dialogFormSucsess(("sukses memasukan " + nim),"Suskses");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Data dengan nim " + nim + " sudah ada !",
-                        "Warning",JOptionPane.WARNING_MESSAGE);
+                    dialogFormWarning(("Data dengan nim " + nim + " Sudah ada"),"Warning");
                 }
             }
         }
     }   
+    
+    
+    // All Condition 
+    public boolean isNimEmpty (Register_GUI register){
+        boolean condition;
+        if (register.getTxtNim().isEmpty()){
+             condition = true;
+        } else {
+             condition = false;
+        }
+        
+        return condition;
+    }
+    
+    public boolean isTextFieldEmpty(Register_GUI register) {
+        boolean condition;
+        String saldoTxt = String.valueOf(register.getTxtSaldo());
+        
+        if (register.getTxtNama().isEmpty() || register.getTxtPassword().isEmpty() 
+                || saldoTxt.isEmpty() || register.getTxtTelphone().isEmpty() || register.getTxtEmail().isEmpty()){
+             condition = true;
+        } else {
+             condition = false;
+        }
+        
+        return condition;
+    }
+    
+    public boolean isListEmpty(List <User_model> user){
+        boolean condition;
+        if (user.isEmpty()){
+             condition = true;
+        } else {
+             condition = false;
+        }
+        
+        return condition;
+    }
     
     public boolean cariData(List cari,String nim){
         boolean exist = false;
@@ -83,6 +117,7 @@ public class Registrasi_control {
         return exist;
     }
     
+    // All Function
     public int cariDataIndex(List cari,String nim,String password){
         boolean exist = false;
         int index = 0;
@@ -95,5 +130,17 @@ public class Registrasi_control {
         
         return index;
     }
+    
+    // All Procedure
+    public void dialogFormWarning (String message,String titel){
+        JOptionPane.showMessageDialog(null, message,
+                titel,JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public void dialogFormSucsess (String message,String titel){
+        JOptionPane.showMessageDialog(null, message,
+                titel,JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     
 }

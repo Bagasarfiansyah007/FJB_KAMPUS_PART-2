@@ -8,7 +8,8 @@ package control;
 import Model.User_model;
 import java.util.ArrayList;
 import java.util.List;
-import Database.DBconn;
+import Database.DBconn_user;
+import Model.Fakultas_model;
 /**
  *
  * @author AMS
@@ -17,14 +18,14 @@ public class main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        List<User_model> myObj = new ArrayList<User_model>();
+        List<Fakultas_model> myObj = new ArrayList<Fakultas_model>();
         
-        myObj =  DBconn.GetData();
+        myObj =  DBconn_user.GetDataFakultas();
         
-        for(User_model Item : myObj){
-            System.out.println("Nim      : " + Item.getNim());
+        for(Fakultas_model Item : myObj){
+            System.out.println("Nim      : " + Item.getId_fakultas());
             System.out.println("Nama     : " + Item.getNama());
-            System.out.println("Fakultas : " + Item.getFakultas());
+            System.out.println("Fakultas : " + Item.getKode_prodi());
         }
         
         

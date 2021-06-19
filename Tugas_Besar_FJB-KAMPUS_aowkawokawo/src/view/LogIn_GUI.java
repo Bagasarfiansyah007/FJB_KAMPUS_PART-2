@@ -6,7 +6,7 @@
 package view;
 
 import control.Login_control;
-import Database.DBconn;
+import Database.DBconn_user;
 
 
 /**

@@ -11,9 +11,7 @@ package view;
  */
 public class CheckOut_GUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CheckOut_GUI
-     */
+    
     public CheckOut_GUI() {
         initComponents();
     }
@@ -31,7 +29,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         PaneDaftarBarang = new javax.swing.JScrollPane();
         CheckOutTxt = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListBarang = new javax.swing.JList<>();
+        jListBarang = new javax.swing.JList<String>();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -54,10 +52,10 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         CheckOutTxt.setText("Check Out Barang");
         PaneDaftarBarang.setViewportView(CheckOutTxt);
 
-        jListBarang.setModel(new javax.swing.AbstractListModel<String>() {
+        jListBarang.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jListBarang);
 
@@ -83,7 +81,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +134,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(HapusBarangButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PembayaranButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 620, 360));
