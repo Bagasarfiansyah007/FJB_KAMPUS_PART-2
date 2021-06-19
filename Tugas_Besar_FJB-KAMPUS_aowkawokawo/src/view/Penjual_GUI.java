@@ -106,7 +106,7 @@ public class Penjual_GUI extends javax.swing.JFrame {
             }
         });
 
-        buttonJual.setText("Daftar Barang");
+        buttonJual.setText("Jual Barang");
         buttonJual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonJualMouseClicked(evt);

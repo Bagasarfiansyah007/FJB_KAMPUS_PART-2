@@ -5,6 +5,7 @@
  */
 package Database;
 
+import Model.Product;
 import Model.User_model;
 import java.sql.*;
 import java.util.ArrayList;
@@ -62,4 +63,47 @@ public class DBconn {
                 return null;
             }
         }
+        
+        public static void insertProduk(String kode_produk, String nama_produk, String kategori, int stok, int harga){
+            try{
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                
+                String sql = "INSERT INTO produk (kode_produk,nama_produk,kategori,stok,harga)VALUES('"+kode_produk+"','"+nama_produk+"','"+kategori+"','"+stok+"','"+harga+"')";
+                stmt.execute(sql);
+                stmt.close();
+                conn.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        
+        public static List<Product> GetDataProduk(){
+            
+            try{
+                ArrayList<Product> produkList = new ArrayList<Product>();
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                
+                String sql = "SELECT * FROM produk";
+                rs = stmt.executeQuery(sql);
+                
+                while(rs.next()){
+                    Object[] obj = new Object[5];
+                    obj[0] = rs.getString("kode_produk");
+                    obj[1] = rs.getString("nama_produk");
+                    obj[2] = rs.getString("kategori");
+                    obj[3] = rs.getString("stok");
+                    obj[4] = rs.getString("harga");   
+                }
+                
+                stmt.close();
+                conn.close();
+                return produkList;
+            }catch(Exception e){
+                e.printStackTrace();
+                return null;
+            }
+        }
+
 }
