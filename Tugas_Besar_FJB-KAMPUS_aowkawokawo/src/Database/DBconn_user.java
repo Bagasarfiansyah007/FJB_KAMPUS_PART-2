@@ -5,7 +5,6 @@
  */
 package Database;
 
-import Model.Fakultas_model;
 import Model.User_model;
 import java.sql.*;
 import java.util.ArrayList;
@@ -74,31 +73,5 @@ public class DBconn_user {
                 return null;
             }
         }
-        
-        public static List<Fakultas_model> GetDataFakultas(){
-            try{
-                ArrayList<Fakultas_model> fakultasList = new ArrayList<Fakultas_model>();
-                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                stmt = conn.createStatement();
-
-                String sql = "SELECT * FROM Fakultas";
-                rs = stmt.executeQuery(sql);
-
-
-                while(rs.next()){
-                    fakultasList.add(new Fakultas_model(rs.getString("kode_fakultas"), rs.getString("nama_fakultas")));
-                }
-
-                stmt.close();
-                conn.close();
-
-                return fakultasList;
-
-            }catch(Exception e){
-                e.printStackTrace();
-                return null;
-            }
-        }
-        
         
 }
