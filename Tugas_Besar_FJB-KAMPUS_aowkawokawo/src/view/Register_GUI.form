@@ -233,16 +233,10 @@
         <Component class="javax.swing.JTextField" name="TxtNim">
         </Component>
         <Component class="javax.swing.JTextField" name="TxtNama">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtNamaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtEmail">
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelphone">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtTelphoneActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="TxtPassword">
         </Component>
@@ -271,8 +265,6 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fakultasComboMousePressed"/>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fakultasComboMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fakultasComboActionPerformed"/>
           </Events>
         </Component>

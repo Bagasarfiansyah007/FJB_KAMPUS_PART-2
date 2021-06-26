@@ -101,18 +101,6 @@ public Register_GUI() {
 
         jLabel10.setText("Saldo");
 
-        TxtNama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtNamaActionPerformed(evt);
-            }
-        });
-
-        TxtTelphone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTelphoneActionPerformed(evt);
-            }
-        });
-
         buttonRegister.setText("Register");
         buttonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,14 +115,6 @@ public Register_GUI() {
             }
         });
 
-        fakultasCombo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fakultasComboMousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fakultasComboMouseClicked(evt);
-            }
-        });
         fakultasCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fakultasComboActionPerformed(evt);
@@ -228,14 +208,7 @@ public Register_GUI() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNamaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtNamaActionPerformed
-
-    private void TxtTelphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTelphoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTelphoneActionPerformed
-
+    // Fungction & procedure
     private void buttonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegisterActionPerformed
         try {
             int saldo = Integer.parseInt(TxtSaldo.getText()); 
@@ -252,15 +225,6 @@ public Register_GUI() {
         loginGui.show();
         dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
-
-    private void fakultasComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fakultasComboMouseClicked
-        
-    }//GEN-LAST:event_fakultasComboMouseClicked
-
-    private void fakultasComboMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fakultasComboMousePressed
-        
-        
-    }//GEN-LAST:event_fakultasComboMousePressed
 
     private void fakultasComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fakultasComboActionPerformed
         prodiCombo.removeAllItems();
@@ -329,7 +293,7 @@ public Register_GUI() {
         }
     }
     
-    
+    // Main
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

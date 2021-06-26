@@ -11,6 +11,8 @@ public class Login_control {
     LogIn_GUI loginForm;
     LogInAkun_GUI menuPilihan;
     public List <User_model> user;
+    
+    public int indexLogin;
     Registrasi_control registrasiControl;
 
     public Login_control(LogIn_GUI loginForm){
@@ -54,35 +56,11 @@ public class Login_control {
                 JOptionPane.showMessageDialog(null, "Data tidak ditemukan",
                 "Warning",JOptionPane.WARNING_MESSAGE);
             }
-            
-            /**boolean ketemu = false;
-            int index = 0;
-            while (ketemu == false & index < user.size()){
-                if (nim.intern() == user.get(index).getNim().intern() && password.intern() == user.get(index).getPassword().intern()){
-                    ketemu = true;
-                }
-                index = index + 1;
-            }
-            
-            if (ketemu == true ) {
-                JOptionPane.showMessageDialog(null, "sukses Login sebagai " + nim,
-                        "Suskses",JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Data tidak ditemukan",
-                "Warning",JOptionPane.WARNING_MESSAGE);
-            }**/
-            /**if(registrasiControl.cariData(user, nim, password) == true) {
-                JOptionPane.showMessageDialog(null, "sukses Login sebagai " + nim,
-                        "Suskses",JOptionPane.INFORMATION_MESSAGE);
-                int index = registrasiControl.cariDataIndex(user, nim, password);
-                LogInAkun_GUI menuHome = new LogInAkun_GUI(index);
-                menuHome.show();
-            } else {
-                JOptionPane.showMessageDialog(null, "Data tidak ditemukan",
-                "Warning",JOptionPane.WARNING_MESSAGE);
-            }**/
         }
     }
+
+    
+    
     /**public static void main(String[] args) {
         // TODO code application logic here
         

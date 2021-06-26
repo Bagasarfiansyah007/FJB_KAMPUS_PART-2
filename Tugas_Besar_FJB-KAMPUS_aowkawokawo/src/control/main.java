@@ -13,6 +13,7 @@ import java.util.List;
 import Database.DBconn_user;
 import Model.Fakultas_model;
 import Model.Prodi_model;
+import view.InputProduk;
 /**
  *
  * @author AMS
@@ -20,18 +21,13 @@ import Model.Prodi_model;
 public class main {
     public static void main(String[] args) {
         // TODO code application logic here
+        InputProduk formInputProduk = new InputProduk(1);
+        Product_control produk = new Product_control(formInputProduk);
         
-        List<Prodi_model> myObj = new ArrayList<Prodi_model>();
-        
-        myObj =  DBconn_prodi.GetDataProdi();
-        
-        for(Prodi_model Item : myObj){
-            System.out.println("Nim      : " + Item.getKodeProdi());
-            System.out.println("Nama     : " + Item.getKodeFakultas());
-            System.out.println("Fakultas : " + Item.getNamaProdi());
-        }
-        
-        
+        String currentData = produk.listProduk.get(produk.listProduk.size()-1).getKode_product();
+        int hitung = 1 + Integer.parseInt(currentData.substring(2));
+        String kodeProduk = "B00" + String.valueOf(hitung);
+        System.out.println(kodeProduk);
         
     }
 }

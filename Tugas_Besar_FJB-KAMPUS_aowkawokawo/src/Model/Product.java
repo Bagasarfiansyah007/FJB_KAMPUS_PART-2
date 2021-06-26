@@ -11,17 +11,29 @@ package Model;
  */
 public class Product {
     private String kode_product;
+    private String nim;
     private String nama;
     private String kategori;
     private int harga;
+    private int stok;
 
-    public Product(String kode_product, String nama, String kategori, int harga) {
+    public Product(String kode_product,String nim,String nama, String kategori,int stok ,int harga) {
         this.kode_product = kode_product;
+        this.nim = nim;
         this.nama = nama;
         this.kategori = kategori;
+        this.stok = stok;
         this.harga = harga;
     }
 
+    public String getNim() {
+        return nim;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+    
     public String getKode_product() {
         return kode_product;
     }
@@ -38,6 +50,14 @@ public class Product {
         return harga;
     }
 
+    public void setNim(String nim) {
+        this.nim = nim;
+    }
+
+    public void setStok(int stok) {
+        this.stok = stok;
+    }
+    
     public void setKode_product(String kode_product) {
         this.kode_product = kode_product;
     }

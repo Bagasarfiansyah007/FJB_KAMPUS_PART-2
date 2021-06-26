@@ -49,7 +49,7 @@ public class DBconn_user {
 
         public static List<User_model> GetDataUser(){
             try{
-                    ArrayList<User_model> userList = new ArrayList<User_model>();
+                ArrayList<User_model> userList = new ArrayList<User_model>();
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 stmt = conn.createStatement();
 

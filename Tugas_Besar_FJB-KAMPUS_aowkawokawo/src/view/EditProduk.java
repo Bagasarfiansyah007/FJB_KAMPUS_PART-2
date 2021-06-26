@@ -8,16 +8,21 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
-public class InputProduk extends javax.swing.JFrame {
+public class EditProduk extends javax.swing.JFrame {
 
     public static Product_control control;
     private static int alamatLogin;
+    private static int alamatList;
     
-    public InputProduk(int index) {
+    public EditProduk(int alamat,int alamatListIndex) {
         initComponents();
         control = new Product_control(this);
-        alamatLogin = index;
-        System.out.println(control.listProduk.size());
+        alamatLogin = alamat;
+        alamatList = alamatListIndex-1;
+        String nama = control.listProduk.get(alamatList).getNama();
+        String harga = String.valueOf(control.listProduk.get(alamatList).getHarga());
+        String stok = String.valueOf(control.listProduk.get(alamatList).getStok());
+        setTextField(nama,harga,stok);
 
     }
 
@@ -54,7 +59,7 @@ public class InputProduk extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Input Produk");
+        jLabel4.setText("Edit Produk");
 
         jLabel6.setText("Nama Produk");
 
@@ -117,8 +122,7 @@ public class InputProduk extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(178, 178, 178))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -179,9 +183,9 @@ public class InputProduk extends javax.swing.JFrame {
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         try {
-            control.isiDataBarang(this,alamatLogin);
-            DaftarBarang formDaftarBarang = new DaftarBarang(alamatLogin);
-            formDaftarBarang.show();
+            control.EditDataBarang(this,alamatList);
+            DaftarBarang formDaftar = new DaftarBarang(alamatLogin);
+            formDaftar.show();
             dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Tipe data yang dimasukan Salah !",
@@ -198,6 +202,16 @@ public class InputProduk extends javax.swing.JFrame {
 
     }//GEN-LAST:event_comKategoriActionPerformed
 
+    // Setter
+    public void setTextField(String nama,String harga,String stok){
+        txtHarga.setText(harga);
+        txtNamaProduk.setText(nama);
+        txtStok.setText(stok);
+    }
+    
+    
+    
+   
     // Getter
     public String getComKategori() {
         return comKategori.getSelectedItem().toString();
@@ -220,7 +234,7 @@ public class InputProduk extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InputProduk(alamatLogin).setVisible(true);
+                new EditProduk(alamatLogin,alamatList).setVisible(true);
             }
         });
     }
