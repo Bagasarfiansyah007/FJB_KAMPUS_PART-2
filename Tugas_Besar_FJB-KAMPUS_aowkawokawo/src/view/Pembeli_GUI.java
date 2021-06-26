@@ -76,6 +76,11 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         });
 
         noBtn.setText("no");
+        noBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -323,6 +328,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CariBarangFieldActionPerformed
 
     private void BeliButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButton1ActionPerformed
+        dialogKonfirmasi.setLocationRelativeTo(null);
         dialogKonfirmasi.show();
     }//GEN-LAST:event_BeliButton1ActionPerformed
 
@@ -344,10 +350,15 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_comboKategoriActionPerformed
 
     private void yesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesBtnActionPerformed
-        LogInAkun_GUI formLogin = new LogInAkun_GUI(alamatLogin);
+        LogInAkun_GUI formLogin = new LogInAkun_GUI(alamatLogin + 1);
         formLogin.show();
+        dialogKonfirmasi.dispose();
         dispose();
     }//GEN-LAST:event_yesBtnActionPerformed
+
+    private void noBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noBtnActionPerformed
+        dialogKonfirmasi.dispose();
+    }//GEN-LAST:event_noBtnActionPerformed
 
     /**
      * @param args the command line arguments

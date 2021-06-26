@@ -181,6 +181,20 @@ public class Product_control {
         }
     }
     
+    public void hapusDataBarang(DaftarBarang form,int index) {
+        String kodeProduk = "";
+        kodeProduk = form.modelTable.getValueAt(form.getTableProduk().getSelectedRow(),0).toString();
+        if (cariData(listProduk,kodeProduk) == false) {
+            dialogFormWarning(("Data dengan kode " + kodeProduk + " tidak ada"),"Warning");
+        } else {
+            DBconn_produk.deleteData(kodeProduk);
+            form.getDialogShow().dispose();
+            listProduk = DBconn_produk.GetDataProduk();
+            GetDataProduk(form,index);
+            dialogFormSucsess(("sukses menghapus " + kodeProduk),"Suskses");
+        }
+    }
+    
     public boolean cariData(List cari,String kodeProduk){
         boolean exist = false;
         int index = 0;
@@ -209,9 +223,18 @@ public class Product_control {
     
     public String inputKodeProduk (String kodeProduk){
         String currentData = listProduk.get(listProduk.size()-1).getKode_product();
-        int hitung = 1 + Integer.parseInt(currentData.substring(2));
-        kodeProduk = "B000" + String.valueOf(hitung);
-        
+        int hitung;
+        if (Integer.parseInt(currentData.substring(2)) == 9) {
+            hitung = 1 + Integer.parseInt(currentData.substring(1));
+            kodeProduk = "B" + String.valueOf(hitung);
+        } else if (Integer.parseInt(currentData.substring(1)) > 9){
+            hitung = 1 + Integer.parseInt(currentData.substring(1));
+            kodeProduk = "B" + String.valueOf(hitung);
+        }else {
+            hitung = 1 + Integer.parseInt(currentData.substring(2));
+            kodeProduk = "B0" + String.valueOf(hitung);
+        }
+
         return kodeProduk;
     }
     

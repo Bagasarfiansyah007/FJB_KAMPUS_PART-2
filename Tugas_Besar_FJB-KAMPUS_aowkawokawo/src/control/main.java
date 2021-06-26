@@ -25,9 +25,8 @@ public class main {
         Product_control produk = new Product_control(formInputProduk);
         
         String currentData = produk.listProduk.get(produk.listProduk.size()-1).getKode_product();
-        int hitung = 1 + Integer.parseInt(currentData.substring(2));
-        String kodeProduk = "B00" + String.valueOf(hitung);
-        System.out.println(kodeProduk);
+        int hitung = 1 + Integer.parseInt(currentData.substring(1));
+        System.out.println("nilai : "+ hitung);
         
     }
 }

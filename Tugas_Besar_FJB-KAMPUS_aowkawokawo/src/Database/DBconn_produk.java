@@ -142,4 +142,21 @@ public class DBconn_produk {
             return null;
         }
     }
+    
+    public static void deleteData(String kodeProduk){
+        try{
+             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             stmt = conn.createStatement();
+             
+             String sql = "DELETE FROM produk WHERE"
+                + " kode_produk = '" + kodeProduk+ "'";
+             
+             stmt.execute(sql);
+             
+             stmt.close();
+             conn.close();
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+    }
 }
