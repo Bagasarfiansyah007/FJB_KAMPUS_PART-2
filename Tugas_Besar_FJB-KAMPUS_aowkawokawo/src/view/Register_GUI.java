@@ -206,6 +206,7 @@ public Register_GUI() {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // Fungction & procedure
@@ -213,7 +214,9 @@ public Register_GUI() {
         try {
             int saldo = Integer.parseInt(TxtSaldo.getText()); 
             control.isiData(this,getTxtNim(),getTxtNama(),getComboFakultas(),getTxtTelphone(),getComboProdi(),getTxtEmail(),getTxtPassword(),saldo);
-            
+            LogIn_GUI formLogin = new LogIn_GUI();
+            formLogin.show();
+            dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Tipe data yang dimasukan Salah !",
                     "warning",JOptionPane.WARNING_MESSAGE);

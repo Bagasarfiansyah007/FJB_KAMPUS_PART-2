@@ -15,20 +15,15 @@ import static view.InputProduk.control;
  */
 public class Pembeli_GUI extends javax.swing.JFrame {
     
-    static final String DB_URL = "jdbc:mysql://localhost/Fjb_campus";
-    static final String DB_USER = "root";
-    static final String DB_PASS = "";
-    static Connection conn;
-    static Statement stmt;
-    static ResultSet rs;
-    
     public DefaultTableModel modelTable = new DefaultTableModel();
     Product_control control;
+    private static int alamatLogin;
     
-    public Pembeli_GUI() {
+    public Pembeli_GUI(int index) {
         initComponents();
         control = new Product_control(this);
         setNameColumnTable();
+        alamatLogin = index;
         control.GetDataProduk(this);
     }
     
@@ -40,50 +35,16 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         modelTable.addColumn("Stok");
         modelTable.addColumn("Harga");
     }
-    
-    
-    public void cariBarangKategori(String kategori){
-        modelTable.getDataVector().removeAllElements();
-        modelTable.fireTableDataChanged();
-        
-        try{
-//             ArrayList<Product> produkList = new ArrayList<Product>();
-             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-             stmt = conn.createStatement();
-                
-                
-           String sql = "SELECT * FROM produk WHERE kategori LIKE '%" + kategori + "%' ";
-           rs = stmt.executeQuery(sql);
-           
-//           while(rs.next()){
-//               produkList.add(new Product(rs.getString("kode_produk"), rs.getString("nama_produk"), rs.getString("kategori"), rs.getInt("stok"), rs.getInt("harga")));
-//               modelTable.addRow();
-//           }
-           
-           Object[] obj = new Object[5];
-           while(rs.next()){
-               
-               obj[0] = rs.getString("kode_produk");
-               obj[1] = rs.getString("nama_produk");
-               obj[2] = rs.getString("kategori");
-               obj[3] = rs.getString("stok");
-               obj[4] = rs.getString("harga");
-               modelTable.addRow(obj);
-           }
-                
-           
-           
-           stmt.close();
-           conn.close();
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogKonfirmasi = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        yesBtn = new javax.swing.JButton();
+        noBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         BeliButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -102,8 +63,59 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         OkeSearchButton1 = new javax.swing.JButton();
 
+        dialogKonfirmasi.setSize(new java.awt.Dimension(342, 216));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Apakah kamu yakin ingin \nkeluar dari aplikasi ?");
+
+        yesBtn.setText("Yes");
+        yesBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesBtnActionPerformed(evt);
+            }
+        });
+
+        noBtn.setText("no");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(yesBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yesBtn)
+                    .addComponent(noBtn))
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialogKonfirmasiLayout = new javax.swing.GroupLayout(dialogKonfirmasi.getContentPane());
+        dialogKonfirmasi.getContentPane().setLayout(dialogKonfirmasiLayout);
+        dialogKonfirmasiLayout.setHorizontalGroup(
+            dialogKonfirmasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        dialogKonfirmasiLayout.setVerticalGroup(
+            dialogKonfirmasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         BeliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         BeliButton.setText("Beli");
@@ -221,8 +233,8 @@ public class Pembeli_GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PaneDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(PaneDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(CariBarangField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -284,6 +296,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         getContentPane().add(OkeSearchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 70, 30));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BeliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButtonActionPerformed
@@ -310,7 +323,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CariBarangFieldActionPerformed
 
     private void BeliButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButton1ActionPerformed
-        // TODO add your handling code here:
+        dialogKonfirmasi.show();
     }//GEN-LAST:event_BeliButton1ActionPerformed
 
     private void AkunButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AkunButtonActionPerformed
@@ -329,6 +342,12 @@ public class Pembeli_GUI extends javax.swing.JFrame {
             control.cariBarangKategori(this,nama);
         }
     }//GEN-LAST:event_comboKategoriActionPerformed
+
+    private void yesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesBtnActionPerformed
+        LogInAkun_GUI formLogin = new LogInAkun_GUI(alamatLogin);
+        formLogin.show();
+        dispose();
+    }//GEN-LAST:event_yesBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,7 +379,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pembeli_GUI().setVisible(true);
+                new Pembeli_GUI(alamatLogin).setVisible(true);
             }
         });
     }
@@ -376,12 +395,17 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane PaneDaftarBarang;
     private javax.swing.JButton Troli;
     private javax.swing.JComboBox comboKategori;
+    private javax.swing.JDialog dialogKonfirmasi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton noBtn;
     private javax.swing.JTable tableProduk;
+    private javax.swing.JButton yesBtn;
     // End of variables declaration//GEN-END:variables
 }

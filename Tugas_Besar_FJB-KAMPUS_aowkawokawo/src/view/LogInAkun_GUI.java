@@ -135,6 +135,7 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 607, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // function & procedure
@@ -147,7 +148,9 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
     }
     
     private void btnPembeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembeliActionPerformed
-        // TODO add your handling code here:
+        Pembeli_GUI formPembeli = new Pembeli_GUI(alamatLogin);
+        formPembeli.show();
+        dispose();
     }//GEN-LAST:event_btnPembeliActionPerformed
 
     private void btnPenjualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPenjualActionPerformed

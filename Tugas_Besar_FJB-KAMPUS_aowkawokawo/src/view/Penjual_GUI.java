@@ -25,8 +25,8 @@ public class Penjual_GUI extends javax.swing.JFrame {
         labelNamaApp = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         buttonUpdateAkun = new javax.swing.JButton();
-        buttonLogout = new javax.swing.JButton();
         labelNamaKlmpk = new javax.swing.JLabel();
+        buttonLogout = new javax.swing.JButton();
         buttonDaftarBarang = new javax.swing.JButton();
         buttonJual = new javax.swing.JButton();
         namaTxt = new javax.swing.JLabel();
@@ -74,15 +74,15 @@ public class Penjual_GUI extends javax.swing.JFrame {
             }
         });
 
-        buttonLogout.setText("Logout");
+        labelNamaKlmpk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNamaKlmpk.setText("Nankatsu");
+
+        buttonLogout.setText("Keluar");
         buttonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonLogoutActionPerformed(evt);
             }
         });
-
-        labelNamaKlmpk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNamaKlmpk.setText("Nankatsu");
 
         buttonDaftarBarang.setText("Daftar Barang");
         buttonDaftarBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +148,7 @@ public class Penjual_GUI extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonUpdateAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateAkunActionPerformed
@@ -155,7 +156,9 @@ public class Penjual_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonUpdateAkunActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        // TODO add your handling code here:
+        LogInAkun_GUI formMenu = new LogInAkun_GUI(alamatLogin + 1);
+        formMenu.show();
+        dispose();
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void buttonDaftarBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarBarangActionPerformed
@@ -173,7 +176,9 @@ public class Penjual_GUI extends javax.swing.JFrame {
     }
     
     private void buttonJualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJualActionPerformed
-        // TODO add your handling code here:
+        InputProduk formInput = new InputProduk(alamatLogin);
+        formInput.show();
+        dispose();
     }//GEN-LAST:event_buttonJualActionPerformed
 
     public static void main(String args[]) {
