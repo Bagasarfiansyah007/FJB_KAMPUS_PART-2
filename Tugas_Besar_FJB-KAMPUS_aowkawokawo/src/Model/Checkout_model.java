@@ -10,32 +10,79 @@ package Model;
  * @author AMS
  */
 public class Checkout_model {
-    int no = 0;
-    private String no_order;
-    private int total_harga;
 
-    public int getNo() {
-        return no;
+    private String idBayar;
+    private String idPembeli;
+    private String idProduk;
+    private String namaPenjual;
+    private String namaProduk;
+    private int banyakBeli;
+    private int harga;
+
+    public Checkout_model(String idBayar, String idPembeli, String idProduk, String namaPenjual, String namaProduk, int banyakBeli, int harga) {
+        this.idBayar = idBayar;
+        this.idPembeli = idPembeli;
+        this.idProduk = idProduk;
+        this.namaPenjual = namaPenjual;
+        this.namaProduk = namaProduk;
+        this.banyakBeli = banyakBeli;
+        this.harga = harga;
     }
 
-    public String getNo_order() {
-        return no_order;
+    public String getIdBayar() {
+        return idBayar;
     }
 
-    public int getTotal_harga() {
-        return total_harga;
+    public void setIdBayar(String idBayar) {
+        this.idBayar = idBayar;
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public String getIdPembeli() {
+        return idPembeli;
     }
 
-    public void setNo_order(String no_order) {
-        this.no_order = no_order;
+    public void setIdPembeli(String idPembeli) {
+        this.idPembeli = idPembeli;
     }
 
-    public void setTotal_harga(int total_harga) {
-        this.total_harga = total_harga;
+    public String getIdProduk() {
+        return idProduk;
+    }
+
+    public void setIdProduk(String idProduk) {
+        this.idProduk = idProduk;
+    }
+
+    public String getNamaPenjual() {
+        return namaPenjual;
+    }
+
+    public void setNamaPenjual(String namaPenjual) {
+        this.namaPenjual = namaPenjual;
+    }
+
+    public String getNamaProduk() {
+        return namaProduk;
+    }
+
+    public void setNamaProduk(String namaProduk) {
+        this.namaProduk = namaProduk;
+    }
+
+    public int getBanyakBeli() {
+        return banyakBeli;
+    }
+
+    public void setBanyakBeli(int banyakBeli) {
+        this.banyakBeli = banyakBeli;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    public void setHarga(int harga) {
+        this.harga = harga;
     }
     
     

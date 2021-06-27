@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package view;
+import Model.Checkout_model;
+import control.Pembeli_control;
 import control.Product_control;
 import java.sql.*;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static view.InputProduk.control;
@@ -17,15 +20,24 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     
     public DefaultTableModel modelTable = new DefaultTableModel();
     Product_control control;
+    static Pembeli_control controlPembeli;
     private static int alamatLogin;
+    private int selectProdukIndex;
     
-    public Pembeli_GUI(int index) {
+    public Pembeli_GUI(int index,List <Checkout_model> listInput) {
         initComponents();
         control = new Product_control(this);
+        controlPembeli = new Pembeli_control(this);
+        
         setNameColumnTable();
         alamatLogin = index;
         control.GetDataProduk(this);
+        
+        if (listInput != null) {
+            controlPembeli.listCheckout = listInput;
+        }
     }
+    
     
     public void setNameColumnTable(){
         tableProduk.setModel(modelTable);
@@ -40,6 +52,11 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogTroli = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        labelJudul = new javax.swing.JLabel();
+        btnNoTroli = new javax.swing.JButton();
+        btnYesTroli = new javax.swing.JButton();
         dialogKonfirmasi = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -49,6 +66,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         BeliButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProduk = new javax.swing.JTable();
+        BeliButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Troli = new javax.swing.JButton();
         AkunButton = new javax.swing.JButton();
@@ -62,6 +80,62 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         OkeSearchButton1 = new javax.swing.JButton();
+
+        dialogTroli.setSize(new java.awt.Dimension(348, 223));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelJudul.setText("jLabel5");
+
+        btnNoTroli.setText("no");
+        btnNoTroli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNoTroliActionPerformed(evt);
+            }
+        });
+
+        btnYesTroli.setText("yes");
+        btnYesTroli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnYesTroliActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelJudul, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(btnYesTroli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnNoTroli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(96, 96, 96))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(labelJudul)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNoTroli)
+                    .addComponent(btnYesTroli))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialogTroliLayout = new javax.swing.GroupLayout(dialogTroli.getContentPane());
+        dialogTroli.getContentPane().setLayout(dialogTroliLayout);
+        dialogTroliLayout.setHorizontalGroup(
+            dialogTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialogTroliLayout.setVerticalGroup(
+            dialogTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         dialogKonfirmasi.setSize(new java.awt.Dimension(342, 216));
 
@@ -152,7 +226,21 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableProduk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tableProdukMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableProduk);
+
+        BeliButton2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        BeliButton2.setText("Tambah ke troli");
+        BeliButton2.setEnabled(false);
+        BeliButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BeliButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,6 +251,8 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
                 .addContainerGap())
@@ -173,7 +263,9 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
 
@@ -198,7 +290,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         });
 
         BeliButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        BeliButton1.setText("LogOut");
+        BeliButton1.setText("Keluar");
         BeliButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BeliButton1ActionPerformed(evt);
@@ -337,7 +429,9 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AkunButtonActionPerformed
 
     private void TroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TroliActionPerformed
-        // TODO add your handling code here:
+        CheckOut_GUI formCheckout = new CheckOut_GUI(alamatLogin,controlPembeli.listCheckout);
+        formCheckout.show();
+        dispose();
     }//GEN-LAST:event_TroliActionPerformed
 
     private void comboKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboKategoriActionPerformed
@@ -359,6 +453,28 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private void noBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noBtnActionPerformed
         dialogKonfirmasi.dispose();
     }//GEN-LAST:event_noBtnActionPerformed
+
+    private void BeliButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButton2ActionPerformed
+        dialogTroli.setLocationRelativeTo(null);
+        dialogTroli.show();
+        labelJudul.setText("ingin Menambahkan " + controlPembeli.listProduk.get(selectProdukIndex).getNama() + " ?");
+    }//GEN-LAST:event_BeliButton2ActionPerformed
+
+    
+    private void tableProdukMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMousePressed
+        selectProdukIndex = controlPembeli.CariIndexProduk(tableProduk.getValueAt(tableProduk.getSelectedRow(),0).toString());
+        BeliButton2.setEnabled(true);
+    }//GEN-LAST:event_tableProdukMousePressed
+
+    private void btnYesTroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesTroliActionPerformed
+        controlPembeli.isiDataCheckout(selectProdukIndex,alamatLogin);
+        System.out.println(controlPembeli.listCheckout.size());
+        dialogTroli.dispose();
+    }//GEN-LAST:event_btnYesTroliActionPerformed
+
+    private void btnNoTroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoTroliActionPerformed
+        dialogTroli.dispose();
+    }//GEN-LAST:event_btnNoTroliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,7 +506,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pembeli_GUI(alamatLogin).setVisible(true);
+                new Pembeli_GUI(alamatLogin,controlPembeli.listCheckout).setVisible(true);
             }
         });
     }
@@ -399,14 +515,18 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private javax.swing.JButton AkunButton;
     private javax.swing.JButton BeliButton;
     private javax.swing.JButton BeliButton1;
+    private javax.swing.JButton BeliButton2;
     private javax.swing.JTextField CariBarangField;
     private javax.swing.JLabel DaftarBarangField;
     private javax.swing.JButton NamaSearchButton;
     private javax.swing.JButton OkeSearchButton1;
     private javax.swing.JScrollPane PaneDaftarBarang;
     private javax.swing.JButton Troli;
+    private javax.swing.JButton btnNoTroli;
+    private javax.swing.JButton btnYesTroli;
     private javax.swing.JComboBox comboKategori;
     private javax.swing.JDialog dialogKonfirmasi;
+    private javax.swing.JDialog dialogTroli;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -414,7 +534,9 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelJudul;
     private javax.swing.JButton noBtn;
     private javax.swing.JTable tableProduk;
     private javax.swing.JButton yesBtn;

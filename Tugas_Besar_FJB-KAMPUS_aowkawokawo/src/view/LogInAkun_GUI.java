@@ -148,7 +148,7 @@ public class LogInAkun_GUI extends javax.swing.JFrame {
     }
     
     private void btnPembeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembeliActionPerformed
-        Pembeli_GUI formPembeli = new Pembeli_GUI(alamatLogin);
+        Pembeli_GUI formPembeli = new Pembeli_GUI(alamatLogin,null);
         formPembeli.show();
         dispose();
     }//GEN-LAST:event_btnPembeliActionPerformed
