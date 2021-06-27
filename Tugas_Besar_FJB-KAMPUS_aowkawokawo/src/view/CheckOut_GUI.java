@@ -16,9 +16,10 @@ public class CheckOut_GUI extends javax.swing.JFrame {
 
     private static int alamatLogin;
     static Pembeli_control control;
+    private int indexHapus;
     
     DefaultListModel<String> ListCheckout =new DefaultListModel<String>();
-
+    private int Harga;
     
     public CheckOut_GUI(int index,List <Checkout_model> listInput) {
         initComponents();
@@ -26,6 +27,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         control = new Pembeli_control(this);
         control.listCheckout = listInput;
         setList();
+        setSemuaProdukHarga();
     }
     
     public void setList(){
@@ -54,6 +56,8 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         hargaLabel = new javax.swing.JLabel();
         txtBanyak = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        totalSemuaProduk = new javax.swing.JLabel();
         HapusBarangButton = new javax.swing.JButton();
         PembayaranButton = new javax.swing.JButton();
         PembayaranButton1 = new javax.swing.JButton();
@@ -103,6 +107,8 @@ public class CheckOut_GUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("Total Semua Produk  :");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -110,13 +116,6 @@ public class CheckOut_GUI extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBanyak, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -128,7 +127,20 @@ public class CheckOut_GUI extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(totalHargaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(totalHargaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBanyak, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(totalSemuaProduk)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,11 +162,20 @@ public class CheckOut_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(totalHargaProduk))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(totalSemuaProduk))
+                .addGap(17, 17, 17))
         );
 
         HapusBarangButton.setBackground(new java.awt.Color(255, 255, 255));
         HapusBarangButton.setText("Hapus Barang");
+        HapusBarangButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusBarangButtonActionPerformed(evt);
+            }
+        });
 
         PembayaranButton.setBackground(new java.awt.Color(255, 153, 153));
         PembayaranButton.setText("Pembayaran");
@@ -255,9 +276,19 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setSemuaProdukHarga(){
+        Harga = 0;
+        for (int i = 0;i < control.listCheckout.size() ; i ++) {
+            Harga = Harga + (control.listCheckout.get(i).getHarga() * control.listCheckout.get(i).getBanyakBeli());
+        }
+        
+        totalSemuaProduk.setText(String.valueOf(Harga));
+    }
+    
     private void jListBarangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListBarangMousePressed
         String setBanyak = String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getBanyakBeli());
         txtBanyak.setText(setBanyak);
+        indexHapus = jListBarang.getSelectedIndex();
         int totalBanyak = Integer.parseInt(setBanyak);
         namaLabel.setText(control.listCheckout.get(jListBarang.getSelectedIndex()).getNamaProduk());
         hargaLabel.setText(String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getHarga()));
@@ -277,6 +308,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         int totalBanyak = Integer.parseInt(txtBanyak.getText());
         control.listCheckout.get(jListBarang.getSelectedIndex()).setBanyakBeli(totalBanyak);
         int totalHarga = control.listCheckout.get(jListBarang.getSelectedIndex()).getHarga() * totalBanyak;
+        setSemuaProdukHarga();
         totalHargaProduk.setText(String.valueOf(totalHarga));
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -285,6 +317,13 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         formPembeli.show();
         dispose();
     }//GEN-LAST:event_PembayaranButton1ActionPerformed
+
+    private void HapusBarangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusBarangButtonActionPerformed
+        control.listCheckout.remove(indexHapus);
+        ListCheckout.clear();
+        setSemuaProdukHarga();
+        setList();
+    }//GEN-LAST:event_HapusBarangButtonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -333,6 +372,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jListBarang;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -341,6 +381,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel namaLabel;
     private javax.swing.JLabel totalHargaProduk;
+    private javax.swing.JLabel totalSemuaProduk;
     private javax.swing.JTextField txtBanyak;
     // End of variables declaration//GEN-END:variables
 }
