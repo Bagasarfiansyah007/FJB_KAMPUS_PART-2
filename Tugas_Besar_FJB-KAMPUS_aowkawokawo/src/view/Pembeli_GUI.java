@@ -68,6 +68,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProduk = new javax.swing.JTable();
         BeliButton2 = new javax.swing.JButton();
+        history = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Troli = new javax.swing.JButton();
         AkunButton = new javax.swing.JButton();
@@ -243,6 +244,8 @@ public class Pembeli_GUI extends javax.swing.JFrame {
             }
         });
 
+        history.setText("History");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -252,6 +255,8 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(history)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -266,8 +271,9 @@ public class Pembeli_GUI extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+                    .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(history))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 600, 310));
@@ -530,6 +536,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox comboKategori;
     private javax.swing.JDialog dialogKonfirmasi;
     private javax.swing.JDialog dialogTroli;
+    private javax.swing.JButton history;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -31,6 +31,9 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         control.listCheckout = listInput;
         setList();
         setSemuaProdukHarga();
+        if (control.listCheckout.size() != 0) {
+            setTextDetail();
+        }
     }
     
     public void setList(){
@@ -56,7 +59,15 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         saldoTxt = new javax.swing.JLabel();
         hargaTxt = new javax.swing.JLabel();
         btnBayarSekarang = new javax.swing.JButton();
-        btnTambah = new javax.swing.JButton();
+        btnPerbarui = new javax.swing.JButton();
+        btnTambah1 = new javax.swing.JButton();
+        tambahSaldo = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        txtTambahSaldo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        saldoSekarang = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         PaneDaftarBarang = new javax.swing.JScrollPane();
         CheckOutTxt = new javax.swing.JLabel();
@@ -137,8 +148,8 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         metodePembayaran.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 230, 50));
 
         dialogEwallet.setBackground(new java.awt.Color(255, 255, 255));
-        dialogEwallet.setPreferredSize(new java.awt.Dimension(337, 303));
-        dialogEwallet.setSize(new java.awt.Dimension(337, 330));
+        dialogEwallet.setPreferredSize(new java.awt.Dimension(337, 374));
+        dialogEwallet.setSize(new java.awt.Dimension(337, 374));
         dialogEwallet.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -176,10 +187,69 @@ public class CheckOut_GUI extends javax.swing.JFrame {
                 btnBayarSekarangActionPerformed(evt);
             }
         });
-        dialogEwallet.getContentPane().add(btnBayarSekarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 210, 40));
+        dialogEwallet.getContentPane().add(btnBayarSekarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 210, 40));
 
-        btnTambah.setText("Tambah Saldo");
-        dialogEwallet.getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 210, 40));
+        btnPerbarui.setText("Perbarui Saldo");
+        btnPerbarui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerbaruiActionPerformed(evt);
+            }
+        });
+        dialogEwallet.getContentPane().add(btnPerbarui, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 210, 40));
+
+        btnTambah1.setText("Tambah Saldo");
+        btnTambah1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambah1ActionPerformed(evt);
+            }
+        });
+        dialogEwallet.getContentPane().add(btnTambah1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 210, 40));
+
+        tambahSaldo.setSize(new java.awt.Dimension(339, 278));
+        tambahSaldo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Tambah Saldo E-wallet");
+        tambahSaldo.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 338, -1));
+
+        jPanel8.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        tambahSaldo.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
+
+        txtTambahSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTambahSaldoActionPerformed(evt);
+            }
+        });
+        tambahSaldo.getContentPane().add(txtTambahSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 190, 40));
+
+        jLabel9.setText("Tambah Saldo");
+        tambahSaldo.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        saldoSekarang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        saldoSekarang.setText("jLabel13");
+        tambahSaldo.getContentPane().add(saldoSekarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 340, -1));
+
+        jButton5.setText("Tambah saldo");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        tambahSaldo.getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 290, 40));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -404,6 +474,13 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         totalSemuaProduk.setText(String.valueOf(Harga));
     }
     
+    public void setTextDetail(){
+        String setBanyak = String.valueOf(control.listCheckout.get(0).getBanyakBeli());
+        txtBanyak.setText(setBanyak);
+        namaLabel.setText(control.listCheckout.get(0).getNamaProduk());
+        hargaLabel.setText(String.valueOf(control.listCheckout.get(0).getHarga()));
+    }
+    
     private void jListBarangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListBarangMousePressed
         String setBanyak = String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getBanyakBeli());
         txtBanyak.setText(setBanyak);
@@ -515,6 +592,35 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBayarSekarangActionPerformed
 
+    private void txtTambahSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTambahSaldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTambahSaldoActionPerformed
+    
+    public void setTxtSaldoDialog (){
+        saldoSekarang.setText("Saldo Anda : Rp." +  String.valueOf(control.listUser.get(alamatLogin).getSaldo()));
+    }
+    
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int saldoTambah = Integer.parseInt(txtTambahSaldo.getText());
+        int saldoTotal = control.listUser.get(alamatLogin).getSaldo() + saldoTambah;
+        DBconn_checkout.updateSaldo(saldoTotal,control.listUser.get(alamatLogin).getNim());
+        control.listUser = DBconn_user.GetDataUser();
+        control.dialogFormSucsess("Saldo berhasil ditambahkan menjadi " + String.valueOf(saldoTotal), "suksess");
+        tambahSaldo.dispose();
+        dialogEwallet.show();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnPerbaruiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerbaruiActionPerformed
+        setSaldoTxt();
+    }//GEN-LAST:event_btnPerbaruiActionPerformed
+
+    private void btnTambah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambah1ActionPerformed
+        tambahSaldo.setLocationRelativeTo(null);
+        setTxtSaldoDialog();
+        tambahSaldo.show();
+        dialogEwallet.hide();
+    }//GEN-LAST:event_btnTambah1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -554,7 +660,8 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JButton PembayaranButton;
     private javax.swing.JButton PembayaranButton1;
     private javax.swing.JButton btnBayarSekarang;
-    private javax.swing.JButton btnTambah;
+    private javax.swing.JButton btnPerbarui;
+    private javax.swing.JButton btnTambah1;
     private javax.swing.JDialog dialogEwallet;
     private javax.swing.JLabel hargaLabel;
     private javax.swing.JLabel hargaTxt;
@@ -562,9 +669,11 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -572,6 +681,7 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jListBarang;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -579,12 +689,16 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog metodePembayaran;
     private javax.swing.JLabel namaLabel;
+    private javax.swing.JLabel saldoSekarang;
     private javax.swing.JLabel saldoTxt;
+    private javax.swing.JDialog tambahSaldo;
     private javax.swing.JLabel totalHargaProduk;
     private javax.swing.JLabel totalSemuaProduk;
     private javax.swing.JTextField txtBanyak;
+    private javax.swing.JTextField txtTambahSaldo;
     // End of variables declaration//GEN-END:variables
 }

@@ -206,6 +206,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="history" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="BeliButton2" min="-2" pref="133" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BeliButton" min="-2" pref="70" max="-2" attributes="0"/>
@@ -225,8 +227,9 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BeliButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="BeliButton2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="history" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="109" max="32767" attributes="0"/>
+                  <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -278,6 +281,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BeliButton2ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="history">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="History"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
