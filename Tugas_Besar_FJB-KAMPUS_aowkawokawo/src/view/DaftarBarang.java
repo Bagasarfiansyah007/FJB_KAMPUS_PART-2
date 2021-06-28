@@ -149,6 +149,9 @@ public class DaftarBarang extends javax.swing.JFrame {
             }
         ));
         tableProduk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tableProdukMousePressed(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableProdukMouseClicked(evt);
             }
@@ -267,8 +270,7 @@ public class DaftarBarang extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonKembaliActionPerformed
 
     private void tableProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMouseClicked
-        EnableButton(true);
-        System.out.println(modelTable.getValueAt(tableProduk.getSelectedRow(),0).toString());
+        
     }//GEN-LAST:event_tableProdukMouseClicked
     
     public String kodeProdukValue(){
@@ -304,6 +306,11 @@ public class DaftarBarang extends javax.swing.JFrame {
         dialogShow.setLocationRelativeTo(null);
         dialogShow.show();
     }//GEN-LAST:event_buttonHapusActionPerformed
+
+    private void tableProdukMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMousePressed
+        EnableButton(true);
+        System.out.println(modelTable.getValueAt(tableProduk.getSelectedRow(),0).toString());
+    }//GEN-LAST:event_tableProdukMousePressed
 
     // Setter
     public void setNameColumnTable(){
