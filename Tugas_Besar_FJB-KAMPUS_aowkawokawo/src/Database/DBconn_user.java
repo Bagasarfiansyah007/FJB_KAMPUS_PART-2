@@ -60,7 +60,7 @@ public class DBconn_user {
                 while(rs.next()){
                     userList.add(new User_model(rs.getString("nim"), rs.getString("nama"), rs.getString("fakultas")
                                     ,rs.getString("telephone"),rs.getString("prodi"),rs.getString("email"),rs.getString("password")
-                                    ,rs.getFloat("saldo")));
+                                    ,rs.getInt("saldo")));
                 }
 
                 stmt.close();

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+
 import Model.Checkout_model;
 import control.Pembeli_control;
 import control.Product_control;
@@ -12,34 +13,34 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static view.InputProduk.control;
+
 /**
  *
  * @author USER
  */
 public class Pembeli_GUI extends javax.swing.JFrame {
-    
+
     public DefaultTableModel modelTable = new DefaultTableModel();
     Product_control control;
     static Pembeli_control controlPembeli;
     private static int alamatLogin;
     private int selectProdukIndex;
-    
-    public Pembeli_GUI(int index,List <Checkout_model> listInput) {
+
+    public Pembeli_GUI(int index, List<Checkout_model> listInput) {
         initComponents();
         control = new Product_control(this);
         controlPembeli = new Pembeli_control(this);
-        
+
         setNameColumnTable();
         alamatLogin = index;
         control.GetDataProduk(this);
-        
+
         if (listInput != null) {
             controlPembeli.listCheckout = listInput;
         }
     }
-    
-    
-    public void setNameColumnTable(){
+
+    public void setNameColumnTable() {
         tableProduk.setModel(modelTable);
         modelTable.addColumn("Kode Produk");
         modelTable.addColumn("Nama Produk");
@@ -407,10 +408,10 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private void NamaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaSearchButtonActionPerformed
         String nama = CariBarangField.getText();
 
-        if(nama.isEmpty()){
+        if (nama.isEmpty()) {
             control.GetDataProduk(this);
-        }else {
-            control.cariBarang(this,nama);
+        } else {
+            control.cariBarang(this, nama);
             CariBarangField.setText("");
         }
     }//GEN-LAST:event_NamaSearchButtonActionPerformed
@@ -429,17 +430,17 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AkunButtonActionPerformed
 
     private void TroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TroliActionPerformed
-        CheckOut_GUI formCheckout = new CheckOut_GUI(alamatLogin,controlPembeli.listCheckout);
+        CheckOut_GUI formCheckout = new CheckOut_GUI(alamatLogin, controlPembeli.listCheckout);
         formCheckout.show();
         dispose();
     }//GEN-LAST:event_TroliActionPerformed
 
     private void comboKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboKategoriActionPerformed
         String nama = comboKategori.getSelectedItem().toString();
-        if(nama.isEmpty()){
+        if (nama.isEmpty()) {
             control.GetDataProduk(this);
-        }else {
-            control.cariBarangKategori(this,nama);
+        } else {
+            control.cariBarangKategori(this, nama);
         }
     }//GEN-LAST:event_comboKategoriActionPerformed
 
@@ -460,15 +461,17 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         labelJudul.setText("ingin Menambahkan " + controlPembeli.listProduk.get(selectProdukIndex).getNama() + " ?");
     }//GEN-LAST:event_BeliButton2ActionPerformed
 
-    
+
     private void tableProdukMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMousePressed
-        selectProdukIndex = controlPembeli.CariIndexProduk(tableProduk.getValueAt(tableProduk.getSelectedRow(),0).toString());
+        selectProdukIndex = controlPembeli.CariIndexProduk(tableProduk.getValueAt(tableProduk.getSelectedRow(), 0).toString());
         BeliButton2.setEnabled(true);
     }//GEN-LAST:event_tableProdukMousePressed
 
     private void btnYesTroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesTroliActionPerformed
-        controlPembeli.isiDataCheckout(selectProdukIndex,alamatLogin);
-        System.out.println(controlPembeli.listCheckout.size());
+        controlPembeli.isiDataCheckout(selectProdukIndex, alamatLogin);
+        for (int i = 0 ; i < controlPembeli.listCheckout.size(); i++) {
+            System.out.println(controlPembeli.listCheckout.get(i).getIdBayar());
+        }
         dialogTroli.dispose();
     }//GEN-LAST:event_btnYesTroliActionPerformed
 
@@ -506,7 +509,7 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pembeli_GUI(alamatLogin,controlPembeli.listCheckout).setVisible(true);
+                new Pembeli_GUI(alamatLogin, controlPembeli.listCheckout).setVisible(true);
             }
         });
     }

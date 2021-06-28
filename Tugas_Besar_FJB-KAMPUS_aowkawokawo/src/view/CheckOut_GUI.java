@@ -5,12 +5,15 @@
  */
 package view;
 
+import Database.DBconn_checkout;
+import Database.DBconn_user;
 import Model.Checkout_model;
 import control.Pembeli_control;
 import control.Product_control;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.SpinnerNumberModel;
+import static view.Pembeli_GUI.controlPembeli;
 
 public class CheckOut_GUI extends javax.swing.JFrame {
 
@@ -41,6 +44,19 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        metodePembayaran = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        dialogEwallet = new javax.swing.JDialog();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        saldoTxt = new javax.swing.JLabel();
+        hargaTxt = new javax.swing.JLabel();
+        btnBayarSekarang = new javax.swing.JButton();
+        btnTambah = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         PaneDaftarBarang = new javax.swing.JScrollPane();
         CheckOutTxt = new javax.swing.JLabel();
@@ -66,6 +82,104 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+
+        metodePembayaran.setBackground(new java.awt.Color(255, 255, 255));
+        metodePembayaran.setResizable(false);
+        metodePembayaran.setSize(new java.awt.Dimension(337, 303));
+        metodePembayaran.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Metode Pembayaran");
+        metodePembayaran.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 338, -1));
+
+        jPanel6.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        metodePembayaran.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
+
+        jButton2.setBackground(new java.awt.Color(255, 102, 102));
+        jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        metodePembayaran.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 230, 50));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Pembayaran Rekening");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        metodePembayaran.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 100, 230, 50));
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Pembayaran E-Wallet");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        metodePembayaran.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 230, 50));
+
+        dialogEwallet.setBackground(new java.awt.Color(255, 255, 255));
+        dialogEwallet.setPreferredSize(new java.awt.Dimension(337, 303));
+        dialogEwallet.setSize(new java.awt.Dimension(337, 330));
+        dialogEwallet.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("E-Wallet Pembayaran");
+        dialogEwallet.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 338, -1));
+
+        jPanel7.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        dialogEwallet.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 80));
+
+        saldoTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        saldoTxt.setText("jLabel9");
+        dialogEwallet.getContentPane().add(saldoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, -1));
+
+        hargaTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hargaTxt.setText("jLabel9");
+        dialogEwallet.getContentPane().add(hargaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 340, -1));
+
+        btnBayarSekarang.setText("Bayar Sekarang");
+        btnBayarSekarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBayarSekarangActionPerformed(evt);
+            }
+        });
+        dialogEwallet.getContentPane().add(btnBayarSekarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 210, 40));
+
+        btnTambah.setText("Tambah Saldo");
+        dialogEwallet.getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 210, 40));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,6 +293,11 @@ public class CheckOut_GUI extends javax.swing.JFrame {
 
         PembayaranButton.setBackground(new java.awt.Color(255, 153, 153));
         PembayaranButton.setText("Pembayaran");
+        PembayaranButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PembayaranButtonActionPerformed(evt);
+            }
+        });
 
         PembayaranButton1.setBackground(new java.awt.Color(255, 255, 255));
         PembayaranButton1.setText("Keluar");
@@ -325,6 +444,77 @@ public class CheckOut_GUI extends javax.swing.JFrame {
         setList();
     }//GEN-LAST:event_HapusBarangButtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        metodePembayaran.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void PembayaranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PembayaranButtonActionPerformed
+        metodePembayaran.setLocationRelativeTo(null);
+        metodePembayaran.show();
+    }//GEN-LAST:event_PembayaranButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            for (int i = 0; i < control.listCheckout.size();i++){
+                control.isiDatabase(i, alamatLogin, control.listCheckout);
+            }
+            for (int i = 0; i < control.listCheckout.size();i++){
+                control.listCheckout.remove(indexHapus);
+                ListCheckout.clear();
+            }
+            setSemuaProdukHarga();jListBarang.setModel(ListCheckout);;
+            metodePembayaran.dispose();
+        } catch (Exception e){
+            control.dialogFormWarning("Data tidak masuk", "Warning");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void setHargaTxt(){
+        hargaTxt.setText("Kamu akan membayar total harga Rp." +  String.valueOf(Harga));
+    }
+    
+    public void setSaldoTxt(){
+        saldoTxt.setText("Saldo Anda : Rp." +  String.valueOf(control.listUser.get(alamatLogin).getSaldo()));
+    }
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        setSaldoTxt();
+        setHargaTxt();
+        dialogEwallet.setLocationRelativeTo(null);
+        dialogEwallet.show();
+        metodePembayaran.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnBayarSekarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarSekarangActionPerformed
+        if (Harga > control.listUser.get(alamatLogin).getSaldo()) {
+            control.dialogFormWarning("Maaf Saldo anda tidak cukup untuk melakukan pembelian", "warning");
+        } else {
+            try {
+                for (int i = 0; i < control.listCheckout.size();i++){
+                    control.isiDatabase(i, alamatLogin, control.listCheckout);
+                }
+                for (int i = 0; i < control.listCheckout.size();i++){
+                    control.listCheckout.remove(indexHapus);
+                    ListCheckout.clear();
+                }
+                int totalSaldo;
+                if (control.listUser.get(alamatLogin).getSaldo() > Harga) {
+                    totalSaldo = control.listUser.get(alamatLogin).getSaldo() - Harga;
+                } else {
+                    totalSaldo = Harga - control.listUser.get(alamatLogin).getSaldo() ;
+                }
+                DBconn_checkout.updateSaldo(totalSaldo,control.listUser.get(alamatLogin).getNim());
+                control.listUser = DBconn_user.GetDataUser();
+                setSemuaProdukHarga();
+                jListBarang.setModel(ListCheckout);
+                
+                dialogEwallet.dispose();
+            } catch (Exception e){
+                control.dialogFormWarning("Data tidak masuk", "Warning");
+            }
+        }
+    }//GEN-LAST:event_btnBayarSekarangActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -363,9 +553,18 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane PaneDaftarBarang;
     private javax.swing.JButton PembayaranButton;
     private javax.swing.JButton PembayaranButton1;
+    private javax.swing.JButton btnBayarSekarang;
+    private javax.swing.JButton btnTambah;
+    private javax.swing.JDialog dialogEwallet;
     private javax.swing.JLabel hargaLabel;
+    private javax.swing.JLabel hargaTxt;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -378,8 +577,12 @@ public class CheckOut_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JDialog metodePembayaran;
     private javax.swing.JLabel namaLabel;
+    private javax.swing.JLabel saldoTxt;
     private javax.swing.JLabel totalHargaProduk;
     private javax.swing.JLabel totalSemuaProduk;
     private javax.swing.JTextField txtBanyak;

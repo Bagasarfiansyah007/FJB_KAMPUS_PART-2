@@ -18,10 +18,10 @@ public class User_model {
     private String prodi;
     private String email;
     private String Password;
-    private float saldo;
+    private int saldo;
     
     // Constructor
-    public User_model(String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, float saldo) {
+    public User_model(String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo) {
         this.nim = nim;
         this.nama = nama;
         this.fakultas = fakultas;
@@ -65,7 +65,7 @@ public class User_model {
         this.Password = Password;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
     
@@ -94,7 +94,7 @@ public class User_model {
         return Password;
     }
 
-    public float getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 }

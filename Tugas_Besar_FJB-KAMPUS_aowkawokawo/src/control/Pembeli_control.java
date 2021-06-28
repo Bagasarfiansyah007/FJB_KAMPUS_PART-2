@@ -5,6 +5,7 @@
  */
 package control;
 
+import Database.DBconn_checkout;
 import Database.DBconn_produk;
 import Database.DBconn_user;
 import Model.Checkout_model;
@@ -19,6 +20,7 @@ import view.Pembeli_GUI;
 
 public class Pembeli_control {
     public List <Checkout_model> listCheckout;
+    public List <Checkout_model> listCheckoutDb;
     public List <User_model> listUser;
     public List <Product> listProduk;
     
@@ -29,6 +31,7 @@ public class Pembeli_control {
         listProduk = DBconn_produk.GetDataProduk();
         listUser = DBconn_user.GetDataUser();
         listCheckout = new ArrayList<Checkout_model>();
+        listCheckoutDb = DBconn_checkout.GetDataPembayaran();
         this.formPembeli = formPembeli;
     }
     
@@ -53,11 +56,38 @@ public class Pembeli_control {
         dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
     }
     
+    public void isiDatabase(int index,int alamatLogin,List <Checkout_model> listCheckout){
+        String kodeBayar = "";
+        kodeBayar = listCheckout.get(index).getIdBayar();
+        String nim = listUser.get(alamatLogin).getNim();
+        String kodeProduk = listCheckout.get(index).getIdProduk();
+        String namaPenjual = cariNamaPenjual(index);
+        String namaProduk = listCheckout.get(index).getNamaProduk();
+        int banyakBeli = listCheckout.get(index).getBanyakBeli();
+        int harga = listCheckout.get(index).getHarga();
+        
+        DBconn_checkout.insertPembayaran(kodeBayar, nim, kodeProduk, namaPenjual, namaProduk, banyakBeli, harga);
+//        listCheckout.add(new Checkout_model(kodeBayar,nim,kodeProduk,namaPenjual,namaProduk,banyakBeli,harga));
+        dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
+    }
+    
     public String inputIdListBayar(String kodeBayar){
+        String currentData = "";
         if (listCheckout.size() == 0) {
-            kodeBayar = "P01";
+            currentData = listCheckoutDb.get(listCheckoutDb.size()-1).getIdBayar();
+            int hitung;
+            if (Integer.parseInt(currentData.substring(2)) == 9) {
+                hitung = 1 + Integer.parseInt(currentData.substring(1));
+                kodeBayar = "P" + String.valueOf(hitung);
+            } else if (Integer.parseInt(currentData.substring(1)) > 9){
+                hitung = 1 + Integer.parseInt(currentData.substring(1));
+                kodeBayar = "P" + String.valueOf(hitung);
+            }else {
+                hitung = 1 + Integer.parseInt(currentData.substring(2));
+                kodeBayar = "P0" + String.valueOf(hitung);
+            }
         } else {
-            String currentData = listCheckout.get(listCheckout.size()-1).getIdBayar();
+            currentData = listCheckout.get(listCheckout.size()-1).getIdBayar();
             int hitung;
             if (Integer.parseInt(currentData.substring(2)) == 9) {
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
