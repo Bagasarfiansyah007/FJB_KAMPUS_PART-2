@@ -245,6 +245,11 @@ public class Pembeli_GUI extends javax.swing.JFrame {
         });
 
         history.setText("History");
+        history.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                historyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -484,6 +489,12 @@ public class Pembeli_GUI extends javax.swing.JFrame {
     private void btnNoTroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoTroliActionPerformed
         dialogTroli.dispose();
     }//GEN-LAST:event_btnNoTroliActionPerformed
+
+    private void historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyActionPerformed
+        History_GUI history = new History_GUI(alamatLogin,controlPembeli.listCheckout);
+        history.show();
+        hide();
+    }//GEN-LAST:event_historyActionPerformed
 
     /**
      * @param args the command line arguments

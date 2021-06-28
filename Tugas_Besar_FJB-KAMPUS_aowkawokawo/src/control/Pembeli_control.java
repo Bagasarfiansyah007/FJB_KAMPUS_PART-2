@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import view.CheckOut_GUI;
+import view.History_GUI;
 import view.Pembeli_GUI;
 
 public class Pembeli_control {
@@ -26,6 +27,7 @@ public class Pembeli_control {
     
     Pembeli_GUI formPembeli;
     CheckOut_GUI formCheckout;
+    History_GUI formHistory;
     
     public Pembeli_control(Pembeli_GUI formPembeli){
         listProduk = DBconn_produk.GetDataProduk();
@@ -33,6 +35,14 @@ public class Pembeli_control {
         listCheckout = new ArrayList<Checkout_model>();
         listCheckoutDb = DBconn_checkout.GetDataPembayaran();
         this.formPembeli = formPembeli;
+    }
+    
+    public Pembeli_control(History_GUI formHistory){
+        listProduk = DBconn_produk.GetDataProduk();
+        listUser = DBconn_user.GetDataUser();
+        listCheckout = new ArrayList<Checkout_model>();
+        listCheckoutDb = DBconn_checkout.GetDataPembayaran();
+        this.formHistory = formHistory;
     }
     
     public Pembeli_control(CheckOut_GUI formCheckout){
@@ -54,6 +64,29 @@ public class Pembeli_control {
         
         listCheckout.add(new Checkout_model(kodeBayar,nim,kodeProduk,namaPenjual,namaProduk,banyakBeli,harga));
         dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
+    }
+    
+    public void GetDataProduk(History_GUI formHistory,int index){
+        formHistory.modelTable.getDataVector().removeAllElements();
+        formHistory.modelTable.fireTableDataChanged();
+        
+        try{
+           Object[] obj = new Object[6];
+           for (int i = 0 ; i < listCheckoutDb.size();i++){
+               if (listCheckoutDb.get(i).getIdPembeli().intern() == listUser.get(index).getNim().intern()) {
+                   obj[0] = listCheckoutDb.get(i).getIdBayar();
+                   obj[1] = listCheckoutDb.get(i).getIdProduk();
+                   obj[2] = listCheckoutDb.get(i).getNamaPenjual();
+                   obj[3] = listCheckoutDb.get(i).getNamaProduk();
+                   obj[4] = listCheckoutDb.get(i).getBanyakBeli();
+                   obj[5] = listCheckoutDb.get(i).getHarga();
+                   formHistory.modelTable.addRow(obj);
+               }
+           }
+        }catch(Exception e){
+            System.out.println("Data Kosong dan belum masuk");
+            dialogFormWarning("Data Kosong dan belum masuk","warning");
+        }
     }
     
     public void isiDatabase(int index,int alamatLogin,List <Checkout_model> listCheckout){
