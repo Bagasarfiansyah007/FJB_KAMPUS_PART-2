@@ -101,7 +101,7 @@ public class Pembeli_control {
         
         DBconn_checkout.insertPembayaran(kodeBayar, nim, kodeProduk, namaPenjual, namaProduk, banyakBeli, harga);
 //        listCheckout.add(new Checkout_model(kodeBayar,nim,kodeProduk,namaPenjual,namaProduk,banyakBeli,harga));
-        dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
+        dialogFormSucsess("Produk " + namaProduk + " Berhasil Dibeli","sukses");
     }
     
     public String inputIdListBayar(String kodeBayar){
