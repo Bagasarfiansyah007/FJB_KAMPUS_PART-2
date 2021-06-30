@@ -1,8 +1,8 @@
 
 package view;
 
-import Database.DBconn_produk;
-import control.Product_control;
+import Database.DBconnProduk;
+import control.ProductControl;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -10,12 +10,12 @@ import javax.swing.JTextField;
 
 public class InputProduk extends javax.swing.JFrame {
 
-    public static Product_control control;
+    public static ProductControl control;
     private static int alamatLogin;
     
     public InputProduk(int index) {
         initComponents();
-        control = new Product_control(this);
+        control = new ProductControl(this);
         alamatLogin = index;
         System.out.println(control.listProduk.size());
 
@@ -64,18 +64,7 @@ public class InputProduk extends javax.swing.JFrame {
 
         jLabel9.setText("Harga");
 
-        txtNamaProduk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaProdukActionPerformed(evt);
-            }
-        });
-
         comKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
-        comKategori.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comKategoriActionPerformed(evt);
-            }
-        });
 
         buttonSimpan.setText("Simpan");
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -173,13 +162,10 @@ public class InputProduk extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaProdukActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaProdukActionPerformed
-
+    // Main Procedure
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         try {
-            control.isiDataBarang(this,alamatLogin);
+            control.inputProductData(this,alamatLogin);
             DaftarBarang formDaftarBarang = new DaftarBarang(alamatLogin);
             formDaftarBarang.show();
             dispose();
@@ -190,14 +176,11 @@ public class InputProduk extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
     private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
-        new Penjual_GUI(alamatLogin).setVisible(true);
+        new PenjualGUI(alamatLogin).setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonKembaliActionPerformed
 
-    private void comKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comKategoriActionPerformed
-
-    }//GEN-LAST:event_comKategoriActionPerformed
-
+    
     // Getter
     public String getComKategori() {
         return comKategori.getSelectedItem().toString();

@@ -5,11 +5,11 @@
  */
 package Database;
 
-import Model.User_model;
+import Model.UserModel;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import view.Register_GUI;
+import view.RegisterGUI;
 
 /**
  *
@@ -23,7 +23,7 @@ public class DBconn_user {
         static Statement stmt;
         static ResultSet rs;
 
-        public static void InsertData(Register_GUI register){
+        public static void InsertData(RegisterGUI register){
             try{
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 stmt = conn.createStatement();  
@@ -37,7 +37,8 @@ public class DBconn_user {
                 String Password = register.getTxtPassword(); 
                 int saldo = register.getTxtSaldo();
                 
-                String sql = "INSERT INTO user(nim,nama,fakultas,prodi,email,telephone,password,saldo) VALUES ('"+nim+"','"+nama+"','"+fakultas+"','"+prodi+"','"+email+"','"+noTelpon+"','"+Password+"','"+saldo+"')";
+                String sql = "INSERT INTO user(nim,nama,fakultas,prodi,email,telephone,password,saldo) "
+                + "VALUES ('"+nim+"','"+nama+"','"+fakultas+"','"+prodi+"','"+email+"','"+noTelpon+"','"+Password+"','"+saldo+"')";
                 
                 stmt.execute(sql);
                 stmt.close();
@@ -47,9 +48,9 @@ public class DBconn_user {
             }
         }
 
-        public static List<User_model> GetDataUser(){
+        public static List<UserModel> GetDataUser(){
             try{
-                ArrayList<User_model> userList = new ArrayList<User_model>();
+                ArrayList<UserModel> userList = new ArrayList<UserModel>();
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 stmt = conn.createStatement();
 
@@ -58,7 +59,7 @@ public class DBconn_user {
 
 
                 while(rs.next()){
-                    userList.add(new User_model(rs.getString("nim"), rs.getString("nama"), rs.getString("fakultas")
+                    userList.add(new UserModel(rs.getString("nim"), rs.getString("nama"), rs.getString("fakultas")
                                     ,rs.getString("telephone"),rs.getString("prodi"),rs.getString("email"),rs.getString("password")
                                     ,rs.getInt("saldo")));
                 }

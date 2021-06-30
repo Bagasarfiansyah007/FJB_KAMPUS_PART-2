@@ -1,10 +1,10 @@
 
 package view;
 
-import Database.DBconn_produk;
-import control.Login_control;
-import control.Product_control;
-import control.Registrasi_control;
+import Database.DBconnProduk;
+import control.LoginControl;
+import control.ProductControl;
+import control.RegistrasiControl;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,21 +13,21 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import static view.LogInAkun_GUI.control;
-import static view.Register_GUI.control;
+import static view.LogInAkunGUI.control;
+import static view.RegisterGUI.control;
 
 public class DaftarBarang extends javax.swing.JFrame {
     
     // Atribut
     public DefaultTableModel modelTable = new DefaultTableModel();
-    Product_control control;
+    ProductControl control;
 
     private static int alamatLogin;
     
     // Contructor
     public DaftarBarang(int index) {
         initComponents();
-        control = new Product_control(this);
+        control = new ProductControl(this);
         alamatLogin = index;
         setNameColumnTable();
         control.GetDataProduk(this,alamatLogin);
@@ -152,9 +152,6 @@ public class DaftarBarang extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tableProdukMousePressed(evt);
             }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableProdukMouseClicked(evt);
-            }
         });
         jScrollPane1.setViewportView(tableProduk);
 
@@ -251,7 +248,7 @@ public class DaftarBarang extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    // Function & procedure
+    // Main procedure
     private void EnableButton(boolean stat){ 
         buttonHapus.setEnabled(stat);
         buttonEdit.setEnabled(stat);
@@ -260,32 +257,27 @@ public class DaftarBarang extends javax.swing.JFrame {
     private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
         InputProduk formInput = new InputProduk(alamatLogin);
         formInput.show();
-        //new InputProduk(alamatLogin).setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonTambahActionPerformed
 
     private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
-        new Penjual_GUI(alamatLogin).setVisible(true);
+        new PenjualGUI(alamatLogin).setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonKembaliActionPerformed
-
-    private void tableProdukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMouseClicked
-        
-    }//GEN-LAST:event_tableProdukMouseClicked
     
     public String kodeProdukValue(){
        return modelTable.getValueAt(tableProduk.getSelectedRow(),0).toString();
     }
     
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        EditProduk formInputProduk = new EditProduk(alamatLogin,control.cariDataIndex(kodeProdukValue()));
+        EditProduk formInputProduk = new EditProduk(alamatLogin,control.findDatatIndex(kodeProdukValue()));
         formInputProduk.show();
         dispose();
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void btnYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesActionPerformed
         try {
-            control.hapusDataBarang(this,alamatLogin);
+            control.deleteProductData(this,alamatLogin);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal Menghapus !",
                     "warning",JOptionPane.WARNING_MESSAGE);
@@ -296,12 +288,6 @@ public class DaftarBarang extends javax.swing.JFrame {
         dialogShow.dispose();
     }//GEN-LAST:event_btnNoActionPerformed
 
-    public JDialog getDialogShow() {
-        return dialogShow;
-    }
-
-    
-    
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         dialogShow.setLocationRelativeTo(null);
         dialogShow.show();
@@ -326,6 +312,10 @@ public class DaftarBarang extends javax.swing.JFrame {
     // Getter
     public JTable getTableProduk() {    
         return tableProduk;
+    }
+    
+    public JDialog getDialogShow() {
+        return dialogShow;
     }
 
     //main

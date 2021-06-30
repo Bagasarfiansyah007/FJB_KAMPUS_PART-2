@@ -1,8 +1,8 @@
 
 package view;
 
-import Database.DBconn_produk;
-import control.Product_control;
+import Database.DBconnProduk;
+import control.ProductControl;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -10,13 +10,13 @@ import javax.swing.JTextField;
 
 public class EditProduk extends javax.swing.JFrame {
 
-    public static Product_control control;
+    public static ProductControl <EditProduk> control;
     private static int alamatLogin;
     private static int alamatList;
     
     public EditProduk(int alamat,int alamatListIndex) {
         initComponents();
-        control = new Product_control(this);
+        control = new ProductControl(this);
         alamatLogin = alamat;
         alamatList = alamatListIndex-1;
         String nama = control.listProduk.get(alamatList).getNama();
@@ -69,18 +69,7 @@ public class EditProduk extends javax.swing.JFrame {
 
         jLabel9.setText("Harga");
 
-        txtNamaProduk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaProdukActionPerformed(evt);
-            }
-        });
-
         comKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
-        comKategori.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comKategoriActionPerformed(evt);
-            }
-        });
 
         buttonSimpan.setText("Simpan");
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -178,10 +167,7 @@ public class EditProduk extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaProdukActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaProdukActionPerformed
-
+    
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         try {
             control.EditDataBarang(this,alamatList);
@@ -195,14 +181,11 @@ public class EditProduk extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
     private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
-        new Penjual_GUI(alamatLogin).setVisible(true);
+        new PenjualGUI(alamatLogin).setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonKembaliActionPerformed
 
-    private void comKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comKategoriActionPerformed
-
-    }//GEN-LAST:event_comKategoriActionPerformed
-
+    
     // Setter
     public void setTextField(String nama,String harga,String stok){
         txtHarga.setText(harga);
