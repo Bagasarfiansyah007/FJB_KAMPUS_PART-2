@@ -5,7 +5,7 @@
  */
 package Database;
 
-import static Database.DBconnProduk.conn;
+import static Database.DBconnProduct.conn;
 import Model.CheckoutModel;
 import Model.FakultasModel;
 import java.sql.Connection;

@@ -1,8 +1,8 @@
 package control;
 
-import Database.DBconnFakultas;
-import Database.DBconnProdi;
-import Database.DBconnProduk;
+import Database.DBconnFaculty;
+import Database.DBconnStudyProgram;
+import Database.DBconnProduct;
 import Database.DBconnUser;
 import Model.Product;
 import Model.UserModel;
@@ -29,13 +29,13 @@ public class ProductControl <T>{
     
     // Constructor
     public ProductControl(T form){
-        listProduk = DBconnProduk.GetDataProduk();
+        listProduk = DBconnProduct.GetDataProduk();
         listUser = DBconnUser.GetDataUser();
         this.form = form;
     }
     
     public ProductControl(){
-        listProduk = DBconnProduk.GetDataProduk();
+        listProduk = DBconnProduct.GetDataProduk();
         listUser = DBconnUser.GetDataUser();
         this.form = form;
     }
@@ -77,7 +77,7 @@ public class ProductControl <T>{
         
         try{
             
-           listProdukCari = DBconnProduk.cariProduk(nama);
+           listProdukCari = DBconnProduct.cariProduk(nama);
            Object[] tabel = new Object[5];
            inputDataTable (pembeli,listProdukCari,tabel);
                 
@@ -92,7 +92,7 @@ public class ProductControl <T>{
         
         try{
             
-           listProdukCari = DBconnProduk.cariProdukKategori(nama);
+           listProdukCari = DBconnProduct.cariProdukKategori(nama);
            Object[] tabel = new Object[5];
            inputDataTable (pembeli,listProdukCari,tabel);
                 
@@ -116,7 +116,7 @@ public class ProductControl <T>{
                 
                 kodeProduk = inputKodeProduk(kodeProduk);
                 nim = listUser.get(index).getNim();
-                DBconnProduk.insertProduk(input,kodeProduk,nim);
+                DBconnProduct.insertProduk(input,kodeProduk,nim);
                 DialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
             
             } else {
@@ -139,7 +139,7 @@ public class ProductControl <T>{
             if (ConditionMethod.isListEmpty(listProduk) == true) {
                 
                 kodeProduk = listProduk.get(index).getKode_product();
-                DBconnProduk.EditProduk(input,kodeProduk);
+                DBconnProduct.EditProduk(input,kodeProduk);
                 DialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
                 
             } else {
@@ -157,9 +157,9 @@ public class ProductControl <T>{
         if (findDataCondition(kodeProduk) == false) {
             DialogMessage.dialogFormWarning(("Data dengan kode " + kodeProduk + " tidak ada"),"Warning");
         } else {
-            DBconnProduk.deleteData(kodeProduk);
+            DBconnProduct.deleteData(kodeProduk);
             form.getDialogShow().dispose();
-            listProduk = DBconnProduk.GetDataProduk();
+            listProduk = DBconnProduct.GetDataProduk();
             GetDataProduk(form,index);
             DialogMessage.dialogFormSucsess(("sukses menghapus " + kodeProduk),"Suskses");
         }

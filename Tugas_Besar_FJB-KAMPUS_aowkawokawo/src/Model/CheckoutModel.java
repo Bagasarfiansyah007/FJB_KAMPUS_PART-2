@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 /**
@@ -11,78 +6,78 @@ package Model;
  */
 public class CheckoutModel {
 
-    private String idBayar;
-    private String idPembeli;
-    private String idProduk;
-    private String namaPenjual;
-    private String namaProduk;
-    private int banyakBeli;
-    private int harga;
+    private String idPayment;
+    private String nimPayment;
+    private String idProduct;
+    private String nameSeller;
+    private String nameProduct;
+    private int totalProductBuy;
+    private int Price;
 
-    public CheckoutModel(String idBayar, String idPembeli, String idProduk, String namaPenjual, String namaProduk, int banyakBeli, int harga) {
-        this.idBayar = idBayar;
-        this.idPembeli = idPembeli;
-        this.idProduk = idProduk;
-        this.namaPenjual = namaPenjual;
-        this.namaProduk = namaProduk;
-        this.banyakBeli = banyakBeli;
-        this.harga = harga;
+    public CheckoutModel(String idPayment, String nimPayment, String idProduct, String nameSeller, String nameProduct, int totalProductBuy, int Price) {
+        this.idPayment = idPayment;
+        this.nimPayment = nimPayment;
+        this.idProduct = idProduct;
+        this.nameSeller = nameSeller;
+        this.nameProduct = nameProduct;
+        this.totalProductBuy = totalProductBuy;
+        this.Price = Price;
     }
 
-    public String getIdBayar() {
-        return idBayar;
+    public String getIdPayment() {
+        return idPayment;
     }
 
-    public void setIdBayar(String idBayar) {
-        this.idBayar = idBayar;
+    public void setIdPayment(String idPayment) {
+        this.idPayment = idPayment;
     }
 
-    public String getIdPembeli() {
-        return idPembeli;
+    public String getNimPayment() {
+        return nimPayment;
     }
 
-    public void setIdPembeli(String idPembeli) {
-        this.idPembeli = idPembeli;
+    public void setNimPayment(String nimPayment) {
+        this.nimPayment = nimPayment;
     }
 
-    public String getIdProduk() {
-        return idProduk;
+    public String getIdProduct() {
+        return idProduct;
     }
 
-    public void setIdProduk(String idProduk) {
-        this.idProduk = idProduk;
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
     }
 
-    public String getNamaPenjual() {
-        return namaPenjual;
+    public String getNameSeller() {
+        return nameSeller;
     }
 
-    public void setNamaPenjual(String namaPenjual) {
-        this.namaPenjual = namaPenjual;
+    public void setNameSeller(String nameSeller) {
+        this.nameSeller = nameSeller;
     }
 
-    public String getNamaProduk() {
-        return namaProduk;
+    public String getNameProduct() {
+        return nameProduct;
     }
 
-    public void setNamaProduk(String namaProduk) {
-        this.namaProduk = namaProduk;
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
     }
 
-    public int getBanyakBeli() {
-        return banyakBeli;
+    public int getTotalProductBuy() {
+        return totalProductBuy;
     }
 
-    public void setBanyakBeli(int banyakBeli) {
-        this.banyakBeli = banyakBeli;
+    public void setTotalProductBuy(int totalProductBuy) {
+        this.totalProductBuy = totalProductBuy;
     }
 
-    public int getHarga() {
-        return harga;
+    public int getPrice() {
+        return Price;
     }
 
-    public void setHarga(int harga) {
-        this.harga = harga;
+    public void setPrice(int Price) {
+        this.Price = Price;
     }
     
     

@@ -1,6 +1,6 @@
 package control;
 
-import Database.DBconnProduk;
+import Database.DBconnProduct;
 import Model.Product;
 import java.util.List;
 import org.junit.Test;
@@ -33,7 +33,7 @@ public class Product_controlTest {
         ProductControl control = new ProductControl();
         
         String expected = "Iphon 20 Pro max +++";
-        List <Product> test = DBconnProduk.cariProduk(expected);
+        List <Product> test = DBconnProduct.cariProduk(expected);
         String actual = test.get(0).getNama();
         
         assertEquals(expected,actual);
@@ -45,7 +45,7 @@ public class Product_controlTest {
         ProductControl control = new ProductControl();
         
         String expected = "Elektronik";
-        List <Product> test = DBconnProduk.cariProdukKategori("Elektronik");
+        List <Product> test = DBconnProduct.cariProdukKategori("Elektronik");
         String actual = test.get(0).getKategori();
         
         assertEquals(expected,actual);

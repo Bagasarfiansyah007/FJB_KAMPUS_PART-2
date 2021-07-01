@@ -6,7 +6,7 @@
 package control;
 
 import Database.DBconnCheckOut;
-import Database.DBconnProduk;
+import Database.DBconnProduct;
 import Database.DBconnUser;
 import Model.CheckoutModel;
 import Model.FakultasModel;
@@ -35,7 +35,7 @@ public class PembeliControl <T>{
     
     // Controller
     public PembeliControl(T form){
-        listProduk = DBconnProduk.GetDataProduk();
+        listProduk = DBconnProduct.GetDataProduk();
         listUser = DBconnUser.GetDataUser();
         listCheckout = new ArrayList<CheckoutModel>();
         listCheckoutDb = DBconnCheckOut.getDataPayment();

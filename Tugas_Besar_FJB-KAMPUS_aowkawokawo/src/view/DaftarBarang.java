@@ -1,7 +1,7 @@
 
 package view;
 
-import Database.DBconnProduk;
+import Database.DBconnProduct;
 import control.LoginControl;
 import control.ProductControl;
 import control.RegistrasiControl;

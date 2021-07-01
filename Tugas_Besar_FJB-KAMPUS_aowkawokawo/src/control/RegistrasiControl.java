@@ -5,8 +5,8 @@
  */
 package control;
 
-import Database.DBconnFakultas;
-import Database.DBconnProdi;
+import Database.DBconnFaculty;
+import Database.DBconnStudyProgram;
 import Model.UserModel;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -34,8 +34,8 @@ public class RegistrasiControl {
     // Constructor
     public RegistrasiControl(RegisterGUI register){
         user = DBconnUser.GetDataUser();
-        fakultas = DBconnFakultas.GetDataFakultas() ;
-        prodi = DBconnProdi.GetDataProdi();
+        fakultas = DBconnFaculty.GetDataFakultas() ;
+        prodi = DBconnStudyProgram.GetDataProdi();
         this.registerForm = register;
     }
 

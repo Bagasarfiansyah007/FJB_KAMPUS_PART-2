@@ -5,7 +5,7 @@
  */
 package general;
 
-import Database.DBconnProduk;
+import Database.DBconnProduct;
 import Database.DBconnUser;
 import Model.Product;
 import Model.UserModel;
@@ -36,7 +36,7 @@ public class ConditionMethod {
 
         } else {
 
-            DBconnProduk.EditProduk(inputForm,cari);
+            DBconnProduct.EditProduk(inputForm,cari);
             DialogMessage.dialogFormSucsess(("sukses mengedit " + cari),"Suskses");
             
         }
@@ -62,7 +62,7 @@ public class ConditionMethod {
         if (!inputControl.findDataCondition(cari)) {
                     
             nim = listUser.get(index).getNim();
-            DBconnProduk.insertProduk(inputForm,cari,nim);
+            DBconnProduct.insertProduk(inputForm,cari,nim);
             DialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
 
         } else {

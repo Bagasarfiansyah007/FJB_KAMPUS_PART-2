@@ -13,7 +13,7 @@ import java.util.List;
 import view.EditProduk;
 import view.InputProduk;
 
-public class DBconnProduk {
+public class DBconnProduct {
     static final String DB_URL = "jdbc:mysql://localhost/Fjb_campus";
     static final String DB_USER = "root";
     static final String DB_PASS = "";

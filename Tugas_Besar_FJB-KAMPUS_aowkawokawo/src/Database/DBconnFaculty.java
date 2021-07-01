@@ -5,8 +5,8 @@
  */
 package Database;
 
+import static Database.DBconnUser.conn;
 import Model.FakultasModel;
-import Model.ProdiModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author AMS
  */
-public class DBconnProdi {
+public class DBconnFaculty {
     static final String DB_URL = "jdbc:mysql://localhost/Fjb_campus";
     static final String DB_USER = "root";
     static final String DB_PASS = "";
@@ -26,29 +26,28 @@ public class DBconnProdi {
     static Statement stmt;
     static ResultSet rs;
     
-    public static List<ProdiModel> GetDataProdi(){
+    public static List<FakultasModel> GetDataFakultas(){
         try{
-            ArrayList<ProdiModel> prodiList = new ArrayList<ProdiModel>();
+            ArrayList<FakultasModel> fakultasList = new ArrayList<FakultasModel>();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM prodi";
+            String sql = "SELECT * FROM Fakultas";
             rs = stmt.executeQuery(sql);
 
 
             while(rs.next()){
-                prodiList.add(new ProdiModel(rs.getString("kode_prodi"), rs.getString("kode_fakultas"),rs.getString("nama_prodi")));
+                fakultasList.add(new FakultasModel(rs.getString("kode_fakultas"), rs.getString("nama_fakultas")));
             }
 
             stmt.close();
             conn.close();
 
-            return prodiList;
+            return fakultasList;
 
         }catch(Exception e){
             e.printStackTrace();
             return null;
         }
     }
-    
 }

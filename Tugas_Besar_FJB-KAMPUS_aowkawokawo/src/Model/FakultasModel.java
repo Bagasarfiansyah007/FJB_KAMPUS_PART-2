@@ -10,38 +10,38 @@ package Model;
  * @author AMS
  */
 public class FakultasModel {
-    private String id_fakultas;
-    private String nama;
-    private String kode_prodi;
+    private String idFaculty;
+    private String nameFaculty;
+    private String studyProgramCode;
 
-    public FakultasModel(String id_fakultas, String nama) {
-        this.id_fakultas = id_fakultas;
-        this.nama = nama;
-        this.kode_prodi = kode_prodi;
+    public FakultasModel(String idFaculty, String nameFaculty) {
+        this.idFaculty = idFaculty;
+        this.nameFaculty = nameFaculty;
+        this.studyProgramCode = studyProgramCode;
     }
 
-    public String getId_fakultas() {
-        return id_fakultas;
+    public String getIdFaculty() {
+        return idFaculty;
     }
 
-    public void setId_fakultas(String id_fakultas) {
-        this.id_fakultas = id_fakultas;
+    public void setIdFaculty(String idFaculty) {
+        this.idFaculty = idFaculty;
     }
 
-    public String getNama() {
-        return nama;
+    public String getNameFaculty() {
+        return nameFaculty;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setNameFaculty(String nameFaculty) {
+        this.nameFaculty = nameFaculty;
     }
 
-    public String getKode_prodi() {
-        return kode_prodi;
+    public String getStudyProgramCode() {
+        return studyProgramCode;
     }
 
-    public void setKode_prodi(String kode_prodi) {
-        this.kode_prodi = kode_prodi;
+    public void setStudyProgramCode(String studyProgramCode) {
+        this.studyProgramCode = studyProgramCode;
     }
     
     

@@ -1,7 +1,7 @@
 
 package view;
 
-import Database.DBconnProduk;
+import Database.DBconnProduct;
 import control.ProductControl;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
