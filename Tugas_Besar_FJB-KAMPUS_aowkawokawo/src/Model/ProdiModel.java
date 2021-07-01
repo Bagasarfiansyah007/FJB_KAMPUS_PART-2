@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model;
 
 /**
@@ -10,38 +6,38 @@ package Model;
  * @author AMS
  */
 public class ProdiModel {
-    private String kode_prodi;
-    private String kode_fakultas;
-    private String nama_prodi;
+    private String studyProgramCode;
+    private String facultyCode;
+    private String studyProgramName;
 
-    public ProdiModel(String kode_prodi, String kode_fakultas, String nama_prodi) {
-        this.kode_prodi = kode_prodi;
-        this.kode_fakultas = kode_fakultas;
-        this.nama_prodi = nama_prodi;
+    public ProdiModel(String studyProgramCode, String facultyCode, String studyProgramName) {
+        this.studyProgramCode = studyProgramCode;
+        this.facultyCode = facultyCode;
+        this.studyProgramName = studyProgramName;
     }
 
-    public String getKodeProdi() {
-        return kode_prodi;
+    public String getStudyProgramCode() {
+        return studyProgramCode;
     }
 
-    public void setKodeProdi(String kode_prodi) {
-        this.kode_prodi = kode_prodi;
+    public void setStudyProgramCode(String studyProgramCode) {
+        this.studyProgramCode = studyProgramCode;
     }
 
-    public String getKodeFakultas() {
-        return kode_fakultas;
+    public String getFacultyCode() {
+        return facultyCode;
     }
 
-    public void setKodeFakultas(String kode_fakultas) {
-        this.kode_fakultas = kode_fakultas;
+    public void setFacultyCode(String facultyCode) {
+        this.facultyCode = facultyCode;
     }
 
-    public String getNamaProdi() {
-        return nama_prodi;
+    public String getStudyProgramName() {
+        return studyProgramName;
     }
 
-    public void setNamaProdi(String nama_prodi) {
-        this.nama_prodi = nama_prodi;
+    public void setStudyProgramName(String studyProgramName) {
+        this.studyProgramName = studyProgramName;
     }
     
     

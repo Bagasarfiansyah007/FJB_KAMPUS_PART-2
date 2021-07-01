@@ -10,68 +10,68 @@ package Model;
  * @author AMS
  */
 public class Product {
-    private String kode_product;
-    private String nim;
-    private String nama;
-    private String kategori;
-    private int harga;
+    private String productCode;
+    private String nimSeller;
+    private String nameProduct;
+    private String categoryProduct;
+    private int price;
     private int stok;
 
-    public Product(String kode_product,String nim,String nama, String kategori,int stok ,int harga) {
-        this.kode_product = kode_product;
-        this.nim = nim;
-        this.nama = nama;
-        this.kategori = kategori;
+    public Product(String productCode,String nimSeller,String nameProduct, String categoryProduct,int stok ,int price) {
+        this.productCode = productCode;
+        this.nimSeller = nimSeller;
+        this.nameProduct = nameProduct;
+        this.categoryProduct = categoryProduct;
         this.stok = stok;
-        this.harga = harga;
+        this.price = price;
     }
 
-    public String getNim() {
-        return nim;
+    public String getNimSeller() {
+        return nimSeller;
     }
 
     public int getStok() {
         return stok;
     }
     
-    public String getKode_product() {
-        return kode_product;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public String getNama() {
-        return nama;
+    public String getProducrName() {
+        return nameProduct;
     }
 
-    public String getKategori() {
-        return kategori;
+    public String getProductCategory() {
+        return categoryProduct;
     }
 
-    public int getHarga() {
-        return harga;
+    public int getPrice() {
+        return price;
     }
 
-    public void setNim(String nim) {
-        this.nim = nim;
+    public void setNimSeller(String nimSeller) {
+        this.nimSeller = nimSeller;
     }
 
     public void setStok(int stok) {
         this.stok = stok;
     }
     
-    public void setKode_product(String kode_product) {
-        this.kode_product = kode_product;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setProducrName(String nameProduct) {
+        this.nameProduct = nameProduct;
     }
 
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
+    public void setProductCategory(String categoryProduct) {
+        this.categoryProduct = categoryProduct;
     }
 
-    public void setHarga(int harga) {
-        this.harga = harga;
+    public void setPrice(int price) {
+        this.price = price;
     }
     
 }

@@ -75,13 +75,13 @@ public class PembeliControl <T>{
     
     public void inputDataTable (HistoryGUI form,List <CheckoutModel> list,List <UserModel> list2,Object[] tabel,int index) {
         for (int i = 0 ; i < list.size();i++){
-           if (list.get(i).getIdPembeli().intern() == list2.get(index).getNim().intern()) {
-               tabel[0] = list.get(i).getIdBayar();
-               tabel[1] = list.get(i).getIdProduk();
-               tabel[2] = list.get(i).getNamaPenjual();
-               tabel[3] = list.get(i).getNamaProduk();
-               tabel[4] = list.get(i).getBanyakBeli();
-               tabel[5] = list.get(i).getHarga();
+           if (list.get(i).getNimPayment().intern() == list2.get(index).getNim().intern()) {
+               tabel[0] = list.get(i).getIdPayment();
+               tabel[1] = list.get(i).getIdProduct();
+               tabel[2] = list.get(i).getNameSeller();
+               tabel[3] = list.get(i).getNameProduct();
+               tabel[4] = list.get(i).getTotalProductBuy();
+               tabel[5] = list.get(i).getPrice();
                form.modelTable.addRow(tabel);
            }
         }
@@ -89,13 +89,13 @@ public class PembeliControl <T>{
 
     public void insertDatabase(int index,int alamatLogin,List <CheckoutModel> listCheckout){
         String kodeBayar = "";
-        kodeBayar = listCheckout.get(index).getIdBayar();
+        kodeBayar = listCheckout.get(index).getIdPayment();
         String nim = listUser.get(alamatLogin).getNim();
-        String kodeProduk = listCheckout.get(index).getIdProduk();
+        String kodeProduk = listCheckout.get(index).getIdProduct();
         String namaPenjual = findNameSeller(index);
-        String namaProduk = listCheckout.get(index).getNamaProduk();
-        int banyakBeli = listCheckout.get(index).getBanyakBeli();
-        int harga = listCheckout.get(index).getHarga();
+        String namaProduk = listCheckout.get(index).getNameProduct();
+        int banyakBeli = listCheckout.get(index).getTotalProductBuy();
+        int harga = listCheckout.get(index).getPrice();
         
         DBconnCheckOut.insertPayment(kodeBayar, nim, kodeProduk, namaPenjual, namaProduk, banyakBeli, harga);
         DialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil Dibeli","sukses");
@@ -107,7 +107,7 @@ public class PembeliControl <T>{
     public String inputIdListBayar(String kodeBayar){
         String currentData = "";
         if (listCheckout.size() == 0) {
-            currentData = listCheckoutDb.get(listCheckoutDb.size()-1).getIdBayar();
+            currentData = listCheckoutDb.get(listCheckoutDb.size()-1).getIdPayment();
             int hitung;
             if (Integer.parseInt(currentData.substring(2)) == 9) {
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
@@ -120,7 +120,7 @@ public class PembeliControl <T>{
                 kodeBayar = "P0" + String.valueOf(hitung);
             }
         } else {
-            currentData = listCheckout.get(listCheckout.size()-1).getIdBayar();
+            currentData = listCheckout.get(listCheckout.size()-1).getIdPayment();
             int hitung;
             if (Integer.parseInt(currentData.substring(2)) == 9) {
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
