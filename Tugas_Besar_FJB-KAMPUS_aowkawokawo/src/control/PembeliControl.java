@@ -50,10 +50,10 @@ public class PembeliControl <T>{
         kodeBayar = inputIdListBayar(kodeBayar);
         String nim = listUser.get(alamatLogin).getNim();
         String namaPenjual = findNameSeller(index);
-        String kodeProduk = listProduk.get(index).getKode_product();
-        String namaProduk = listProduk.get(index).getNama();
+        String kodeProduk = listProduk.get(index).getProductCode();
+        String namaProduk = listProduk.get(index).getProducrName();
         int banyakBeli = 1;
-        int harga = listProduk.get(index).getHarga();
+        int harga = listProduk.get(index).getPrice();
         
         listCheckout.add(new CheckoutModel(kodeBayar,nim,kodeProduk,namaPenjual,namaProduk,banyakBeli,harga));
         DialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");

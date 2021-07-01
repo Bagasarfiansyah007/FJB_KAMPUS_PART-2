@@ -12,23 +12,33 @@ package Model;
 public class UserModel {
 
     private String nim;
-    private String nama;
-    private String fakultas;
-    private String noTelpon;
-    private String prodi;
+    private String Name;
+    private String faculty;
+    private String telphoneNumber;
+    private String studyProgram;
     private String email;
-    private String Password;
+    private String Paswword;
     private int saldo;
     
     // Constructor
-    public UserModel(String nim, String nama, String fakultas, String noTelpon, String prodi, String email, String Password, int saldo) {
+    public UserModel
+    (
+        String nim, 
+        String Name, 
+        String faculty, 
+        String telphoneNumber, 
+        String studyProgram, 
+        String email, 
+        String Paswword, 
+        int saldo
+    ) {
         this.nim = nim;
-        this.nama = nama;
-        this.fakultas = fakultas;
-        this.noTelpon = noTelpon;
-        this.prodi = prodi;
+        this.Name = Name;
+        this.faculty = faculty;
+        this.telphoneNumber = telphoneNumber;
+        this.studyProgram = studyProgram;
         this.email = email;
-        this.Password = Password;
+        this.Paswword = Paswword;
         this.saldo = saldo;
     }
 
@@ -45,24 +55,24 @@ public class UserModel {
         this.nim = nim;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setName(String name) {
+        this.Name = Name;
     }
 
-    public void setFakultas(String fakultas) {
-        this.fakultas = fakultas;
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
     }
 
-    public void setNoTelpon(String noTelpon) {
-        this.noTelpon = noTelpon;
+    public void setNoTelphone(String telphoneNumber) {
+        this.telphoneNumber = telphoneNumber;
     }
 
-    public void setProdi(String prodi) {
-        this.prodi = prodi;
+    public void setStudyProgram(String studyProgram) {
+        this.studyProgram = studyProgram;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPaswword(String password) {
+        this.Paswword = Paswword;
     }
 
     public void setSaldo(int saldo) {
@@ -74,24 +84,24 @@ public class UserModel {
         return nim;
     }
 
-    public String getNama() {
-        return nama;
+    public String getName() {
+        return Name;
     }
 
-    public String getFakultas() {
-        return fakultas;
+    public String getFaculty() {
+        return faculty;
     }
 
-    public String getNoTelpon() {
-        return noTelpon;
+    public String getNoTelphone() {
+        return telphoneNumber;
     }
 
-    public String getProdi() {
-        return prodi;
+    public String getStudyProgram() {
+        return studyProgram;
     }
 
-    public String getPassword() {
-        return Password;
+    public String getPaswword() {
+        return Paswword;
     }
 
     public int getSaldo() {
