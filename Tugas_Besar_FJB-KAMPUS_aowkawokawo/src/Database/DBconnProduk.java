@@ -1,6 +1,6 @@
     package Database;
 
-import static Database.DBconn_user.rs;
+import static Database.DBconnUser.rs;
 import Model.Product;
 import Model.UserModel;
 import java.sql.Connection;

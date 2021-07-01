@@ -28,9 +28,9 @@ public class DBconnCheckOut {
     static Statement stmt;
     static ResultSet rs;
     
-    public static List<CheckoutModel> GetDataPembayaran(){
+    public static List<CheckoutModel> getDataPayment(){
         try{
-            ArrayList<CheckoutModel> pembayaranList = new ArrayList<CheckoutModel>();
+            ArrayList<CheckoutModel> paymentList = new ArrayList<CheckoutModel>();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
 
@@ -39,13 +39,21 @@ public class DBconnCheckOut {
 
 
             while(rs.next()){
-                pembayaranList.add(new CheckoutModel(rs.getString("id_bayar"), rs.getString("id_pembeli"), rs.getString("id_produk"), rs.getString("nama_penjual"), rs.getString("nama_produk"), rs.getInt("banyak_beli"), rs.getInt("harga")));
+                paymentList.add(new CheckoutModel(
+                        rs.getString("id_bayar"), 
+                        rs.getString("id_pembeli"),
+                        rs.getString("id_produk"), 
+                        rs.getString("nama_penjual"),
+                        rs.getString("nama_produk"), 
+                        rs.getInt("banyak_beli"), 
+                        rs.getInt("harga"))
+                );
             }
 
             stmt.close();
             conn.close();
 
-            return pembayaranList;
+            return paymentList;
 
         }catch(Exception e){
             e.printStackTrace();
@@ -53,12 +61,26 @@ public class DBconnCheckOut {
         }
     }
     
-    public static void insertPembayaran(String kodeBayar,String idPembeli,String idProduk,String namaPenjual,String namaProduk,int banyakBeli,int harga){
+    public static void insertPayment
+    (
+        String codePayment,String nim,String 
+        idProduct,String nameSeller,String nameProduct,
+        int totalProductBuy,int price)
+    {
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
             
-            String sql = "INSERT INTO pembayaran (id_bayar,id_pembeli,id_produk,nama_penjual,nama_produk,banyak_beli,harga)VALUES('"+kodeBayar+"','"+idPembeli+"','"+idProduk+"','"+namaPenjual+"','"+namaProduk+"','"+banyakBeli+"','"+harga+"')";
+            String sql = "INSERT INTO pembayaran ("
+                            + "id_bayar,id_pembeli,id_produk,"
+                            + "nama_penjual,nama_produk,banyak_beli,"
+                            + "harga"
+                        + ") VALUES ('"
+                                +codePayment+"','"+nim+"','"+idProduct+"','"
+                                +nameSeller+"','"+nameProduct+"','"+totalProductBuy+"','"
+                                +price+
+                            "')";
+            
             stmt.execute(sql);
             stmt.close();
             conn.close();
@@ -67,12 +89,12 @@ public class DBconnCheckOut {
         }
     }
     
-    public static void updateSaldo(int harga,String nim){
+    public static void updateSaldo(int price,String nim){
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
             
-            String sql = "UPDATE user SET saldo = '"+ harga + "' WHERE nim ='"+ nim + "'";            
+            String sql = "UPDATE user SET saldo = '"+ price + "' WHERE nim ='"+ nim + "'";            
             stmt.execute(sql);
             stmt.close();
             conn.close();

@@ -6,7 +6,7 @@
 package view;
 
 import control.LoginControl;
-import Database.DBconn_user;
+import Database.DBconnUser;
 
 public class LogInGUI extends javax.swing.JFrame {
 

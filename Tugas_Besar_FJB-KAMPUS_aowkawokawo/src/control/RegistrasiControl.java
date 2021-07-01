@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.RegisterGUI;
-import Database.DBconn_user;
+import Database.DBconnUser;
 import Model.FakultasModel;
 import Model.ProdiModel;
-import general.conditionMethod;
-import general.dialogMessage;
+import general.ConditionMethod;
+import general.DialogMessage;
 import java.util.List;
 import view.LogInGUI;
 
@@ -33,7 +33,7 @@ public class RegistrasiControl {
     
     // Constructor
     public RegistrasiControl(RegisterGUI register){
-        user = DBconn_user.GetDataUser();
+        user = DBconnUser.GetDataUser();
         fakultas = DBconnFakultas.GetDataFakultas() ;
         prodi = DBconnProdi.GetDataProdi();
         this.registerForm = register;
@@ -41,26 +41,26 @@ public class RegistrasiControl {
 
     // Main procedure
     public void isiData(RegisterGUI register){
-        if (conditionMethod.isFieldNimEmpty(register)){
+        if (ConditionMethod.isFieldNimEmpty(register)){
             
-            dialogMessage.dialogFormWarning("Nim masih kosong!","Warning");
+            DialogMessage.dialogFormWarning("Nim masih kosong!","Warning");
             
-        } else if (conditionMethod.isTextFieldEmpty(register)) { 
+        } else if (ConditionMethod.isTextFieldEmpty(register)) { 
             
-            dialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
+            DialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
             
         } else {
             
             String nim = register.getTxtNim();
             
-            if (conditionMethod.isListEmpty(user)) {
+            if (ConditionMethod.isListEmpty(user)) {
                 
-                DBconn_user.InsertData(register);
-                dialogMessage.dialogFormSucsess(("sukses memasukan " + nim),"Suskses");
+                DBconnUser.InsertData(register);
+                DialogMessage.dialogFormSucsess(("sukses memasukan " + nim),"Suskses");
                 
             } else {
                 
-                conditionMethod.whenDataIsFind(user,nim,this,register);
+                ConditionMethod.whenDataIsFind(user,nim,this,register);
             
             }
             

@@ -7,7 +7,7 @@ package view;
 
 import Model.FakultasModel;
 import control.RegistrasiControl;
-import general.dialogMessage;
+import general.DialogMessage;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
@@ -218,7 +218,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         try {
             control.isiData(this);
         } catch (Exception e) {
-            dialogMessage.dialogFormWarning("Tipe data yang dimasukan Salah !", "warning");
+            DialogMessage.dialogFormWarning("Tipe data yang dimasukan Salah !", "warning");
         }
     }//GEN-LAST:event_buttonRegisterActionPerformed
 

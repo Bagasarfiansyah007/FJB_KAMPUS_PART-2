@@ -5,7 +5,7 @@
  */
 package Database;
 
-import static Database.DBconn_user.conn;
+import static Database.DBconnUser.conn;
 import Model.FakultasModel;
 import java.sql.Connection;
 import java.sql.DriverManager;

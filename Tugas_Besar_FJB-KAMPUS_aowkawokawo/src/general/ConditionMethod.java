@@ -6,7 +6,7 @@
 package general;
 
 import Database.DBconnProduk;
-import Database.DBconn_user;
+import Database.DBconnUser;
 import Model.Product;
 import Model.UserModel;
 import control.ProductControl;
@@ -22,7 +22,7 @@ import view.RegisterGUI;
  *
  * @author AMS
  */
-public class conditionMethod {
+public class ConditionMethod {
     
     // General    
     public static <T> boolean isListEmpty(List <T> list){
@@ -32,12 +32,12 @@ public class conditionMethod {
     public static void whenDataIsFind(String cari,ProductControl inputControl,EditProduk inputForm){
         if (!inputControl.findDataCondition(cari)) {
                     
-            dialogMessage.dialogFormWarning(("Data dengan kode " + cari + " tidak ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan kode " + cari + " tidak ada"),"Warning");
 
         } else {
 
             DBconnProduk.EditProduk(inputForm,cari);
-            dialogMessage.dialogFormSucsess(("sukses mengedit " + cari),"Suskses");
+            DialogMessage.dialogFormSucsess(("sukses mengedit " + cari),"Suskses");
             
         }
     }
@@ -45,15 +45,15 @@ public class conditionMethod {
     public static void whenDataIsFind(List list,String cari,RegistrasiControl inputControl,RegisterGUI inputForm){
         if (!inputControl.findAccountIsAlreadyExist(list,cari)) {
                     
-            DBconn_user.InsertData(inputForm);
-            dialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
+            DBconnUser.InsertData(inputForm);
+            DialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
             LogInGUI formLogin = new LogInGUI();
             formLogin.show();
             inputForm.dispose();
 
         } else {
 
-            dialogMessage.dialogFormWarning(("Data dengan nim " + cari + " Sudah ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan nim " + cari + " Sudah ada"),"Warning");
 
         }
     }
@@ -63,11 +63,11 @@ public class conditionMethod {
                     
             nim = listUser.get(index).getNim();
             DBconnProduk.insertProduk(inputForm,cari,nim);
-            dialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
+            DialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
 
         } else {
 
-            dialogMessage.dialogFormWarning(("Data dengan kode " + cari + " Sudah ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan kode " + cari + " Sudah ada"),"Warning");
 
         }
     }

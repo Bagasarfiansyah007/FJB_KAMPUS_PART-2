@@ -6,11 +6,11 @@
 package view;
 
 import Database.DBconnCheckOut;
-import Database.DBconn_user;
+import Database.DBconnUser;
 import Model.CheckoutModel;
 import control.PembeliControl;
 import control.ProductControl;
-import general.dialogMessage;
+import general.DialogMessage;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.SpinnerNumberModel;
@@ -469,7 +469,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
        try {
            setTitelPreviewPriceAllProduct();
        } catch (Exception e) {
-           dialogMessage.dialogFormWarning("Kesalahan input", "warning");
+           DialogMessage.dialogFormWarning("Kesalahan input", "warning");
        }
         
     }//GEN-LAST:event_submitBtnActionPerformed
@@ -505,7 +505,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
             setSemuaProdukHarga();jListBarang.setModel(ListCheckout);;
             metodePembayaran.dispose();
         } catch (Exception e){
-            dialogMessage.dialogFormWarning("Data tidak masuk", "Warning");
+            DialogMessage.dialogFormWarning("Data tidak masuk", "Warning");
         }
     }//GEN-LAST:event_bankBtnActionPerformed
 
@@ -519,7 +519,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
 
     private void btnBayarSekarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarSekarangActionPerformed
         if (Harga > getSaldo()) {
-            dialogMessage.dialogFormWarning("Maaf Saldo anda tidak cukup untuk melakukan pembelian", "warning");
+            DialogMessage.dialogFormWarning("Maaf Saldo anda tidak cukup untuk melakukan pembelian", "warning");
         } else {
             try {
                 
@@ -530,7 +530,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
                 dialogEwallet.dispose();
                 
             } catch (Exception e){
-                dialogMessage.dialogFormWarning("Data tidak masuk", "Warning");
+                DialogMessage.dialogFormWarning("Data tidak masuk", "Warning");
             }
         }
     }//GEN-LAST:event_btnBayarSekarangActionPerformed
@@ -539,7 +539,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
        try {
            setNewSaldo();
        } catch (Exception e) {
-           dialogMessage.dialogFormWarning("Kesalahan input", "warning");
+           DialogMessage.dialogFormWarning("Kesalahan input", "warning");
        }
            
     }//GEN-LAST:event_increasBtnActionPerformed
@@ -639,7 +639,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
             setSemuaProdukHarga();
             totalHargaProduk.setText(String.valueOf(totalHarga));
         } else {
-            dialogMessage.dialogFormWarning("Stok Produk Melebihi kapasitas !", "warning");
+            DialogMessage.dialogFormWarning("Stok Produk Melebihi kapasitas !", "warning");
         }
     }
     
@@ -657,7 +657,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
             totalSaldo = Harga - control.listUser.get(alamatLogin).getSaldo() ;
         }
         DBconnCheckOut.updateSaldo(totalSaldo,control.listUser.get(alamatLogin).getNim());
-        control.listUser = DBconn_user.GetDataUser();
+        control.listUser = DBconnUser.GetDataUser();
         setSemuaProdukHarga();
         jListBarang.setModel(ListCheckout);
     }
@@ -666,8 +666,8 @@ public class CheckOutGUI extends javax.swing.JFrame {
         int saldoTambah = Integer.parseInt(txtTambahSaldo.getText());
         int saldoTotal = control.listUser.get(alamatLogin).getSaldo() + saldoTambah;
         DBconnCheckOut.updateSaldo(saldoTotal,control.listUser.get(alamatLogin).getNim());
-        control.listUser = DBconn_user.GetDataUser();
-        dialogMessage.dialogFormSucsess("Saldo berhasil ditambahkan menjadi " + String.valueOf(saldoTotal), "suksess");
+        control.listUser = DBconnUser.GetDataUser();
+        DialogMessage.dialogFormSucsess("Saldo berhasil ditambahkan menjadi " + String.valueOf(saldoTotal), "suksess");
         tambahSaldo.dispose();
         dialogEwallet.show();
     }

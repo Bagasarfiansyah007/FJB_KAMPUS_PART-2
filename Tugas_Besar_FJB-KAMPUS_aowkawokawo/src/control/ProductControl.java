@@ -3,11 +3,11 @@ package control;
 import Database.DBconnFakultas;
 import Database.DBconnProdi;
 import Database.DBconnProduk;
-import Database.DBconn_user;
+import Database.DBconnUser;
 import Model.Product;
 import Model.UserModel;
-import general.conditionMethod;
-import general.dialogMessage;
+import general.ConditionMethod;
+import general.DialogMessage;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
@@ -30,13 +30,13 @@ public class ProductControl <T>{
     // Constructor
     public ProductControl(T form){
         listProduk = DBconnProduk.GetDataProduk();
-        listUser = DBconn_user.GetDataUser();
+        listUser = DBconnUser.GetDataUser();
         this.form = form;
     }
     
     public ProductControl(){
         listProduk = DBconnProduk.GetDataProduk();
-        listUser = DBconn_user.GetDataUser();
+        listUser = DBconnUser.GetDataUser();
         this.form = form;
     }
     
@@ -53,7 +53,7 @@ public class ProductControl <T>{
            inputDataTable (formDaftaBarang,listProduk,listUser,tabel,index);
         
         }catch(Exception e){
-            dialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
+            DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
@@ -67,7 +67,7 @@ public class ProductControl <T>{
            inputDataTable (pembeli,listProduk,tabel);
 
         }catch(Exception e){
-            dialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
+            DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
@@ -82,7 +82,7 @@ public class ProductControl <T>{
            inputDataTable (pembeli,listProdukCari,tabel);
                 
         }catch(Exception e){
-            dialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
+            DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
@@ -98,7 +98,7 @@ public class ProductControl <T>{
                 
         }catch(Exception e){
             System.out.println("Data Kosong dan belum masuk");
-            dialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
+            DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
@@ -106,23 +106,23 @@ public class ProductControl <T>{
         String kodeProduk = "";
         String nim = "";
         
-        if (conditionMethod.isTextFieldEmpty(input) == true) {
+        if (ConditionMethod.isTextFieldEmpty(input) == true) {
             
-            dialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
+            DialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
         
         } else {
             
-            if (conditionMethod.isListEmpty(listProduk) == true) {
+            if (ConditionMethod.isListEmpty(listProduk) == true) {
                 
                 kodeProduk = inputKodeProduk(kodeProduk);
                 nim = listUser.get(index).getNim();
                 DBconnProduk.insertProduk(input,kodeProduk,nim);
-                dialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
+                DialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
             
             } else {
                 
                 kodeProduk = inputKodeProduk(kodeProduk);
-                conditionMethod.whenDataIsFind(listUser,index,kodeProduk,nim,this,input);
+                ConditionMethod.whenDataIsFind(listUser,index,kodeProduk,nim,this,input);
                 
             }
         }
@@ -131,21 +131,21 @@ public class ProductControl <T>{
     public void EditDataBarang(EditProduk input,int index){
         String kodeProduk = "";
         
-        if (conditionMethod.isTextFieldEmpty(input) == true) { 
+        if (ConditionMethod.isTextFieldEmpty(input) == true) { 
             
-            dialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
+            DialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
             
         } else {
-            if (conditionMethod.isListEmpty(listProduk) == true) {
+            if (ConditionMethod.isListEmpty(listProduk) == true) {
                 
                 kodeProduk = listProduk.get(index).getKode_product();
                 DBconnProduk.EditProduk(input,kodeProduk);
-                dialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
+                DialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
                 
             } else {
                 
                 kodeProduk = listProduk.get(index).getKode_product();
-                conditionMethod.whenDataIsFind(kodeProduk,this,input);
+                ConditionMethod.whenDataIsFind(kodeProduk,this,input);
                 
             }
         }
@@ -155,13 +155,13 @@ public class ProductControl <T>{
         String kodeProduk = "";
         kodeProduk = form.modelTable.getValueAt(form.getTableProduk().getSelectedRow(),0).toString();
         if (findDataCondition(kodeProduk) == false) {
-            dialogMessage.dialogFormWarning(("Data dengan kode " + kodeProduk + " tidak ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan kode " + kodeProduk + " tidak ada"),"Warning");
         } else {
             DBconnProduk.deleteData(kodeProduk);
             form.getDialogShow().dispose();
             listProduk = DBconnProduk.GetDataProduk();
             GetDataProduk(form,index);
-            dialogMessage.dialogFormSucsess(("sukses menghapus " + kodeProduk),"Suskses");
+            DialogMessage.dialogFormSucsess(("sukses menghapus " + kodeProduk),"Suskses");
         }
     }
     

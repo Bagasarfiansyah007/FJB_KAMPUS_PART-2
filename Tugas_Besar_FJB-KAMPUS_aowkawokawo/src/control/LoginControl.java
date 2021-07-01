@@ -1,9 +1,9 @@
 package control;
 
-import Database.DBconn_user;
+import Database.DBconnUser;
 import Model.UserModel;
-import general.conditionMethod;
-import general.dialogMessage;
+import general.ConditionMethod;
+import general.DialogMessage;
 import java.util.List;
 import javax.swing.JOptionPane;
 import view.LogInAkunGUI;
@@ -19,28 +19,28 @@ public class LoginControl <T>{
 
     // Constructor
     public LoginControl(T form){
-        user = DBconn_user.GetDataUser();
+        user = DBconnUser.GetDataUser();
         this.form = form;
     }
     
     public LoginControl(){
-        user = DBconn_user.GetDataUser();
+        user = DBconnUser.GetDataUser();
         this.form = form;
     }
     
     // Main procedure
     public void cekDataUserLogin (LogInGUI login,String nim,String password){
-        if (conditionMethod.isAllfieldIsemptyOnlogin(login) == true){
+        if (ConditionMethod.isAllfieldIsemptyOnlogin(login) == true){
             
-            dialogMessage.dialogFormWarning("Tolong isi field nim dan password", "Warning");
+            DialogMessage.dialogFormWarning("Tolong isi field nim dan password", "Warning");
             
-        } else if (conditionMethod.isFieldUsernameEmpty(login) == true) {
+        } else if (ConditionMethod.isFieldUsernameEmpty(login) == true) {
             
-            dialogMessage.dialogFormWarning("Tolong isi field nim", "Warning");
+            DialogMessage.dialogFormWarning("Tolong isi field nim", "Warning");
             
-        } else if (conditionMethod.isFieldPasswordEmpty(login) == true) {
+        } else if (ConditionMethod.isFieldPasswordEmpty(login) == true) {
             
-            dialogMessage.dialogFormWarning("Tolong isi field Password", "Warning");
+            DialogMessage.dialogFormWarning("Tolong isi field Password", "Warning");
             
         } else {
             
@@ -49,14 +49,14 @@ public class LoginControl <T>{
             
             if (find == true ) {
            
-                dialogMessage.dialogFormSucsess("sukses Login sebagai " + nim, "Suskses");
+                DialogMessage.dialogFormSucsess("sukses Login sebagai " + nim, "Suskses");
                 LogInAkunGUI menuHome = new LogInAkunGUI(index);
                 login.dispose();
                 menuHome.show();
                 
             } else {
                 
-                dialogMessage.dialogFormWarning("Data tidak ditemukan","Warning");
+                DialogMessage.dialogFormWarning("Data tidak ditemukan","Warning");
                 
             }
         }

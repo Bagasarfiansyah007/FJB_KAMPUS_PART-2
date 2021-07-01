@@ -7,12 +7,12 @@ package control;
 
 import Database.DBconnCheckOut;
 import Database.DBconnProduk;
-import Database.DBconn_user;
+import Database.DBconnUser;
 import Model.CheckoutModel;
 import Model.FakultasModel;
 import Model.Product;
 import Model.UserModel;
-import general.dialogMessage;
+import general.DialogMessage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -36,9 +36,9 @@ public class PembeliControl <T>{
     // Controller
     public PembeliControl(T form){
         listProduk = DBconnProduk.GetDataProduk();
-        listUser = DBconn_user.GetDataUser();
+        listUser = DBconnUser.GetDataUser();
         listCheckout = new ArrayList<CheckoutModel>();
-        listCheckoutDb = DBconnCheckOut.GetDataPembayaran();
+        listCheckoutDb = DBconnCheckOut.getDataPayment();
         this.formPembeli = formPembeli;
     }
     
@@ -56,7 +56,7 @@ public class PembeliControl <T>{
         int harga = listProduk.get(index).getHarga();
         
         listCheckout.add(new CheckoutModel(kodeBayar,nim,kodeProduk,namaPenjual,namaProduk,banyakBeli,harga));
-        dialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
+        DialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
     }
     
     public void GetDataProduk(HistoryGUI formHistory,int index){
@@ -69,7 +69,7 @@ public class PembeliControl <T>{
            inputDataTable(formHistory,listCheckoutDb,listUser,tabel,index);
         
         }catch(Exception e){
-            dialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
+            DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
@@ -97,8 +97,8 @@ public class PembeliControl <T>{
         int banyakBeli = listCheckout.get(index).getBanyakBeli();
         int harga = listCheckout.get(index).getHarga();
         
-        DBconnCheckOut.insertPembayaran(kodeBayar, nim, kodeProduk, namaPenjual, namaProduk, banyakBeli, harga);
-        dialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil Dibeli","sukses");
+        DBconnCheckOut.insertPayment(kodeBayar, nim, kodeProduk, namaPenjual, namaProduk, banyakBeli, harga);
+        DialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil Dibeli","sukses");
     }
     
     

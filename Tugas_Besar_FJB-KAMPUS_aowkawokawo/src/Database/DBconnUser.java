@@ -15,7 +15,7 @@ import view.RegisterGUI;
  *
  * @author AMS
  */
-public class DBconn_user {
+public class DBconnUser {
         static final String DB_URL = "jdbc:mysql://localhost/Fjb_campus";
         static final String DB_USER = "root";
         static final String DB_PASS = "";

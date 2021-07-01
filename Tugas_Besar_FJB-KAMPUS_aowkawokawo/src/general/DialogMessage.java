@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author AMS
  */
-public class dialogMessage {
+public class DialogMessage {
     
     // Diaolog message;
     public static void dialogFormWarning (String message,String title){
