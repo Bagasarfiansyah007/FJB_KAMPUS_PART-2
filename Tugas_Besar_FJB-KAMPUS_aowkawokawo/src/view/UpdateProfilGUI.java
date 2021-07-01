@@ -11,174 +11,142 @@ public class UpdateProfilGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        NamaTxt = new javax.swing.JLabel();
-        NimTxt = new javax.swing.JLabel();
-        MailTxt = new javax.swing.JLabel();
-        NoTelephoneTxt = new javax.swing.JLabel();
-        PasswordTxt = new javax.swing.JLabel();
-        SaldoTxt = new javax.swing.JLabel();
-        FakultasTxt = new javax.swing.JLabel();
-        ProdiTxt = new javax.swing.JLabel();
-        NamaField = new javax.swing.JTextField();
-        NimField = new javax.swing.JTextField();
-        MailField = new javax.swing.JTextField();
-        NoTelephoneField = new javax.swing.JTextField();
-        PasswordField = new javax.swing.JTextField();
-        SaldoField = new javax.swing.JTextField();
-        FakultasField = new javax.swing.JTextField();
-        ProdiField = new javax.swing.JTextField();
-        SimpanButton = new javax.swing.JButton();
-        InputDataTxt = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelUpdateData = new javax.swing.JPanel();
+        namaTxt = new javax.swing.JLabel();
+        nimTxt = new javax.swing.JLabel();
+        mailTxt = new javax.swing.JLabel();
+        noTelephoneTxt = new javax.swing.JLabel();
+        passwordTxt = new javax.swing.JLabel();
+        saldoTxt = new javax.swing.JLabel();
+        fakultasTxt = new javax.swing.JLabel();
+        prodiTxt = new javax.swing.JLabel();
+        namaField = new javax.swing.JTextField();
+        nimField = new javax.swing.JTextField();
+        mailField = new javax.swing.JTextField();
+        noTelephoneField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JTextField();
+        saldoField = new javax.swing.JTextField();
+        fakultasField = new javax.swing.JTextField();
+        prodiField = new javax.swing.JTextField();
+        simpanButton = new javax.swing.JButton();
+        updateDataTitle = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setOpaque(false);
+        panelUpdateData.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        namaTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        namaTxt.setText("Nama");
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 620, -1));
+        nimTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        nimTxt.setText("Nim");
 
-        jPanel2.setOpaque(false);
+        mailTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        mailTxt.setText("E-Mail");
 
-        NamaTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        NamaTxt.setText("Nama");
+        noTelephoneTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        noTelephoneTxt.setText("No Telephone");
 
-        NimTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        NimTxt.setText("Nim");
+        passwordTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        passwordTxt.setText("Password");
 
-        MailTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        MailTxt.setText("E-Mail");
+        saldoTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        saldoTxt.setText("Isi Saldo");
 
-        NoTelephoneTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        NoTelephoneTxt.setText("No Telephone");
+        fakultasTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        fakultasTxt.setText("Fakultas");
 
-        PasswordTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        PasswordTxt.setText("Password");
+        prodiTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        prodiTxt.setText("Prodi");
 
-        SaldoTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        SaldoTxt.setText("Isi Saldo");
+        simpanButton.setText("Simpan");
 
-        FakultasTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        FakultasTxt.setText("Fakultas");
+        updateDataTitle.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        updateDataTitle.setText("Update Data");
 
-        ProdiTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        ProdiTxt.setText("Prodi");
-
-        SimpanButton.setText("Simpan");
-
-        InputDataTxt.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        InputDataTxt.setText("Update Data");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelUpdateDataLayout = new javax.swing.GroupLayout(panelUpdateData);
+        panelUpdateData.setLayout(panelUpdateDataLayout);
+        panelUpdateDataLayout.setHorizontalGroup(
+            panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateDataLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ProdiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FakultasTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SaldoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NoTelephoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NamaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(prodiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fakultasTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saldoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(noTelephoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(namaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(SimpanButton)
+                .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUpdateDataLayout.createSequentialGroup()
+                        .addComponent(simpanButton)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(NamaField)
-                    .addComponent(NimField)
-                    .addComponent(MailField)
-                    .addComponent(NoTelephoneField)
-                    .addComponent(PasswordField)
-                    .addComponent(SaldoField)
-                    .addComponent(FakultasField)
-                    .addComponent(ProdiField))
+                    .addComponent(namaField)
+                    .addComponent(nimField)
+                    .addComponent(mailField)
+                    .addComponent(noTelephoneField)
+                    .addComponent(passwordField)
+                    .addComponent(saldoField)
+                    .addComponent(fakultasField)
+                    .addComponent(prodiField))
                 .addGap(54, 54, 54))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateDataLayout.createSequentialGroup()
                 .addGap(250, 250, 250)
-                .addComponent(InputDataTxt)
+                .addComponent(updateDataTitle)
                 .addGap(250, 250, 250))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(InputDataTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+        panelUpdateDataLayout.setVerticalGroup(
+            panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateDataLayout.createSequentialGroup()
+                .addComponent(updateDataTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(NamaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(NamaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelUpdateDataLayout.createSequentialGroup()
+                        .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelUpdateDataLayout.createSequentialGroup()
+                                .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panelUpdateDataLayout.createSequentialGroup()
+                                        .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(namaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(NimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(NimField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(nimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(nimField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(MailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(MailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(mailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(mailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(NoTelephoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(NoTelephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(noTelephoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(noTelephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(PasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SaldoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(SaldoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(saldoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(saldoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FakultasTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(FakultasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fakultasTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fakultasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProdiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ProdiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelUpdateDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(prodiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prodiField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SimpanButton))
+                .addComponent(simpanButton))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 620, 370));
+        getContentPane().add(panelUpdateData, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 620, 370));
 
-        jPanel1.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/backg2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/backg2.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -195,27 +163,25 @@ public class UpdateProfilGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField FakultasField;
-    private javax.swing.JLabel FakultasTxt;
-    private javax.swing.JLabel InputDataTxt;
-    private javax.swing.JTextField MailField;
-    private javax.swing.JLabel MailTxt;
-    private javax.swing.JTextField NamaField;
-    private javax.swing.JLabel NamaTxt;
-    private javax.swing.JTextField NimField;
-    private javax.swing.JLabel NimTxt;
-    private javax.swing.JTextField NoTelephoneField;
-    private javax.swing.JLabel NoTelephoneTxt;
-    private javax.swing.JTextField PasswordField;
-    private javax.swing.JLabel PasswordTxt;
-    private javax.swing.JTextField ProdiField;
-    private javax.swing.JLabel ProdiTxt;
-    private javax.swing.JTextField SaldoField;
-    private javax.swing.JLabel SaldoTxt;
-    private javax.swing.JButton SimpanButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel background;
+    private javax.swing.JTextField fakultasField;
+    private javax.swing.JLabel fakultasTxt;
+    private javax.swing.JTextField mailField;
+    private javax.swing.JLabel mailTxt;
+    private javax.swing.JTextField namaField;
+    private javax.swing.JLabel namaTxt;
+    private javax.swing.JTextField nimField;
+    private javax.swing.JLabel nimTxt;
+    private javax.swing.JTextField noTelephoneField;
+    private javax.swing.JLabel noTelephoneTxt;
+    private javax.swing.JPanel panelUpdateData;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JLabel passwordTxt;
+    private javax.swing.JTextField prodiField;
+    private javax.swing.JLabel prodiTxt;
+    private javax.swing.JTextField saldoField;
+    private javax.swing.JLabel saldoTxt;
+    private javax.swing.JButton simpanButton;
+    private javax.swing.JLabel updateDataTitle;
     // End of variables declaration//GEN-END:variables
 }

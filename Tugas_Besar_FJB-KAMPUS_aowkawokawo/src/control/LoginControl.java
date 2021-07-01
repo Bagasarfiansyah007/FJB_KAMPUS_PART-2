@@ -6,7 +6,7 @@ import general.ConditionMethod;
 import general.DialogMessage;
 import java.util.List;
 import javax.swing.JOptionPane;
-import view.LogInAkunGUI;
+import view.LogInAccountGUI;
 import view.LogInGUI;
 
 public class LoginControl <T>{
@@ -50,7 +50,7 @@ public class LoginControl <T>{
             if (find == true ) {
            
                 DialogMessage.dialogFormSucsess("sukses Login sebagai " + nim, "Suskses");
-                LogInAkunGUI menuHome = new LogInAkunGUI(index);
+                LogInAccountGUI menuHome = new LogInAccountGUI(index);
                 login.dispose();
                 menuHome.show();
                 

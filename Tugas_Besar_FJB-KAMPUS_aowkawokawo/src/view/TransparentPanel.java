@@ -12,9 +12,9 @@ import javax.swing.JPanel;
  *
  * @author user
  */
-public class PanelTransparan extends JPanel{
+public class TransparentPanel extends JPanel{
     public Color warna;
-    public PanelTransparan(){
+    public TransparentPanel(){
         setOpaque(false);
         warna = new Color(getBackground().getRed(), getBackground().getGreen(), getBackground().getBlue(), 100);
     }

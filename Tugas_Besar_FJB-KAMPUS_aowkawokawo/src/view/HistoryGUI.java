@@ -24,7 +24,7 @@ public class HistoryGUI extends javax.swing.JFrame {
     
     // Comstructor
     public void setNameColumnTable(){
-        TableHistory.setModel(modelTable);
+        tableHistory.setModel(modelTable);
         modelTable.addColumn("Id Bayar");
         modelTable.addColumn("Id Produk");
         modelTable.addColumn("Nama Penjual");
@@ -37,25 +37,25 @@ public class HistoryGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        historyPane = new javax.swing.JPanel();
+        historyTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TableHistory = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        ButtonMenu = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        tableHistory = new javax.swing.JTable();
+        fjbTxt = new javax.swing.JLabel();
+        NankatsuTxt = new javax.swing.JLabel();
+        buttonMenu = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setOpaque(false);
+        historyPane.setOpaque(false);
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("History");
+        historyTitle.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        historyTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        historyTitle.setText("History");
 
-        TableHistory.setModel(new javax.swing.table.DefaultTableModel(
+        tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,75 +72,77 @@ public class HistoryGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(TableHistory);
+        jScrollPane1.setViewportView(tableHistory);
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("FJB Kampus");
+        fjbTxt.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        fjbTxt.setForeground(new java.awt.Color(255, 255, 255));
+        fjbTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fjbTxt.setText("FJB Kampus");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Nankatsu");
+        NankatsuTxt.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        NankatsuTxt.setForeground(new java.awt.Color(255, 255, 255));
+        NankatsuTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NankatsuTxt.setText("Nankatsu");
 
-        ButtonMenu.setText("Menu");
-        ButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+        buttonMenu.setText("Menu");
+        buttonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonMenuActionPerformed(evt);
+                buttonMenuActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout historyPaneLayout = new javax.swing.GroupLayout(historyPane);
+        historyPane.setLayout(historyPaneLayout);
+        historyPaneLayout.setHorizontalGroup(
+            historyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, historyPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ButtonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(historyPaneLayout.createSequentialGroup()
+                .addGroup(historyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(historyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(historyPaneLayout.createSequentialGroup()
                             .addGap(237, 237, 237)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(historyTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(historyPaneLayout.createSequentialGroup()
                             .addGap(44, 44, 44)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(historyPaneLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(fjbTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        historyPaneLayout.setVerticalGroup(
+            historyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(historyPaneLayout.createSequentialGroup()
+                .addComponent(fjbTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(historyTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(ButtonMenu)
+                .addComponent(buttonMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
+        getContentPane().add(historyPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Main Procedure
-    private void ButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuActionPerformed
-        PembeliGUI formPembeli = new PembeliGUI(alamatLogin,control.listCheckout);
+    private void buttonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMenuActionPerformed
+        BuyerGUI formPembeli = new BuyerGUI(alamatLogin,control.listCheckout);
         formPembeli.show();
         dispose();
-    }//GEN-LAST:event_ButtonMenuActionPerformed
+    }//GEN-LAST:event_buttonMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,13 +181,13 @@ public class HistoryGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonMenu;
-    private javax.swing.JTable TableHistory;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel NankatsuTxt;
+    private javax.swing.JLabel background;
+    private javax.swing.JButton buttonMenu;
+    private javax.swing.JLabel fjbTxt;
+    private javax.swing.JPanel historyPane;
+    private javax.swing.JLabel historyTitle;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableHistory;
     // End of variables declaration//GEN-END:variables
 }

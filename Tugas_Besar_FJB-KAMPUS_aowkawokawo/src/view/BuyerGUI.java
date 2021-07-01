@@ -18,15 +18,15 @@ import static view.InputProduk.control;
  *
  * @author USER
  */
-public class PembeliGUI extends javax.swing.JFrame {
+public class BuyerGUI extends javax.swing.JFrame {
 
     public DefaultTableModel modelTable = new DefaultTableModel();
     ProductControl control;
-    static PembeliControl <PembeliGUI> controlPembeli;
+    static PembeliControl <BuyerGUI> controlPembeli;
     private static int alamatLogin;
     private int selectProdukIndex;
 
-    public PembeliGUI(int index, List<CheckoutModel> listInput) {
+    public BuyerGUI(int index, List<CheckoutModel> listInput) {
         initComponents();
         control = new ProductControl(this);
         controlPembeli = new PembeliControl(this);
@@ -54,24 +54,24 @@ public class PembeliGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         yesBtn = new javax.swing.JButton();
         noBtn = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelListStuff = new javax.swing.JPanel();
         BeliButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProduk = new javax.swing.JTable();
-        BeliButton2 = new javax.swing.JButton();
-        history = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        tambahTroliButton = new javax.swing.JButton();
+        historyButton = new javax.swing.JButton();
+        panelGuide = new javax.swing.JPanel();
         Troli = new javax.swing.JButton();
-        AkunButton = new javax.swing.JButton();
-        BeliButton1 = new javax.swing.JButton();
+        updateAkunButton = new javax.swing.JButton();
+        keluarButton = new javax.swing.JButton();
         CariBarangField = new javax.swing.JTextField();
-        NamaSearchButton = new javax.swing.JButton();
-        PaneDaftarBarang = new javax.swing.JScrollPane();
+        searchButton = new javax.swing.JButton();
+        paneDaftarBarang = new javax.swing.JScrollPane();
         DaftarBarangField = new javax.swing.JLabel();
         comboKategori = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        nankatsuTxt = new javax.swing.JLabel();
+        fjbTxt = new javax.swing.JLabel();
+        backgroud = new javax.swing.JLabel();
 
         dialogTroli.setSize(new java.awt.Dimension(348, 223));
 
@@ -186,7 +186,7 @@ public class PembeliGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        panelListStuff.setBackground(new java.awt.Color(255, 255, 255));
 
         BeliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         BeliButton.setText("Beli");
@@ -220,55 +220,55 @@ public class PembeliGUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableProduk);
 
-        BeliButton2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        BeliButton2.setText("Tambah ke troli");
-        BeliButton2.setEnabled(false);
-        BeliButton2.addActionListener(new java.awt.event.ActionListener() {
+        tambahTroliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        tambahTroliButton.setText("Tambah ke troli");
+        tambahTroliButton.setEnabled(false);
+        tambahTroliButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BeliButton2ActionPerformed(evt);
+                tambahTroliButtonActionPerformed(evt);
             }
         });
 
-        history.setText("History");
-        history.addActionListener(new java.awt.event.ActionListener() {
+        historyButton.setText("History");
+        historyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historyActionPerformed(evt);
+                historyButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelListStuffLayout = new javax.swing.GroupLayout(panelListStuff);
+        panelListStuff.setLayout(panelListStuffLayout);
+        panelListStuffLayout.setHorizontalGroup(
+            panelListStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListStuffLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(panelListStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelListStuffLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(history)
+                        .addComponent(historyButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tambahTroliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelListStuffLayout.setVerticalGroup(
+            panelListStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListStuffLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelListStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BeliButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(history))
+                    .addComponent(tambahTroliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historyButton))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 600, 310));
+        getContentPane().add(panelListStuff, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 600, 310));
 
-        jPanel2.setOpaque(false);
+        panelGuide.setOpaque(false);
 
         Troli.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         Troli.setText("Troli");
@@ -278,30 +278,30 @@ public class PembeliGUI extends javax.swing.JFrame {
             }
         });
 
-        AkunButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        AkunButton.setText("Update Profil");
+        updateAkunButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        updateAkunButton.setText("Update Profil");
 
-        BeliButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        BeliButton1.setText("Keluar");
-        BeliButton1.addActionListener(new java.awt.event.ActionListener() {
+        keluarButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        keluarButton.setText("Keluar");
+        keluarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BeliButton1ActionPerformed(evt);
+                keluarButtonActionPerformed(evt);
             }
         });
 
         CariBarangField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
 
-        NamaSearchButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        NamaSearchButton.setText("Search");
-        NamaSearchButton.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NamaSearchButtonActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
         DaftarBarangField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         DaftarBarangField.setText("Daftar Barang");
-        PaneDaftarBarang.setViewportView(DaftarBarangField);
+        paneDaftarBarang.setViewportView(DaftarBarangField);
 
         comboKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
         comboKategori.addActionListener(new java.awt.event.ActionListener() {
@@ -310,65 +310,65 @@ public class PembeliGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelGuideLayout = new javax.swing.GroupLayout(panelGuide);
+        panelGuide.setLayout(panelGuideLayout);
+        panelGuideLayout.setHorizontalGroup(
+            panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLayout.createSequentialGroup()
+                .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGuideLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(PaneDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(paneDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(CariBarangField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Troli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(AkunButton)
+                .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelGuideLayout.createSequentialGroup()
+                        .addComponent(updateAkunButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BeliButton1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(NamaSearchButton)
+                        .addComponent(keluarButton))
+                    .addGroup(panelGuideLayout.createSequentialGroup()
+                        .addComponent(searchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelGuideLayout.setVerticalGroup(
+            panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGuideLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Troli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AkunButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BeliButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updateAkunButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CariBarangField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(NamaSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(comboKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                    .addComponent(PaneDaftarBarang))
+                    .addComponent(paneDaftarBarang))
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 140));
+        getContentPane().add(panelGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 140));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NANKATSU");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 180, 20));
+        nankatsuTxt.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        nankatsuTxt.setForeground(new java.awt.Color(255, 255, 255));
+        nankatsuTxt.setText("NANKATSU");
+        getContentPane().add(nankatsuTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 180, 20));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("FJB KAMPUS");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, 170, 20));
+        fjbTxt.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        fjbTxt.setForeground(new java.awt.Color(255, 255, 255));
+        fjbTxt.setText("FJB KAMPUS");
+        getContentPane().add(fjbTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, 170, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        backgroud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
+        getContentPane().add(backgroud, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -376,7 +376,7 @@ public class PembeliGUI extends javax.swing.JFrame {
 
     
     // Main Procedur
-    private void NamaSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamaSearchButtonActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         String nama = CariBarangField.getText();
 
         if (nama.isEmpty()) {
@@ -385,12 +385,12 @@ public class PembeliGUI extends javax.swing.JFrame {
             control.searchProduct(this, nama);
             CariBarangField.setText("");
         }
-    }//GEN-LAST:event_NamaSearchButtonActionPerformed
+    }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void BeliButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButton1ActionPerformed
+    private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
         dialogKonfirmasi.setLocationRelativeTo(null);
         dialogKonfirmasi.show();
-    }//GEN-LAST:event_BeliButton1ActionPerformed
+    }//GEN-LAST:event_keluarButtonActionPerformed
 
     private void TroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TroliActionPerformed
         CheckOutGUI formCheckout = new CheckOutGUI(alamatLogin, controlPembeli.listCheckout);
@@ -418,15 +418,15 @@ public class PembeliGUI extends javax.swing.JFrame {
         dialogKonfirmasi.dispose();
     }//GEN-LAST:event_noBtnActionPerformed
 
-    private void BeliButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliButton2ActionPerformed
+    private void tambahTroliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahTroliButtonActionPerformed
         dialogTroli.setLocationRelativeTo(null);
         dialogTroli.show();
         labelJudul.setText("ingin Menambahkan " + controlPembeli.listProduk.get(selectProdukIndex).getNama() + " ?");
-    }//GEN-LAST:event_BeliButton2ActionPerformed
+    }//GEN-LAST:event_tambahTroliButtonActionPerformed
 
     private void tableProdukMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMousePressed
         selectProdukIndex = controlPembeli.findeIndexProduct(tableProduk.getValueAt(tableProduk.getSelectedRow(), 0).toString());
-        BeliButton2.setEnabled(true);
+        tambahTroliButton.setEnabled(true);
     }//GEN-LAST:event_tableProdukMousePressed
 
     private void btnYesTroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesTroliActionPerformed
@@ -441,11 +441,11 @@ public class PembeliGUI extends javax.swing.JFrame {
         dialogTroli.dispose();
     }//GEN-LAST:event_btnNoTroliActionPerformed
 
-    private void historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyActionPerformed
+    private void historyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyButtonActionPerformed
         HistoryGUI history = new HistoryGUI(alamatLogin,controlPembeli.listCheckout);
         history.show();
         hide();
-    }//GEN-LAST:event_historyActionPerformed
+    }//GEN-LAST:event_historyButtonActionPerformed
 
         
     // Setter
@@ -475,53 +475,55 @@ public class PembeliGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PembeliGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuyerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PembeliGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuyerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PembeliGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuyerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PembeliGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuyerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PembeliGUI(alamatLogin, controlPembeli.listCheckout).setVisible(true);
+                new BuyerGUI(alamatLogin, controlPembeli.listCheckout).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AkunButton;
     private javax.swing.JButton BeliButton;
-    private javax.swing.JButton BeliButton1;
-    private javax.swing.JButton BeliButton2;
     private javax.swing.JTextField CariBarangField;
     private javax.swing.JLabel DaftarBarangField;
-    private javax.swing.JButton NamaSearchButton;
-    private javax.swing.JScrollPane PaneDaftarBarang;
     private javax.swing.JButton Troli;
+    private javax.swing.JLabel backgroud;
     private javax.swing.JButton btnNoTroli;
     private javax.swing.JButton btnYesTroli;
     private javax.swing.JComboBox comboKategori;
     private javax.swing.JDialog dialogKonfirmasi;
     private javax.swing.JDialog dialogTroli;
-    private javax.swing.JButton history;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel fjbTxt;
+    private javax.swing.JButton historyButton;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton keluarButton;
     private javax.swing.JLabel labelJudul;
+    private javax.swing.JLabel nankatsuTxt;
     private javax.swing.JButton noBtn;
+    private javax.swing.JScrollPane paneDaftarBarang;
+    private javax.swing.JPanel panelGuide;
+    private javax.swing.JPanel panelListStuff;
+    private javax.swing.JButton searchButton;
     private javax.swing.JTable tableProduk;
+    private javax.swing.JButton tambahTroliButton;
+    private javax.swing.JButton updateAkunButton;
     private javax.swing.JButton yesBtn;
     // End of variables declaration//GEN-END:variables
 }

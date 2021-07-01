@@ -12,10 +12,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
-import view.DaftarBarang;
-import view.EditProduk;
-import view.InputProduk;
-import view.PembeliGUI;
+import view.ListOfStuff;
+import view.EditProduct;
+import view.InputProduct;
+import view.BuyerGUI;
 import view.RegisterGUI;
 
 public class ProductControl <T>{
@@ -43,7 +43,7 @@ public class ProductControl <T>{
 
     
     // Main Procedure
-    public void GetDataProduk(DaftarBarang formDaftaBarang,int index){
+    public void GetDataProduk(ListOfStuff formDaftaBarang,int index){
         formDaftaBarang.modelTable.getDataVector().removeAllElements();
         formDaftaBarang.modelTable.fireTableDataChanged();
         
@@ -57,7 +57,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void GetDataProduk(PembeliGUI pembeli){
+    public void GetDataProduk(BuyerGUI pembeli){
         pembeli.modelTable.getDataVector().removeAllElements();
         pembeli.modelTable.fireTableDataChanged();
         
@@ -71,7 +71,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void searchProduct(PembeliGUI pembeli,String nama){
+    public void searchProduct(BuyerGUI pembeli,String nama){
         pembeli.modelTable.getDataVector().removeAllElements();
         pembeli.modelTable.fireTableDataChanged();
         
@@ -86,7 +86,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void searchProductCategory(PembeliGUI pembeli,String nama){
+    public void searchProductCategory(BuyerGUI pembeli,String nama){
         pembeli.modelTable.getDataVector().removeAllElements();
         pembeli.modelTable.fireTableDataChanged();
         
@@ -102,7 +102,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void inputProductData(InputProduk input,int index){
+    public void inputProductData(InputProduct input,int index){
         String kodeProduk = "";
         String nim = "";
         
@@ -128,7 +128,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void EditDataBarang(EditProduk input,int index){
+    public void EditDataBarang(EditProduct input,int index){
         String kodeProduk = "";
         
         if (ConditionMethod.isTextFieldEmpty(input) == true) { 
@@ -151,7 +151,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void deleteProductData(DaftarBarang form,int index) {
+    public void deleteProductData(ListOfStuff form,int index) {
         String kodeProduk = "";
         kodeProduk = form.modelTable.getValueAt(form.getTableProduk().getSelectedRow(),0).toString();
         if (findDataCondition(kodeProduk) == false) {
@@ -169,7 +169,7 @@ public class ProductControl <T>{
     
     // Function & Procedure
     
-    public void inputDataTable (DaftarBarang form,List <Product> list,List <UserModel> list2,Object[] tabel,int index) {
+    public void inputDataTable (ListOfStuff form,List <Product> list,List <UserModel> list2,Object[] tabel,int index) {
         for (int i = 0 ; i < list.size();i++){
            if (list.get(i).getNim().intern() == list2.get(index).getNim().intern()) {
                tabel[0] = list.get(i).getKode_product();
@@ -182,7 +182,7 @@ public class ProductControl <T>{
         }
     }
     
-    public void inputDataTable (PembeliGUI form,List <Product> list,Object[] tabel) {
+    public void inputDataTable (BuyerGUI form,List <Product> list,Object[] tabel) {
         for (int i = 0 ; i < list.size();i++){
            tabel[0] = list.get(i).getKode_product();
            tabel[1] = list.get(i).getNama();

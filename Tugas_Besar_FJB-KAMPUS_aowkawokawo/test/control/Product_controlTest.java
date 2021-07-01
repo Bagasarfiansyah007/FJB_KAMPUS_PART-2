@@ -5,7 +5,7 @@ import Model.Product;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import view.PembeliGUI;
+import view.BuyerGUI;
 
 /**
  *
@@ -20,7 +20,7 @@ public class Product_controlTest {
     @Test
     public void testCodeInput() {
         ProductControl control = new ProductControl();
-        PembeliGUI form = new PembeliGUI(0,null);
+        BuyerGUI form = new BuyerGUI(0,null);
         
         String expected = "B18";
         String actual = control.inputKodeProduk("");

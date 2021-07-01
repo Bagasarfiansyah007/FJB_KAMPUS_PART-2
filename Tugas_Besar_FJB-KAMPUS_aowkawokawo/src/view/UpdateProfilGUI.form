@@ -25,30 +25,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel3">
-      <Properties>
-        <Property name="opaque" type="boolean" value="false"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="470" width="620" height="-1"/>
-        </Constraint>
-      </Constraints>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="620" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="panelUpdateData">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -64,35 +41,35 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="ProdiTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="FakultasTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="SaldoTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="PasswordTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="MailTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="NimTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="NoTelephoneTxt" min="-2" pref="123" max="-2" attributes="0"/>
-                      <Component id="NamaTxt" alignment="1" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="prodiTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="fakultasTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="saldoTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="passwordTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="mailTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="nimTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="noTelephoneTxt" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="namaTxt" alignment="1" min="-2" pref="123" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="SimpanButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="simpanButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="NamaField" max="32767" attributes="0"/>
-                      <Component id="NimField" max="32767" attributes="0"/>
-                      <Component id="MailField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="NoTelephoneField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="PasswordField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="SaldoField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="FakultasField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="ProdiField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="namaField" max="32767" attributes="0"/>
+                      <Component id="nimField" max="32767" attributes="0"/>
+                      <Component id="mailField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="noTelephoneField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="passwordField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="saldoField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="fakultasField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="prodiField" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                  <Component id="InputDataTxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateDataTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -100,7 +77,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="InputDataTxt" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="updateDataTitle" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
@@ -109,52 +86,52 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="NamaTxt" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="NamaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="namaTxt" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="NimTxt" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="NimField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="nimTxt" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="nimField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="MailTxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                              <Component id="MailField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="mailTxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="mailField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="NoTelephoneTxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                              <Component id="NoTelephoneField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="noTelephoneTxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="noTelephoneField" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="PasswordTxt" min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="passwordTxt" min="-2" pref="32" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="PasswordField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="passwordField" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="SaldoTxt" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="saldoTxt" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="SaldoField" min="-2" max="-2" attributes="0"/>
+                              <Component id="saldoField" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="FakultasTxt" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="fakultasTxt" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="FakultasField" min="-2" max="-2" attributes="0"/>
+                      <Component id="fakultasField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ProdiTxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="ProdiField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="prodiTxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="prodiField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="SimpanButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="simpanButton" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="NamaTxt">
+        <Component class="javax.swing.JLabel" name="namaTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -162,7 +139,7 @@
             <Property name="text" type="java.lang.String" value="Nama"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="NimTxt">
+        <Component class="javax.swing.JLabel" name="nimTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -170,7 +147,7 @@
             <Property name="text" type="java.lang.String" value="Nim"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="MailTxt">
+        <Component class="javax.swing.JLabel" name="mailTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -178,7 +155,7 @@
             <Property name="text" type="java.lang.String" value="E-Mail"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="NoTelephoneTxt">
+        <Component class="javax.swing.JLabel" name="noTelephoneTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -186,7 +163,7 @@
             <Property name="text" type="java.lang.String" value="No Telephone"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="PasswordTxt">
+        <Component class="javax.swing.JLabel" name="passwordTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -194,7 +171,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="SaldoTxt">
+        <Component class="javax.swing.JLabel" name="saldoTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -202,7 +179,7 @@
             <Property name="text" type="java.lang.String" value="Isi Saldo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="FakultasTxt">
+        <Component class="javax.swing.JLabel" name="fakultasTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -210,7 +187,7 @@
             <Property name="text" type="java.lang.String" value="Fakultas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="ProdiTxt">
+        <Component class="javax.swing.JLabel" name="prodiTxt">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -218,28 +195,28 @@
             <Property name="text" type="java.lang.String" value="Prodi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="NamaField">
+        <Component class="javax.swing.JTextField" name="namaField">
         </Component>
-        <Component class="javax.swing.JTextField" name="NimField">
+        <Component class="javax.swing.JTextField" name="nimField">
         </Component>
-        <Component class="javax.swing.JTextField" name="MailField">
+        <Component class="javax.swing.JTextField" name="mailField">
         </Component>
-        <Component class="javax.swing.JTextField" name="NoTelephoneField">
+        <Component class="javax.swing.JTextField" name="noTelephoneField">
         </Component>
-        <Component class="javax.swing.JTextField" name="PasswordField">
+        <Component class="javax.swing.JTextField" name="passwordField">
         </Component>
-        <Component class="javax.swing.JTextField" name="SaldoField">
+        <Component class="javax.swing.JTextField" name="saldoField">
         </Component>
-        <Component class="javax.swing.JTextField" name="FakultasField">
+        <Component class="javax.swing.JTextField" name="fakultasField">
         </Component>
-        <Component class="javax.swing.JTextField" name="ProdiField">
+        <Component class="javax.swing.JTextField" name="prodiField">
         </Component>
-        <Component class="javax.swing.JButton" name="SimpanButton">
+        <Component class="javax.swing.JButton" name="simpanButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Simpan"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="InputDataTxt">
+        <Component class="javax.swing.JLabel" name="updateDataTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>
@@ -249,30 +226,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-      <Properties>
-        <Property name="opaque" type="boolean" value="false"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="620" height="-1"/>
-        </Constraint>
-      </Constraints>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="620" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="background">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/resources/backg2.png"/>

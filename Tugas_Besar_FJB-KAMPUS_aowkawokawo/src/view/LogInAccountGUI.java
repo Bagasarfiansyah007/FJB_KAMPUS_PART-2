@@ -3,14 +3,14 @@ package view;
 
 import control.LoginControl;
 
-public class LogInAkunGUI extends javax.swing.JFrame {
+public class LogInAccountGUI extends javax.swing.JFrame {
 
     // Atribut
     private static int alamatLogin;
-    public static LoginControl <LogInAkunGUI> control;
+    public static LoginControl <LogInAccountGUI> control;
     
     // Constuktor
-    public LogInAkunGUI(int index) {
+    public LogInAccountGUI(int index) {
         initComponents();
         alamatLogin = index - 1;
         control = new LoginControl(this);
@@ -141,13 +141,13 @@ public class LogInAkunGUI extends javax.swing.JFrame {
     
     // Main Procedure
     private void btnPembeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembeliActionPerformed
-        PembeliGUI formPembeli = new PembeliGUI(alamatLogin,null);
+        BuyerGUI formPembeli = new BuyerGUI(alamatLogin,null);
         formPembeli.show();
         dispose();
     }//GEN-LAST:event_btnPembeliActionPerformed
 
     private void btnPenjualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPenjualActionPerformed
-        PenjualGUI formPenjual = new PenjualGUI(alamatLogin);
+        SellerGUI formPenjual = new SellerGUI(alamatLogin);
         formPenjual.show();
         dispose();
     }//GEN-LAST:event_btnPenjualActionPerformed
@@ -168,7 +168,7 @@ public class LogInAkunGUI extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LogInAkunGUI(alamatLogin).setVisible(true);
+                new LogInAccountGUI(alamatLogin).setVisible(true);
             }
         });
     }

@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import view.CheckOutGUI;
-import view.DaftarBarang;
+import view.ListOfStuff;
 import view.HistoryGUI;
-import view.PembeliGUI;
+import view.BuyerGUI;
 
 public class PembeliControl <T>{
     
@@ -28,7 +28,7 @@ public class PembeliControl <T>{
     public List <CheckoutModel> listCheckoutDb;
     public List <UserModel> listUser;
     public List <Product> listProduk;
-    PembeliGUI formPembeli;
+    BuyerGUI formPembeli;
     CheckOutGUI formCheckout;
     HistoryGUI formHistory;
     

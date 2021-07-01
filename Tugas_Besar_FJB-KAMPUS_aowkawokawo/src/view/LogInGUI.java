@@ -23,56 +23,19 @@ public class LogInGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        masukBtn = new javax.swing.JButton();
-        RegisterBtn = new javax.swing.JButton();
-        PasswordField = new javax.swing.JPasswordField();
-        UsernameField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        masukBitton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
+        usernameField = new javax.swing.JTextField();
+        masukkanNimtitle = new javax.swing.JLabel();
+        logInTitle = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        masukBtn.setBackground(new java.awt.Color(255, 204, 153));
-        masukBtn.setText("Login");
-        masukBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        masukBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masukBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(masukBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 260, 40));
-
-        RegisterBtn.setBackground(new java.awt.Color(255, 255, 255));
-        RegisterBtn.setText("Register");
-        RegisterBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 116, 114)));
-        RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterBtnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(RegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 40));
-        getContentPane().add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 260, 40));
-
-        UsernameField.setName(""); // NOI18N
-        getContentPane().add(UsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 260, 40));
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 85, 85));
-        jLabel3.setText("Masukkan Nim dan Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 210, 30));
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 85, 85));
-        jLabel2.setText("LOG-IN");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 30));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/backg2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
+        jPanel2.setOpaque(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -85,56 +48,67 @@ public class LogInGUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 620, 230));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 620, 250));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        masukBitton.setBackground(new java.awt.Color(255, 204, 153));
+        masukBitton.setText("Login");
+        masukBitton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        masukBitton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masukBittonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(masukBitton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 260, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 190));
+        registerButton.setBackground(new java.awt.Color(255, 255, 255));
+        registerButton.setText("Register");
+        registerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 116, 114)));
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 40));
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 260, 40));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        usernameField.setName(""); // NOI18N
+        getContentPane().add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 260, 40));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 620, 150));
+        masukkanNimtitle.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        masukkanNimtitle.setForeground(new java.awt.Color(255, 85, 85));
+        masukkanNimtitle.setText("Masukkan Nim dan Password");
+        getContentPane().add(masukkanNimtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 210, 30));
+
+        logInTitle.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        logInTitle.setForeground(new java.awt.Color(255, 85, 85));
+        logInTitle.setText("LOG-IN");
+        getContentPane().add(logInTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 30));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/backg2.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // Main Procedure
-    private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
        RegisterGUI formregister = new RegisterGUI();
        formregister.show();
        dispose();
-    }//GEN-LAST:event_RegisterBtnActionPerformed
+    }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void masukBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukBtnActionPerformed
+    private void masukBittonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukBittonActionPerformed
         control.cekDataUserLogin(this, getUsernameField(), getPasswordField());
-    }//GEN-LAST:event_masukBtnActionPerformed
+    }//GEN-LAST:event_masukBittonActionPerformed
 
     // Getter
     public String getUsernameField(){
-        return UsernameField.getText();
+        return usernameField.getText();
     }
     
     public String getPasswordField(){
-        return PasswordField.getText();
+        return passwordField.getText();
     }
     
    
@@ -148,15 +122,13 @@ public class LogInGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField PasswordField;
-    private javax.swing.JButton RegisterBtn;
-    private javax.swing.JTextField UsernameField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel background;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JButton masukBtn;
+    private javax.swing.JLabel logInTitle;
+    private javax.swing.JButton masukBitton;
+    private javax.swing.JLabel masukkanNimtitle;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton registerButton;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

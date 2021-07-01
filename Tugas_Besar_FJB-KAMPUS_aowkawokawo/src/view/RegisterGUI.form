@@ -39,7 +39,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="guidePanel">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -54,7 +54,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
-                  <Component id="notif" min="-2" pref="168" max="-2" attributes="0"/>
+                  <Component id="registrasiTitle" min="-2" pref="168" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -63,14 +63,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="notif" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="registrasiTitle" min="-2" pref="60" max="-2" attributes="0"/>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="notif">
+        <Component class="javax.swing.JLabel" name="registrasiTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="16" style="0"/>
@@ -81,7 +81,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="dataGuidePanel">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -97,38 +97,38 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel3" max="32767" attributes="0"/>
-                      <Component id="jLabel4" max="32767" attributes="0"/>
-                      <Component id="jLabel5" max="32767" attributes="0"/>
-                      <Component id="jLabel6" max="32767" attributes="0"/>
-                      <Component id="jLabel7" max="32767" attributes="0"/>
-                      <Component id="jLabel8" pref="110" max="32767" attributes="0"/>
-                      <Component id="jLabel9" max="32767" attributes="0"/>
-                      <Component id="jLabel10" max="32767" attributes="0"/>
+                      <Component id="nimTxt" max="32767" attributes="0"/>
+                      <Component id="namaTxt" max="32767" attributes="0"/>
+                      <Component id="fakultasTxt" max="32767" attributes="0"/>
+                      <Component id="prodiTxt" max="32767" attributes="0"/>
+                      <Component id="mailTxt" max="32767" attributes="0"/>
+                      <Component id="telephoneTxt" pref="110" max="32767" attributes="0"/>
+                      <Component id="passwordTxt" max="32767" attributes="0"/>
+                      <Component id="saldoTxt" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="buttonRegister" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="registerButton" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCancel" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="cancelButton" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace pref="242" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TxtEmail" max="32767" attributes="0"/>
-                              <Component id="TxtTelphone" max="32767" attributes="0"/>
-                              <Component id="TxtPassword" max="32767" attributes="0"/>
-                              <Component id="TxtSaldo" max="32767" attributes="0"/>
-                              <Component id="TxtNama" alignment="0" max="32767" attributes="0"/>
-                              <Component id="TxtNim" alignment="0" max="32767" attributes="0"/>
+                              <Component id="mailField" max="32767" attributes="0"/>
+                              <Component id="telephoneField" max="32767" attributes="0"/>
+                              <Component id="passwordField" max="32767" attributes="0"/>
+                              <Component id="saldoField" max="32767" attributes="0"/>
+                              <Component id="namaField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nimField" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fakultasCombo" min="-2" max="-2" attributes="0"/>
-                              <Component id="prodiCombo" min="-2" max="-2" attributes="0"/>
+                              <Component id="fakultasComboBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="prodiComboBox" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -141,48 +141,48 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtNim" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nimTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nimField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TxtNama" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="namaTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fakultasCombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fakultasComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fakultasTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="prodiCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="prodiTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="prodiComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtEmail" min="-2" max="-2" attributes="0"/>
+                      <Component id="mailTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="mailField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtTelphone" min="-2" max="-2" attributes="0"/>
+                      <Component id="telephoneTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="telephoneField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtPassword" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <Component id="TxtSaldo" min="-2" max="-2" attributes="0"/>
+                      <Component id="saldoTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="saldoField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonRegister" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
@@ -190,85 +190,85 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="nimTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="NIM"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="namaTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nama"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="fakultasTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fakultas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="prodiTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Prodi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="mailTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="telephoneTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telephone"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
+        <Component class="javax.swing.JLabel" name="passwordTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
+        <Component class="javax.swing.JLabel" name="saldoTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Saldo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtNim">
+        <Component class="javax.swing.JTextField" name="nimField">
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtNama">
+        <Component class="javax.swing.JTextField" name="namaField">
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtEmail">
+        <Component class="javax.swing.JTextField" name="mailField">
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtTelphone">
+        <Component class="javax.swing.JTextField" name="telephoneField">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="TxtPassword">
+        <Component class="javax.swing.JPasswordField" name="passwordField">
         </Component>
-        <Component class="javax.swing.JTextField" name="TxtSaldo">
+        <Component class="javax.swing.JTextField" name="saldoField">
         </Component>
-        <Component class="javax.swing.JButton" name="buttonRegister">
+        <Component class="javax.swing.JButton" name="registerButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRegisterActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonCancel">
+        <Component class="javax.swing.JButton" name="cancelButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="fakultasCombo">
+        <Component class="javax.swing.JComboBox" name="fakultasComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fakultasComboActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fakultasComboBoxActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="prodiCombo">
+        <Component class="javax.swing.JComboBox" name="prodiComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -277,7 +277,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="background">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/resources/backg2.png"/>

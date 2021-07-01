@@ -8,12 +8,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
-public class InputProduk extends javax.swing.JFrame {
+public class InputProduct extends javax.swing.JFrame {
 
     public static ProductControl control;
     private static int alamatLogin;
     
-    public InputProduk(int index) {
+    public InputProduct(int index) {
         initComponents();
         control = new ProductControl(this);
         alamatLogin = index;
@@ -26,45 +26,47 @@ public class InputProduk extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtNamaProduk = new javax.swing.JTextField();
-        comKategori = new javax.swing.JComboBox<String>();
-        txtStok = new javax.swing.JTextField();
-        txtHarga = new javax.swing.JTextField();
+        fjbTxt = new javax.swing.JLabel();
+        nankatsuTxt = new javax.swing.JLabel();
+        inputTitle = new javax.swing.JLabel();
+        namaProdukTxt = new javax.swing.JLabel();
+        kategoriTxt = new javax.swing.JLabel();
+        stokTxt = new javax.swing.JLabel();
+        hargaTxt = new javax.swing.JLabel();
+        fieldNamaProduk = new javax.swing.JTextField();
+        comboBoxKategori = new javax.swing.JComboBox<>();
+        fieldStok = new javax.swing.JTextField();
+        fieldHarga = new javax.swing.JTextField();
         buttonSimpan = new javax.swing.JButton();
         buttonKembali = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setOpaque(false);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("FJB Kampus");
+        fjbTxt.setForeground(new java.awt.Color(255, 255, 255));
+        fjbTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fjbTxt.setText("FJB Kampus");
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nankatsu");
+        nankatsuTxt.setForeground(new java.awt.Color(255, 255, 255));
+        nankatsuTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nankatsuTxt.setText("Nankatsu");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Input Produk");
+        inputTitle.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        inputTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        inputTitle.setText("Input Produk");
 
-        jLabel6.setText("Nama Produk");
+        namaProdukTxt.setText("Nama Produk");
 
-        jLabel7.setText("Kategori");
+        kategoriTxt.setText("Kategori");
 
-        jLabel8.setText("Stok");
+        stokTxt.setText("Stok");
 
-        jLabel9.setText("Harga");
+        hargaTxt.setText("Harga");
 
-        comKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
+        comboBoxKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
 
         buttonSimpan.setText("Simpan");
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -88,12 +90,12 @@ public class InputProduk extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fjbTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(164, 164, 164)
                                 .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -106,57 +108,57 @@ public class InputProduk extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(namaProdukTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kategoriTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(stokTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hargaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNamaProduk)
-                            .addComponent(comKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtStok)
-                            .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(fieldNamaProduk)
+                            .addComponent(comboBoxKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldStok)
+                            .addComponent(fieldHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fjbTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namaProdukTxt)
+                    .addComponent(fieldNamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(comKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kategoriTxt)
+                    .addComponent(comboBoxKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stokTxt)
+                    .addComponent(fieldStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hargaTxt)
+                    .addComponent(fieldHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSimpan)
                     .addComponent(buttonKembali))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/background_form1.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 570));
 
         pack();
         setLocationRelativeTo(null);
@@ -166,7 +168,7 @@ public class InputProduk extends javax.swing.JFrame {
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         try {
             control.inputProductData(this,alamatLogin);
-            DaftarBarang formDaftarBarang = new DaftarBarang(alamatLogin);
+            ListOfStuff formDaftarBarang = new ListOfStuff(alamatLogin);
             formDaftarBarang.show();
             dispose();
         } catch (Exception e) {
@@ -176,26 +178,26 @@ public class InputProduk extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
     private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
-        new PenjualGUI(alamatLogin).setVisible(true);
+        new SellerGUI(alamatLogin).setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonKembaliActionPerformed
 
     
     // Getter
     public String getComKategori() {
-        return comKategori.getSelectedItem().toString();
+        return comboBoxKategori.getSelectedItem().toString();
     }
 
     public String getTxtHarga() {
-        return txtHarga.getText();
+        return fieldHarga.getText();
     }
 
     public String getTxtNamaProduk() {
-        return txtNamaProduk.getText();
+        return fieldNamaProduk.getText();
     }
 
     public String getTxtStok() {
-        return txtStok.getText();
+        return fieldStok.getText();
     }
     
 
@@ -203,26 +205,26 @@ public class InputProduk extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InputProduk(alamatLogin).setVisible(true);
+                new InputProduct(alamatLogin).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton buttonKembali;
     private javax.swing.JButton buttonSimpan;
-    private javax.swing.JComboBox<String> comKategori;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> comboBoxKategori;
+    private javax.swing.JTextField fieldHarga;
+    private javax.swing.JTextField fieldNamaProduk;
+    private javax.swing.JTextField fieldStok;
+    private javax.swing.JLabel fjbTxt;
+    private javax.swing.JLabel hargaTxt;
+    private javax.swing.JLabel inputTitle;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtHarga;
-    private javax.swing.JTextField txtNamaProduk;
-    private javax.swing.JTextField txtStok;
+    private javax.swing.JLabel kategoriTxt;
+    private javax.swing.JLabel namaProdukTxt;
+    private javax.swing.JLabel nankatsuTxt;
+    private javax.swing.JLabel stokTxt;
     // End of variables declaration//GEN-END:variables
 }

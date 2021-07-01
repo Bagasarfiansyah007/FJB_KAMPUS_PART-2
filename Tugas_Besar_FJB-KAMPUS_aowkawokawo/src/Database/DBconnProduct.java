@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import view.EditProduk;
-import view.InputProduk;
+import view.EditProduct;
+import view.InputProduct;
 
 public class DBconnProduct {
     static final String DB_URL = "jdbc:mysql://localhost/Fjb_campus";
@@ -21,7 +21,7 @@ public class DBconnProduct {
     static Statement stmt;
     static ResultSet rs;
     
-    public static void insertProduk(InputProduk input,String kodeProduk,String nim){
+    public static void insertProduk(InputProduct input,String kodeProduk,String nim){
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
@@ -40,7 +40,7 @@ public class DBconnProduct {
         }
     }
     
-    public static void EditProduk(EditProduk input,String kodeProduk){
+    public static void EditProduk(EditProduct input,String kodeProduk){
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();

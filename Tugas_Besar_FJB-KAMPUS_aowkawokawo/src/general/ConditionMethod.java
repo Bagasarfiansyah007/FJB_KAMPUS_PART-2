@@ -13,8 +13,8 @@ import control.ProductControl;
 import control.RegistrasiControl;
 import java.util.List;
 import javax.swing.JOptionPane;
-import view.EditProduk;
-import view.InputProduk;
+import view.EditProduct;
+import view.InputProduct;
 import view.LogInGUI;
 import view.RegisterGUI;
 
@@ -29,7 +29,7 @@ public class ConditionMethod {
         return list.isEmpty();
     }
     
-    public static void whenDataIsFind(String cari,ProductControl inputControl,EditProduk inputForm){
+    public static void whenDataIsFind(String cari,ProductControl inputControl,EditProduct inputForm){
         if (!inputControl.findDataCondition(cari)) {
                     
             DialogMessage.dialogFormWarning(("Data dengan kode " + cari + " tidak ada"),"Warning");
@@ -58,7 +58,7 @@ public class ConditionMethod {
         }
     }
     
-    public static void whenDataIsFind(List <UserModel> listUser,int index,String cari,String nim,ProductControl inputControl,InputProduk inputForm) {
+    public static void whenDataIsFind(List <UserModel> listUser,int index,String cari,String nim,ProductControl inputControl,InputProduct inputForm) {
         if (!inputControl.findDataCondition(cari)) {
                     
             nim = listUser.get(index).getNim();
@@ -100,11 +100,11 @@ public class ConditionMethod {
     
     
     // Condition for Produk Input form
-    public static boolean isTextFieldEmpty (InputProduk input){
+    public static boolean isTextFieldEmpty (InputProduct input){
         return input.getTxtNamaProduk().isEmpty() || input.getTxtHarga().isEmpty() || input.getTxtStok().isEmpty();
     }
     
-    public static boolean isTextFieldEmpty (EditProduk input){        
+    public static boolean isTextFieldEmpty (EditProduct input){        
         return input.getTxtNamaProduk().isEmpty() || input.getTxtHarga().isEmpty() || input.getTxtStok().isEmpty();
     }
     

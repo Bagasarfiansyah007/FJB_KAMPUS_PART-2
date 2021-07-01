@@ -186,7 +186,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="panelListStuff">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -206,9 +206,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="history" min="-2" max="-2" attributes="0"/>
+                          <Component id="historyButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BeliButton2" min="-2" pref="133" max="-2" attributes="0"/>
+                          <Component id="tambahTroliButton" min="-2" pref="133" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BeliButton" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
@@ -226,8 +226,8 @@
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BeliButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="BeliButton2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="history" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tambahTroliButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="historyButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
@@ -267,7 +267,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="BeliButton2">
+        <Component class="javax.swing.JButton" name="tambahTroliButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -276,20 +276,20 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BeliButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahTroliButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="history">
+        <Component class="javax.swing.JButton" name="historyButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="History"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="historyActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="historyButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="panelGuide">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -306,7 +306,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Component id="PaneDaftarBarang" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="paneDaftarBarang" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="CariBarangField" min="-2" pref="210" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -319,12 +319,12 @@
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="AkunButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateAkunButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BeliButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="keluarButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="NamaSearchButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="searchButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="comboKategori" min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
@@ -339,17 +339,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Troli" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="AkunButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="BeliButton1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="updateAkunButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="keluarButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="67" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CariBarangField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="NamaSearchButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="searchButton" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="comboKategori" alignment="3" pref="30" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="PaneDaftarBarang" max="32767" attributes="0"/>
+                      <Component id="paneDaftarBarang" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -368,7 +368,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TroliActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AkunButton">
+        <Component class="javax.swing.JButton" name="updateAkunButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -376,7 +376,7 @@
             <Property name="text" type="java.lang.String" value="Update Profil"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BeliButton1">
+        <Component class="javax.swing.JButton" name="keluarButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -384,7 +384,7 @@
             <Property name="text" type="java.lang.String" value="Keluar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BeliButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keluarButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="CariBarangField">
@@ -394,7 +394,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="NamaSearchButton">
+        <Component class="javax.swing.JButton" name="searchButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="13" style="0"/>
@@ -402,10 +402,10 @@
             <Property name="text" type="java.lang.String" value="Search"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NamaSearchButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="PaneDaftarBarang">
+        <Container class="javax.swing.JScrollPane" name="paneDaftarBarang">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -440,7 +440,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="nankatsuTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -456,7 +456,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="fjbTxt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -472,7 +472,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="backgroud">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/resources/background_form1.png"/>
