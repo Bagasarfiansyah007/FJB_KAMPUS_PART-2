@@ -15,11 +15,11 @@ public class DBconnCheckOutTest {
 
     @Test
     public void testInsertPayment() {
-       // DBconnCheckOut.insertPayment("P07", "1302194007","B01" ,"Agus", "Iphon 20 Pro max +++", 1, 2000);
+       DBconnCheckOut.insertPayment("P10", "1302194007","B01" ,"Agus", "Iphon 20 Pro max +++", 1, 2000);
         List <CheckoutModel> test = DBconnCheckOut.getDataPayment();
         
-        String expect = "P07";
-        String actual = test.get(6).getIdBayar();
+        String expect = "P10";
+        String actual = test.get(8).getIdPayment();
         
         assertEquals(expect,actual);
     }
@@ -28,18 +28,18 @@ public class DBconnCheckOutTest {
     public void testGetDataPayment() {
         List <CheckoutModel> test = DBconnCheckOut.getDataPayment();
         
-        String expect = "P07";
-        String actual = test.get(6).getIdBayar();
+        String expect = "P08";
+        String actual = test.get(6).getIdPayment();
         
         assertEquals(expect,actual);
     }
     
     @Test
     public void testUpdateSaldoPayment() {
-        DBconnCheckOut.updateSaldo(1000, "1302194007");
+        DBconnCheckOut.updateSaldo(5000, "1302194007");
         List <UserModel> test = DBconnUser.GetDataUser();
 
-        int expect = 1000;
+        int expect = 5000;
         int actual = test.get(5).getSaldo();
         
         assertEquals(expect,actual);
