@@ -97,38 +97,38 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="nimTxt" max="32767" attributes="0"/>
-                      <Component id="namaTxt" max="32767" attributes="0"/>
-                      <Component id="fakultasTxt" max="32767" attributes="0"/>
-                      <Component id="prodiTxt" max="32767" attributes="0"/>
-                      <Component id="mailTxt" max="32767" attributes="0"/>
-                      <Component id="telephoneTxt" pref="110" max="32767" attributes="0"/>
-                      <Component id="passwordTxt" max="32767" attributes="0"/>
-                      <Component id="saldoTxt" max="32767" attributes="0"/>
+                      <Component id="nimLabel" max="32767" attributes="0"/>
+                      <Component id="nameLabel" max="32767" attributes="0"/>
+                      <Component id="facultyLabel" max="32767" attributes="0"/>
+                      <Component id="studyProgramLabel" max="32767" attributes="0"/>
+                      <Component id="emailLabel" max="32767" attributes="0"/>
+                      <Component id="telephoneLabel" pref="110" max="32767" attributes="0"/>
+                      <Component id="passwordLabel" max="32767" attributes="0"/>
+                      <Component id="saldoLabel" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="registerButton" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="registerBtn" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cancelButton" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="cancelBtn" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace pref="242" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="mailField" max="32767" attributes="0"/>
-                              <Component id="telephoneField" max="32767" attributes="0"/>
-                              <Component id="passwordField" max="32767" attributes="0"/>
-                              <Component id="saldoField" max="32767" attributes="0"/>
-                              <Component id="namaField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="nimField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="emailTxt" max="32767" attributes="0"/>
+                              <Component id="telephoneTxt" max="32767" attributes="0"/>
+                              <Component id="passwordTxt" max="32767" attributes="0"/>
+                              <Component id="saldoTxt" max="32767" attributes="0"/>
+                              <Component id="namaTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nimTxt" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fakultasComboBox" min="-2" max="-2" attributes="0"/>
-                              <Component id="prodiComboBox" min="-2" max="-2" attributes="0"/>
+                              <Component id="facultyCombo" min="-2" max="-2" attributes="0"/>
+                              <Component id="studyProgramCombo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -141,48 +141,48 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="nimLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="nimTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nimField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="namaTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fakultasComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fakultasTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="facultyCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="facultyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="prodiTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="prodiComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="studyProgramLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="studyProgramCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="mailTxt" min="-2" max="-2" attributes="0"/>
-                      <Component id="mailField" min="-2" max="-2" attributes="0"/>
+                      <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="emailTxt" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="telephoneLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="telephoneTxt" min="-2" max="-2" attributes="0"/>
-                      <Component id="telephoneField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="passwordTxt" min="-2" max="-2" attributes="0"/>
-                      <Component id="passwordField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="saldoLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="saldoTxt" min="-2" max="-2" attributes="0"/>
-                      <Component id="saldoField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="registerButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
@@ -190,85 +190,85 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="nimTxt">
+        <Component class="javax.swing.JLabel" name="nimLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="NIM"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaTxt">
+        <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nama"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="fakultasTxt">
+        <Component class="javax.swing.JLabel" name="facultyLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fakultas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="prodiTxt">
+        <Component class="javax.swing.JLabel" name="studyProgramLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Prodi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="mailTxt">
+        <Component class="javax.swing.JLabel" name="emailLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="telephoneTxt">
+        <Component class="javax.swing.JLabel" name="telephoneLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telephone"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="passwordTxt">
+        <Component class="javax.swing.JLabel" name="passwordLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="saldoTxt">
+        <Component class="javax.swing.JLabel" name="saldoLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Saldo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nimField">
+        <Component class="javax.swing.JTextField" name="nimTxt">
         </Component>
-        <Component class="javax.swing.JTextField" name="namaField">
+        <Component class="javax.swing.JTextField" name="namaTxt">
         </Component>
-        <Component class="javax.swing.JTextField" name="mailField">
+        <Component class="javax.swing.JTextField" name="emailTxt">
         </Component>
-        <Component class="javax.swing.JTextField" name="telephoneField">
+        <Component class="javax.swing.JTextField" name="telephoneTxt">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="passwordField">
+        <Component class="javax.swing.JPasswordField" name="passwordTxt">
         </Component>
-        <Component class="javax.swing.JTextField" name="saldoField">
+        <Component class="javax.swing.JTextField" name="saldoTxt">
         </Component>
-        <Component class="javax.swing.JButton" name="registerButton">
+        <Component class="javax.swing.JButton" name="registerBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="cancelButton">
+        <Component class="javax.swing.JButton" name="cancelBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="fakultasComboBox">
+        <Component class="javax.swing.JComboBox" name="facultyCombo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fakultasComboBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facultyComboActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="prodiComboBox">
+        <Component class="javax.swing.JComboBox" name="studyProgramCombo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>

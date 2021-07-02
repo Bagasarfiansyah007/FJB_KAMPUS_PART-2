@@ -13,7 +13,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import static view.LogInAkunGUI.control;
+import static view.MenuLogin.control;
 import static view.RegisterGUI.control;
 
 public class ListOfStuff extends javax.swing.JFrame {
@@ -22,16 +22,16 @@ public class ListOfStuff extends javax.swing.JFrame {
     public DefaultTableModel modelTable = new DefaultTableModel();
     ProductControl control;
 
-    private static int alamatLogin;
+    private static int addressLogin;
     
     // Contructor
     public ListOfStuff(int index) {
         initComponents();
         control = new ProductControl(this);
-        alamatLogin = index;
+        addressLogin = index;
         setNameColumnTable();
-        control.GetDataProduk(this,alamatLogin);
-        System.out.println(alamatLogin);
+        control.getDataProduct(this,addressLogin);
+        System.out.println(addressLogin);
     }
     
     @SuppressWarnings("unchecked")
@@ -48,11 +48,11 @@ public class ListOfStuff extends javax.swing.JFrame {
         nankatsuTxt = new javax.swing.JLabel();
         daftararangTitle = new javax.swing.JLabel();
         tableScrollPane = new javax.swing.JScrollPane();
-        tableProduk = new javax.swing.JTable();
-        buttonTambah = new javax.swing.JButton();
-        buttonEdit = new javax.swing.JButton();
-        buttonHapus = new javax.swing.JButton();
-        buttonKembali = new javax.swing.JButton();
+        tableProduct = new javax.swing.JTable();
+        addBtn = new javax.swing.JButton();
+        editBtn = new javax.swing.JButton();
+        deletBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         dialogShow.setSize(new java.awt.Dimension(357, 202));
@@ -128,7 +128,7 @@ public class ListOfStuff extends javax.swing.JFrame {
         daftararangTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         daftararangTitle.setText("Daftar Barang");
 
-        tableProduk.setModel(new javax.swing.table.DefaultTableModel(
+        tableProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -150,40 +150,40 @@ public class ListOfStuff extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tableProduk.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tableProdukMousePressed(evt);
+                tableProductMousePressed(evt);
             }
         });
-        tableScrollPane.setViewportView(tableProduk);
+        tableScrollPane.setViewportView(tableProduct);
 
-        buttonTambah.setText("Tambah");
-        buttonTambah.addActionListener(new java.awt.event.ActionListener() {
+        addBtn.setText("Tambah");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonTambahActionPerformed(evt);
-            }
-        });
-
-        buttonEdit.setText("Edit");
-        buttonEdit.setEnabled(false);
-        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditActionPerformed(evt);
+                addBtnActionPerformed(evt);
             }
         });
 
-        buttonHapus.setText("Hapus");
-        buttonHapus.setEnabled(false);
-        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
+        editBtn.setText("Edit");
+        editBtn.setEnabled(false);
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusActionPerformed(evt);
+                editBtnActionPerformed(evt);
             }
         });
 
-        buttonKembali.setText("Kembali");
-        buttonKembali.addActionListener(new java.awt.event.ActionListener() {
+        deletBtn.setText("Hapus");
+        deletBtn.setEnabled(false);
+        deletBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKembaliActionPerformed(evt);
+                deletBtnActionPerformed(evt);
+            }
+        });
+
+        backBtn.setText("Kembali");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
             }
         });
 
@@ -205,13 +205,13 @@ public class ListOfStuff extends javax.swing.JFrame {
                 .addGap(0, 53, Short.MAX_VALUE)
                 .addGroup(panelStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelStuffLayout.createSequentialGroup()
-                        .addComponent(buttonTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deletBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(panelStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelStuffLayout.createSequentialGroup()
@@ -232,10 +232,10 @@ public class ListOfStuff extends javax.swing.JFrame {
                 .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addGroup(panelStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonTambah)
-                    .addComponent(buttonEdit)
-                    .addComponent(buttonHapus)
-                    .addComponent(buttonKembali))
+                    .addComponent(addBtn)
+                    .addComponent(editBtn)
+                    .addComponent(deletBtn)
+                    .addComponent(backBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(nankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -252,34 +252,34 @@ public class ListOfStuff extends javax.swing.JFrame {
 
     // Main procedure
     private void EnableButton(boolean stat){ 
-        buttonHapus.setEnabled(stat);
-        buttonEdit.setEnabled(stat);
+        deletBtn.setEnabled(stat);
+        editBtn.setEnabled(stat);
     }
 
-    private void buttonTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTambahActionPerformed
-        InputProduk formInput = new InputProduk(alamatLogin);
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        InputProduct formInput = new InputProduct(addressLogin);
         formInput.show();
         dispose();
-    }//GEN-LAST:event_buttonTambahActionPerformed
+    }//GEN-LAST:event_addBtnActionPerformed
 
-    private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
-        new SellerGUI(alamatLogin).setVisible(true);
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        new SellerGUI(addressLogin).setVisible(true);
         dispose();
-    }//GEN-LAST:event_buttonKembaliActionPerformed
+    }//GEN-LAST:event_backBtnActionPerformed
     
-    public String kodeProdukValue(){
-       return modelTable.getValueAt(tableProduk.getSelectedRow(),0).toString();
+    public String productCodeValue(){
+       return modelTable.getValueAt(tableProduct.getSelectedRow(),0).toString();
     }
     
-    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        EditProduk formInputProduk = new EditProduk(alamatLogin,control.findDatatIndex(kodeProdukValue()));
-        formInputProduk.show();
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        EditProduct formInputProduct = new EditProduct(addressLogin,control.findDatatIndex(productCodeValue()));
+        formInputProduct.show();
         dispose();
-    }//GEN-LAST:event_buttonEditActionPerformed
+    }//GEN-LAST:event_editBtnActionPerformed
 
     private void btnYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesActionPerformed
         try {
-            control.deleteProductData(this,alamatLogin);
+            control.deleteProductData(this,addressLogin);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal Menghapus !",
                     "warning",JOptionPane.WARNING_MESSAGE);
@@ -290,21 +290,21 @@ public class ListOfStuff extends javax.swing.JFrame {
         dialogShow.dispose();
     }//GEN-LAST:event_btnNoActionPerformed
 
-    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
+    private void deletBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletBtnActionPerformed
         dialogShow.setLocationRelativeTo(null);
         dialogShow.show();
-    }//GEN-LAST:event_buttonHapusActionPerformed
+    }//GEN-LAST:event_deletBtnActionPerformed
 
-    private void tableProdukMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMousePressed
+    private void tableProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProductMousePressed
         EnableButton(true);
-        System.out.println(modelTable.getValueAt(tableProduk.getSelectedRow(),0).toString());
-    }//GEN-LAST:event_tableProdukMousePressed
+        System.out.println(modelTable.getValueAt(tableProduct.getSelectedRow(),0).toString());
+    }//GEN-LAST:event_tableProductMousePressed
 
     // Setter
     public void setNameColumnTable(){
-        tableProduk.setModel(modelTable);
-        modelTable.addColumn("Kode Produk");
-        modelTable.addColumn("Nama Produk");
+        tableProduct.setModel(modelTable);
+        modelTable.addColumn("Kode Product");
+        modelTable.addColumn("Nama Product");
         modelTable.addColumn("Kategori");
         modelTable.addColumn("Stok");
         modelTable.addColumn("Harga");
@@ -312,8 +312,8 @@ public class ListOfStuff extends javax.swing.JFrame {
     
     
     // Getter
-    public JTable getTableProduk() {    
-        return tableProduk;
+    public JTable getTableProduct() {    
+        return tableProduct;
     }
     
     public JDialog getDialogShow() {
@@ -324,27 +324,27 @@ public class ListOfStuff extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListOfStuff(alamatLogin).setVisible(true);
+                new ListOfStuff(addressLogin).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JLabel background;
     private javax.swing.JButton btnNo;
     private javax.swing.JButton btnYes;
-    private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonKembali;
-    private javax.swing.JButton buttonTambah;
     private javax.swing.JLabel daftararangTitle;
+    private javax.swing.JButton deletBtn;
     private javax.swing.JDialog dialogShow;
+    private javax.swing.JButton editBtn;
     private javax.swing.JLabel fjbTxt;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel nankatsuTxt;
     private javax.swing.JPanel panelStuff;
-    private javax.swing.JTable tableProduk;
+    private javax.swing.JTable tableProduct;
     private javax.swing.JScrollPane tableScrollPane;
     // End of variables declaration//GEN-END:variables
 }

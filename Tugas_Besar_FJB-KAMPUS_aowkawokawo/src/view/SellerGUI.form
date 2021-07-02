@@ -94,14 +94,14 @@
                   <EmptySpace min="0" pref="431" max="32767" attributes="0"/>
                   <Component id="nankatsuTxt" min="-2" pref="187" max="-2" attributes="0"/>
               </Group>
-              <Component id="namaLabel" alignment="0" max="32767" attributes="0"/>
+              <Component id="nameLabel" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="buttonUpdateAkun" max="32767" attributes="0"/>
-                      <Component id="buttonLogOut" alignment="0" max="32767" attributes="0"/>
-                      <Component id="buttonDaftarBarang" alignment="1" max="32767" attributes="0"/>
-                      <Component id="buttonJual" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
+                      <Component id="updateProfileBtn" max="32767" attributes="0"/>
+                      <Component id="logOutBtn" alignment="0" max="32767" attributes="0"/>
+                      <Component id="listProductBtn" alignment="1" max="32767" attributes="0"/>
+                      <Component id="sellBtn" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
               </Group>
@@ -111,17 +111,17 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="namaLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="nimLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="buttonJual" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="sellBtn" min="-2" pref="76" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonDaftarBarang" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="listProductBtn" min="-2" pref="76" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonUpdateAkun" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="updateProfileBtn" min="-2" pref="76" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonLogOut" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="logOutBtn" min="-2" pref="76" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="nankatsuTxt" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
@@ -129,7 +129,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="buttonUpdateAkun">
+        <Component class="javax.swing.JButton" name="updateProfileBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Update Profil"/>
           </Properties>
@@ -140,31 +140,31 @@
             <Property name="text" type="java.lang.String" value="Nankatsu"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonLogOut">
+        <Component class="javax.swing.JButton" name="logOutBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Keluar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLogOutActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logOutBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonDaftarBarang">
+        <Component class="javax.swing.JButton" name="listProductBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Daftar Barang"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDaftarBarangActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listProductBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonJual">
+        <Component class="javax.swing.JButton" name="sellBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Jual Barang"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonJualActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sellBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaLabel">
+        <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>

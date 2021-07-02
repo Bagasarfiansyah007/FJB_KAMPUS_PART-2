@@ -23,22 +23,22 @@ public class DBconnUser {
         static Statement stmt;
         static ResultSet rs;
 
-        public static void InsertData(RegisterGUI register){
+        public static void insertData(RegisterGUI register){
             try{
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 stmt = conn.createStatement();  
                 
                 String nim = register.getTxtNim();
-                String nama = register.getTxtNama();
-                String fakultas = register.getComboFakultas();
-                String noTelpon = register.getTxtTelphone();
-                String prodi = register.getComboProdi();
+                String name = register.getTxtName();
+                String faculty = register.getComboFaculty();
+                String noTelphone = register.getTxtTelphone();
+                String studyProgram = register.getComboStudyProgram();
                 String email = register.getTxtEmail();
-                String Password = register.getTxtPassword(); 
+                String password = register.getTxtPassword(); 
                 int saldo = register.getTxtSaldo();
                 
                 String sql = "INSERT INTO user(nim,nama,fakultas,prodi,email,telephone,password,saldo) "
-                + "VALUES ('"+nim+"','"+nama+"','"+fakultas+"','"+prodi+"','"+email+"','"+noTelpon+"','"+Password+"','"+saldo+"')";
+                + "VALUES ('"+nim+"','"+name+"','"+faculty+"','"+studyProgram+"','"+email+"','"+noTelphone+"','"+password+"','"+saldo+"')";
                 
                 stmt.execute(sql);
                 stmt.close();
@@ -48,7 +48,7 @@ public class DBconnUser {
             }
         }
 
-        public static List<UserModel> GetDataUser(){
+        public static List<UserModel> getDataUser(){
             try{
                 ArrayList<UserModel> userList = new ArrayList<UserModel>();
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);

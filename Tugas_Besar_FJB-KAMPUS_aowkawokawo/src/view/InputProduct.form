@@ -52,9 +52,9 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                                  <Component id="buttonSimpan" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="saveBtn" min="-2" pref="100" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="buttonKembali" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="backBtn" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="232" max="32767" attributes="0"/>
@@ -71,17 +71,17 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="namaProdukTxt" max="32767" attributes="0"/>
-                              <Component id="kategoriTxt" max="32767" attributes="0"/>
-                              <Component id="stokTxt" max="32767" attributes="0"/>
-                              <Component id="hargaTxt" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="nameProductLabel" max="32767" attributes="0"/>
+                              <Component id="cattegoryLabel" max="32767" attributes="0"/>
+                              <Component id="stokLabel" max="32767" attributes="0"/>
+                              <Component id="priceLabel" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="fieldNamaProduk" max="32767" attributes="0"/>
-                              <Component id="comboBoxKategori" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
-                              <Component id="fieldStok" alignment="0" max="32767" attributes="0"/>
-                              <Component id="fieldHarga" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
+                              <Component id="nameProductTxt" max="32767" attributes="0"/>
+                              <Component id="comboBoxcattegory" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                              <Component id="stokTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="priceTxt" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -98,28 +98,28 @@
                   <Component id="inputTitle" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="namaProdukTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldNamaProduk" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameProductLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameProductTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="kategoriTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="comboBoxKategori" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cattegoryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboBoxcattegory" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="stokLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="stokTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldStok" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="hargaTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldHarga" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="priceTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="buttonKembali" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="saveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="backBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="146" max="32767" attributes="0"/>
                   <Component id="nankatsuTxt" min="-2" pref="24" max="-2" attributes="0"/>
@@ -156,29 +156,29 @@
             <Property name="text" type="java.lang.String" value="Input Produk"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaProdukTxt">
+        <Component class="javax.swing.JLabel" name="nameProductLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nama Produk"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="kategoriTxt">
+        <Component class="javax.swing.JLabel" name="cattegoryLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kategori"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="stokTxt">
+        <Component class="javax.swing.JLabel" name="stokLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Stok"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="hargaTxt">
+        <Component class="javax.swing.JLabel" name="priceLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Harga"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fieldNamaProduk">
+        <Component class="javax.swing.JTextField" name="nameProductTxt">
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboBoxKategori">
+        <Component class="javax.swing.JComboBox" name="comboBoxcattegory">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
@@ -194,24 +194,24 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="fieldStok">
+        <Component class="javax.swing.JTextField" name="stokTxt">
         </Component>
-        <Component class="javax.swing.JTextField" name="fieldHarga">
+        <Component class="javax.swing.JTextField" name="priceTxt">
         </Component>
-        <Component class="javax.swing.JButton" name="buttonSimpan">
+        <Component class="javax.swing.JButton" name="saveBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Simpan"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonKembali">
+        <Component class="javax.swing.JButton" name="backBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Kembali"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKembaliActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

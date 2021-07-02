@@ -366,11 +366,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="hapusBarangButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="deleteProductBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="keluarButton" min="-2" pref="102" max="-2" attributes="0"/>
+                          <Component id="exitBtn" min="-2" pref="102" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="pembayaranButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="paymentBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="paneDaftarBarang" min="-2" pref="160" max="-2" attributes="0"/>
@@ -398,9 +398,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="hapusBarangButton" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="pembayaranButton" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="keluarButton" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="deleteProductBtn" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="paymentBtn" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="exitBtn" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="39" max="32767" attributes="0"/>
               </Group>
@@ -415,7 +415,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="CheckOutTxt">
+            <Component class="javax.swing.JLabel" name="checkOutTxt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Century Gothic" size="13" style="0"/>
@@ -467,33 +467,33 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="priceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="hargaLabel" max="32767" attributes="0"/>
+                                  <Component id="priceValueLabel" max="32767" attributes="0"/>
                                   <Component id="namaLabel" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel7" max="32767" attributes="0"/>
+                              <Component id="totalPriceLabel" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="totalHargaProduk" min="-2" pref="222" max="-2" attributes="0"/>
+                              <Component id="totalPriceProduct" min="-2" pref="222" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="totalProdukBuyLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtBanyak" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <Component id="txtTotal" min="-2" pref="116" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="submitBtn" min="-2" pref="87" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel8" min="-2" pref="141" max="-2" attributes="0"/>
+                                      <Component id="totalAllProductPriceLabel" min="-2" pref="141" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="totalSemuaProduk" min="-2" max="-2" attributes="0"/>
+                                      <Component id="totalAllProductPriceValueLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -507,29 +507,29 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="namaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="hargaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="priceValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtBanyak" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTotal" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="totalProdukBuyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="submitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="totalHargaProduk" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalPriceProduct" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="totalSemuaProduk" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalAllProductPriceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalAllProductPriceValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
@@ -537,35 +537,35 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="nameLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nama          : "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="priceLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Harga          :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="totalProdukBuyLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Banyak Beli  :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="totalPriceLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Total Harga :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="namaLabel">
             </Component>
-            <Component class="javax.swing.JLabel" name="totalHargaProduk">
+            <Component class="javax.swing.JLabel" name="totalPriceProduct">
             </Component>
-            <Component class="javax.swing.JLabel" name="hargaLabel">
+            <Component class="javax.swing.JLabel" name="priceValueLabel">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtBanyak">
+            <Component class="javax.swing.JTextField" name="txtTotal">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBanyakActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTotalActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="submitBtn">
@@ -576,16 +576,16 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="totalAllProductPriceLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Total Semua Produk  :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="totalSemuaProduk">
+            <Component class="javax.swing.JLabel" name="totalAllProductPriceValueLabel">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="hapusBarangButton">
+        <Component class="javax.swing.JButton" name="deleteProductBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -593,10 +593,10 @@
             <Property name="text" type="java.lang.String" value="Hapus Barang"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hapusBarangButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteProductBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="pembayaranButton">
+        <Component class="javax.swing.JButton" name="paymentBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="ff" type="rgb"/>
@@ -604,10 +604,10 @@
             <Property name="text" type="java.lang.String" value="Pembayaran"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pembayaranButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymentBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="keluarButton">
+        <Component class="javax.swing.JButton" name="exitBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -615,7 +615,7 @@
             <Property name="text" type="java.lang.String" value="Keluar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keluarButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

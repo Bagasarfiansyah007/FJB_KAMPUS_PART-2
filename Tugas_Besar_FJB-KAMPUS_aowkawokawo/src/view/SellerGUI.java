@@ -2,20 +2,20 @@
 package view;
 
 import java.awt.event.MouseEvent;
-import static view.LogInAkunGUI.control;
+import static view.MenuLogin.control;
 
 public class SellerGUI extends javax.swing.JFrame {
     
     // Attribute
-    private static int alamatLogin;
+    private static int addressLogin;
     
     // Constructor
     public SellerGUI(int index) {
         initComponents();
-        alamatLogin = index;
-        setNamaAkun(alamatLogin);
-        setNimAkun(alamatLogin);
-        System.out.println(alamatLogin);
+        addressLogin = index;
+        setNamaAkun(addressLogin);
+        setNimAccount(addressLogin);
+        System.out.println(addressLogin);
     }
 
     @SuppressWarnings("unchecked")
@@ -26,12 +26,12 @@ public class SellerGUI extends javax.swing.JFrame {
         menuTitle = new javax.swing.JLabel();
         fjbTxt = new javax.swing.JLabel();
         guideMenuPanel = new javax.swing.JPanel();
-        buttonUpdateAkun = new javax.swing.JButton();
+        updateProfileBtn = new javax.swing.JButton();
         nankatsuTxt = new javax.swing.JLabel();
-        buttonLogOut = new javax.swing.JButton();
-        buttonDaftarBarang = new javax.swing.JButton();
-        buttonJual = new javax.swing.JButton();
-        namaLabel = new javax.swing.JLabel();
+        logOutBtn = new javax.swing.JButton();
+        listProductBtn = new javax.swing.JButton();
+        sellBtn = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
         nimLabel = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
@@ -70,35 +70,35 @@ public class SellerGUI extends javax.swing.JFrame {
 
         guideMenuPanel.setOpaque(false);
 
-        buttonUpdateAkun.setText("Update Profil");
+        updateProfileBtn.setText("Update Profil");
 
         nankatsuTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nankatsuTxt.setText("Nankatsu");
 
-        buttonLogOut.setText("Keluar");
-        buttonLogOut.addActionListener(new java.awt.event.ActionListener() {
+        logOutBtn.setText("Keluar");
+        logOutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLogOutActionPerformed(evt);
+                logOutBtnActionPerformed(evt);
             }
         });
 
-        buttonDaftarBarang.setText("Daftar Barang");
-        buttonDaftarBarang.addActionListener(new java.awt.event.ActionListener() {
+        listProductBtn.setText("Daftar Barang");
+        listProductBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDaftarBarangActionPerformed(evt);
+                listProductBtnActionPerformed(evt);
             }
         });
 
-        buttonJual.setText("Jual Barang");
-        buttonJual.addActionListener(new java.awt.event.ActionListener() {
+        sellBtn.setText("Jual Barang");
+        sellBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonJualActionPerformed(evt);
+                sellBtnActionPerformed(evt);
             }
         });
 
-        namaLabel.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        namaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        namaLabel.setText("jLabel2");
+        nameLabel.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel.setText("jLabel2");
 
         nimLabel.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         nimLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -111,31 +111,31 @@ public class SellerGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guideMenuPanelLayout.createSequentialGroup()
                 .addGap(0, 431, Short.MAX_VALUE)
                 .addComponent(nankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(namaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, guideMenuPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(guideMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonDaftarBarang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonJual, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updateProfileBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logOutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listProductBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sellBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(183, 183, 183))
             .addComponent(nimLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         guideMenuPanelLayout.setVerticalGroup(
             guideMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(guideMenuPanelLayout.createSequentialGroup()
-                .addComponent(namaLabel)
+                .addComponent(nameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nimLabel)
                 .addGap(20, 20, 20)
-                .addComponent(buttonJual, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sellBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listProductBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonUpdateAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateProfileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(nankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -149,31 +149,31 @@ public class SellerGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogOutActionPerformed
-        LogInAkunGUI formMenu = new LogInAkunGUI(alamatLogin + 1);
+    private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
+        MenuLogin formMenu = new MenuLogin(addressLogin + 1);
         formMenu.show();
         dispose();
-    }//GEN-LAST:event_buttonLogOutActionPerformed
+    }//GEN-LAST:event_logOutBtnActionPerformed
 
-    private void buttonDaftarBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarBarangActionPerformed
-        DaftarBarang formDaftar = new DaftarBarang(alamatLogin);
+    private void listProductBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listProductBtnActionPerformed
+        ListOfStuff formDaftar = new ListOfStuff(addressLogin);
         formDaftar.show();
         dispose();
-    }//GEN-LAST:event_buttonDaftarBarangActionPerformed
+    }//GEN-LAST:event_listProductBtnActionPerformed
     
-    private void buttonJualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJualActionPerformed
-        InputProduk formInput = new InputProduk(alamatLogin);
+    private void sellBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellBtnActionPerformed
+        InputProduct formInput = new InputProduct(addressLogin);
         formInput.show();
         dispose();
-    }//GEN-LAST:event_buttonJualActionPerformed
+    }//GEN-LAST:event_sellBtnActionPerformed
 
     
     // Setter
     public void setNamaAkun(int index) {
-        namaLabel.setText(control.user.get(index).getNama() + "-" + control.user.get(index).getFakultas());
+        nameLabel.setText(control.user.get(index).getName()+ "-" + control.user.get(index).getFaculty());
     }
     
-    public void setNimAkun(int index) {
+    public void setNimAccount(int index) {
         nimLabel.setText("( "+control.user.get(index).getNim() + " )");
     }
     
@@ -181,23 +181,23 @@ public class SellerGUI extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerGUI(alamatLogin).setVisible(true);
+                new SellerGUI(addressLogin).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton buttonDaftarBarang;
-    private javax.swing.JButton buttonJual;
-    private javax.swing.JButton buttonLogOut;
-    private javax.swing.JButton buttonUpdateAkun;
     private javax.swing.JLabel fjbTxt;
     private javax.swing.JPanel guideMenuPanel;
     private javax.swing.JPanel guidePanelTop;
+    private javax.swing.JButton listProductBtn;
+    private javax.swing.JButton logOutBtn;
     private javax.swing.JLabel menuTitle;
-    private javax.swing.JLabel namaLabel;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nankatsuTxt;
     private javax.swing.JLabel nimLabel;
+    private javax.swing.JButton sellBtn;
+    private javax.swing.JButton updateProfileBtn;
     // End of variables declaration//GEN-END:variables
 }

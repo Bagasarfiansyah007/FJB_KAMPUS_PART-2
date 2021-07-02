@@ -5,12 +5,12 @@ package Model;
  *
  * @author AMS
  */
-public class ProdiModel {
+public class StudyProgramModel {
     private String studyProgramCode;
     private String facultyCode;
     private String studyProgramName;
 
-    public ProdiModel(String studyProgramCode, String facultyCode, String studyProgramName) {
+    public StudyProgramModel(String studyProgramCode, String facultyCode, String studyProgramName) {
         this.studyProgramCode = studyProgramCode;
         this.facultyCode = facultyCode;
         this.studyProgramName = studyProgramName;

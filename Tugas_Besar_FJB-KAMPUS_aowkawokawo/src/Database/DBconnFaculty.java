@@ -6,7 +6,7 @@
 package Database;
 
 import static Database.DBconnUser.conn;
-import Model.FakultasModel;
+import Model.FacultyModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,9 +26,9 @@ public class DBconnFaculty {
     static Statement stmt;
     static ResultSet rs;
     
-    public static List<FakultasModel> GetDataFakultas(){
+    public static List<FacultyModel> getDataFakultas(){
         try{
-            ArrayList<FakultasModel> fakultasList = new ArrayList<FakultasModel>();
+            ArrayList<FacultyModel> facultyList = new ArrayList<FacultyModel>();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
 
@@ -37,13 +37,13 @@ public class DBconnFaculty {
 
 
             while(rs.next()){
-                fakultasList.add(new FakultasModel(rs.getString("kode_fakultas"), rs.getString("nama_fakultas")));
+                facultyList.add(new FacultyModel(rs.getString("kode_fakultas"), rs.getString("nama_fakultas")));
             }
 
             stmt.close();
             conn.close();
 
-            return fakultasList;
+            return facultyList;
 
         }catch(Exception e){
             e.printStackTrace();

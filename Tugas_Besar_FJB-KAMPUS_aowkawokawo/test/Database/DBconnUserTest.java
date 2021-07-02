@@ -12,9 +12,9 @@ public class DBconnUserTest {
     public DBconnUserTest() {
     }
 
-    @Test
+    @Test   
     public void testGetDataUser() {
-        List<UserModel> test = DBconnUser.GetDataUser();
+        List<UserModel> test = DBconnUser.getDataUser();
         
         String expect = "1302194073";
         String actual = test.get(5).getNim();

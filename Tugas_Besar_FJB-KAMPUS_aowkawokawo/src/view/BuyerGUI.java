@@ -6,13 +6,13 @@
 package view;
 
 import Model.CheckoutModel;
-import control.PembeliControl;
+import control.BuyerControl;
 import control.ProductControl;
 import java.sql.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static view.InputProduk.control;
+import static view.InputProduct.control;
 
 /**
  *
@@ -22,21 +22,21 @@ public class BuyerGUI extends javax.swing.JFrame {
 
     public DefaultTableModel modelTable = new DefaultTableModel();
     ProductControl control;
-    static PembeliControl <BuyerGUI> controlPembeli;
-    private static int alamatLogin;
+    static BuyerControl <BuyerGUI> controlPayment;
+    private static int addresLogin;
     private int selectProdukIndex;
 
     public BuyerGUI(int index, List<CheckoutModel> listInput) {
         initComponents();
         control = new ProductControl(this);
-        controlPembeli = new PembeliControl(this);
+        controlPayment = new BuyerControl(this);
 
         setNameColumnTable();
-        alamatLogin = index;
-        control.GetDataProduk(this);
+        addresLogin = index;
+        control.getDataProduct(this);
 
         if (listInput != null) {
-            controlPembeli.listCheckout = listInput;
+            controlPayment.listCheckout = listInput;
         }
     }
 
@@ -45,29 +45,29 @@ public class BuyerGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         dialogTroli = new javax.swing.JDialog();
-        jPanel4 = new javax.swing.JPanel();
-        labelJudul = new javax.swing.JLabel();
+        panelTroli = new javax.swing.JPanel();
+        labelTitel = new javax.swing.JLabel();
         btnNoTroli = new javax.swing.JButton();
         btnYesTroli = new javax.swing.JButton();
-        dialogKonfirmasi = new javax.swing.JDialog();
-        jPanel3 = new javax.swing.JPanel();
+        dialogConfirm = new javax.swing.JDialog();
+        panelConfirm = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         yesBtn = new javax.swing.JButton();
         noBtn = new javax.swing.JButton();
         panelListStuff = new javax.swing.JPanel();
-        BeliButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        buyButton = new javax.swing.JButton();
+        scrollPane = new javax.swing.JScrollPane();
         tableProduk = new javax.swing.JTable();
-        tambahTroliButton = new javax.swing.JButton();
+        addTroliButton = new javax.swing.JButton();
         historyButton = new javax.swing.JButton();
         panelGuide = new javax.swing.JPanel();
-        Troli = new javax.swing.JButton();
-        updateAkunButton = new javax.swing.JButton();
-        keluarButton = new javax.swing.JButton();
-        CariBarangField = new javax.swing.JTextField();
+        troli = new javax.swing.JButton();
+        updateAccountButton = new javax.swing.JButton();
+        logOutButton = new javax.swing.JButton();
+        searchProductField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
-        paneDaftarBarang = new javax.swing.JScrollPane();
-        DaftarBarangField = new javax.swing.JLabel();
+        paneListProduct = new javax.swing.JScrollPane();
+        listProductField = new javax.swing.JLabel();
         comboKategori = new javax.swing.JComboBox();
         nankatsuTxt = new javax.swing.JLabel();
         fjbTxt = new javax.swing.JLabel();
@@ -75,10 +75,10 @@ public class BuyerGUI extends javax.swing.JFrame {
 
         dialogTroli.setSize(new java.awt.Dimension(348, 223));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        panelTroli.setBackground(new java.awt.Color(255, 255, 255));
 
-        labelJudul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelJudul.setText("jLabel5");
+        labelTitel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitel.setText("jLabel5");
 
         btnNoTroli.setText("no");
         btnNoTroli.addActionListener(new java.awt.event.ActionListener() {
@@ -94,25 +94,25 @@ public class BuyerGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelJudul, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelTroliLayout = new javax.swing.GroupLayout(panelTroli);
+        panelTroli.setLayout(panelTroliLayout);
+        panelTroliLayout.setHorizontalGroup(
+            panelTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelTitel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelTroliLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addComponent(btnYesTroli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNoTroli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(96, 96, 96))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        panelTroliLayout.setVerticalGroup(
+            panelTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTroliLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(labelJudul)
+                .addComponent(labelTitel)
                 .addGap(41, 41, 41)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNoTroli)
                     .addComponent(btnYesTroli))
                 .addContainerGap(82, Short.MAX_VALUE))
@@ -122,14 +122,14 @@ public class BuyerGUI extends javax.swing.JFrame {
         dialogTroli.getContentPane().setLayout(dialogTroliLayout);
         dialogTroliLayout.setHorizontalGroup(
             dialogTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTroli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dialogTroliLayout.setVerticalGroup(
             dialogTroliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTroli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        dialogKonfirmasi.setSize(new java.awt.Dimension(342, 216));
+        dialogConfirm.setSize(new java.awt.Dimension(342, 216));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Apakah kamu yakin ingin \nkeluar dari aplikasi ?");
@@ -148,39 +148,39 @@ public class BuyerGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelConfirmLayout = new javax.swing.GroupLayout(panelConfirm);
+        panelConfirm.setLayout(panelConfirmLayout);
+        panelConfirmLayout.setHorizontalGroup(
+            panelConfirmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(panelConfirmLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(yesBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(noBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelConfirmLayout.setVerticalGroup(
+            panelConfirmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConfirmLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelConfirmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yesBtn)
                     .addComponent(noBtn))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout dialogKonfirmasiLayout = new javax.swing.GroupLayout(dialogKonfirmasi.getContentPane());
-        dialogKonfirmasi.getContentPane().setLayout(dialogKonfirmasiLayout);
-        dialogKonfirmasiLayout.setHorizontalGroup(
-            dialogKonfirmasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout dialogConfirmLayout = new javax.swing.GroupLayout(dialogConfirm.getContentPane());
+        dialogConfirm.getContentPane().setLayout(dialogConfirmLayout);
+        dialogConfirmLayout.setHorizontalGroup(
+            dialogConfirmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        dialogKonfirmasiLayout.setVerticalGroup(
-            dialogKonfirmasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        dialogConfirmLayout.setVerticalGroup(
+            dialogConfirmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -188,8 +188,8 @@ public class BuyerGUI extends javax.swing.JFrame {
 
         panelListStuff.setBackground(new java.awt.Color(255, 255, 255));
 
-        BeliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        BeliButton.setText("Beli");
+        buyButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        buyButton.setText("Beli");
 
         tableProduk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,14 +218,14 @@ public class BuyerGUI extends javax.swing.JFrame {
                 tableProdukMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tableProduk);
+        scrollPane.setViewportView(tableProduk);
 
-        tambahTroliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        tambahTroliButton.setText("Tambah ke troli");
-        tambahTroliButton.setEnabled(false);
-        tambahTroliButton.addActionListener(new java.awt.event.ActionListener() {
+        addTroliButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        addTroliButton.setText("Tambah ke troli");
+        addTroliButton.setEnabled(false);
+        addTroliButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambahTroliButtonActionPerformed(evt);
+                addTroliButtonActionPerformed(evt);
             }
         });
 
@@ -247,21 +247,21 @@ public class BuyerGUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(historyButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tambahTroliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addTroliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
+                        .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelListStuffLayout.setVerticalGroup(
             panelListStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListStuffLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(panelListStuffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BeliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tambahTroliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addTroliButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(historyButton))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
@@ -270,26 +270,26 @@ public class BuyerGUI extends javax.swing.JFrame {
 
         panelGuide.setOpaque(false);
 
-        Troli.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        Troli.setText("Troli");
-        Troli.addActionListener(new java.awt.event.ActionListener() {
+        troli.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        troli.setText("Troli");
+        troli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TroliActionPerformed(evt);
+                troliActionPerformed(evt);
             }
         });
 
-        updateAkunButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        updateAkunButton.setText("Update Profil");
+        updateAccountButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        updateAccountButton.setText("Update Profil");
 
-        keluarButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        keluarButton.setText("Keluar");
-        keluarButton.addActionListener(new java.awt.event.ActionListener() {
+        logOutButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        logOutButton.setText("Keluar");
+        logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keluarButtonActionPerformed(evt);
+                logOutButtonActionPerformed(evt);
             }
         });
 
-        CariBarangField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        searchProductField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
         searchButton.setText("Search");
@@ -299,9 +299,9 @@ public class BuyerGUI extends javax.swing.JFrame {
             }
         });
 
-        DaftarBarangField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        DaftarBarangField.setText("Daftar Barang");
-        paneDaftarBarang.setViewportView(DaftarBarangField);
+        listProductField.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        listProductField.setText("Daftar Barang");
+        paneListProduct.setViewportView(listProductField);
 
         comboKategori.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
         comboKategori.addActionListener(new java.awt.event.ActionListener() {
@@ -318,19 +318,19 @@ public class BuyerGUI extends javax.swing.JFrame {
                 .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGuideLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(paneDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(paneListProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(CariBarangField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchProductField, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGuideLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Troli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(troli, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelGuideLayout.createSequentialGroup()
-                        .addComponent(updateAkunButton)
+                        .addComponent(updateAccountButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keluarButton))
+                        .addComponent(logOutButton))
                     .addGroup(panelGuideLayout.createSequentialGroup()
                         .addComponent(searchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -342,16 +342,16 @@ public class BuyerGUI extends javax.swing.JFrame {
             .addGroup(panelGuideLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Troli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateAkunButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(troli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelGuideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CariBarangField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchProductField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(comboKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                    .addComponent(paneDaftarBarang))
+                    .addComponent(paneListProduct))
                 .addContainerGap())
         );
 
@@ -377,62 +377,62 @@ public class BuyerGUI extends javax.swing.JFrame {
     
     // Main Procedur
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String nama = CariBarangField.getText();
+        String nama = searchProductField.getText();
 
         if (nama.isEmpty()) {
-            control.GetDataProduk(this);
+            control.getDataProduct(this);
         } else {
             control.searchProduct(this, nama);
-            CariBarangField.setText("");
+            searchProductField.setText("");
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
-        dialogKonfirmasi.setLocationRelativeTo(null);
-        dialogKonfirmasi.show();
-    }//GEN-LAST:event_keluarButtonActionPerformed
+    private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        dialogConfirm.setLocationRelativeTo(null);
+        dialogConfirm.show();
+    }//GEN-LAST:event_logOutButtonActionPerformed
 
-    private void TroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TroliActionPerformed
-        CheckOutGUI formCheckout = new CheckOutGUI(alamatLogin, controlPembeli.listCheckout);
+    private void troliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_troliActionPerformed
+        CheckOutGUI formCheckout = new CheckOutGUI(addresLogin, controlPayment.listCheckout);
         formCheckout.show();
         dispose();
-    }//GEN-LAST:event_TroliActionPerformed
+    }//GEN-LAST:event_troliActionPerformed
 
     private void comboKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboKategoriActionPerformed
         String nama = comboKategori.getSelectedItem().toString();
         if (nama.isEmpty()) {
-            control.GetDataProduk(this);
+            control.getDataProduct(this);
         } else {
             control.searchProductCategory(this, nama);
         }
     }//GEN-LAST:event_comboKategoriActionPerformed
 
     private void yesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesBtnActionPerformed
-        LogInAkunGUI formLogin = new LogInAkunGUI(alamatLogin + 1);
+        MenuLogin formLogin = new MenuLogin(addresLogin + 1);
         formLogin.show();
-        dialogKonfirmasi.dispose();
+        dialogConfirm.dispose();
         dispose();
     }//GEN-LAST:event_yesBtnActionPerformed
 
     private void noBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noBtnActionPerformed
-        dialogKonfirmasi.dispose();
+        dialogConfirm.dispose();
     }//GEN-LAST:event_noBtnActionPerformed
 
-    private void tambahTroliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahTroliButtonActionPerformed
+    private void addTroliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTroliButtonActionPerformed
         dialogTroli.setLocationRelativeTo(null);
         dialogTroli.show();
-        labelJudul.setText("ingin Menambahkan " + controlPembeli.listProduk.get(selectProdukIndex).getNama() + " ?");
-    }//GEN-LAST:event_tambahTroliButtonActionPerformed
+        labelTitel.setText("ingin Menambahkan " + controlPayment.listProduk.get(selectProdukIndex).getProducrName()+ " ?");
+    }//GEN-LAST:event_addTroliButtonActionPerformed
 
     private void tableProdukMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdukMousePressed
-        selectProdukIndex = controlPembeli.findeIndexProduct(tableProduk.getValueAt(tableProduk.getSelectedRow(), 0).toString());
-        tambahTroliButton.setEnabled(true);
+        selectProdukIndex = controlPayment.findeIndexProduct(tableProduk.getValueAt(tableProduk.getSelectedRow(), 0).toString());
+        addTroliButton.setEnabled(true);
     }//GEN-LAST:event_tableProdukMousePressed
 
     private void btnYesTroliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYesTroliActionPerformed
-        controlPembeli.inserListCheckout(selectProdukIndex, alamatLogin);
-        for (int i = 0 ; i < controlPembeli.listCheckout.size(); i++) {
-            System.out.println(controlPembeli.listCheckout.get(i).getIdBayar());
+        controlPayment.inserListCheckout(selectProdukIndex, addresLogin);
+        for (int i = 0 ; i < controlPayment.listCheckout.size(); i++) {
+            System.out.println(controlPayment.listCheckout.get(i).getIdPayment());
         }
         dialogTroli.dispose();
     }//GEN-LAST:event_btnYesTroliActionPerformed
@@ -442,7 +442,7 @@ public class BuyerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNoTroliActionPerformed
 
     private void historyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyButtonActionPerformed
-        HistoryGUI history = new HistoryGUI(alamatLogin,controlPembeli.listCheckout);
+        HistoryGUI history = new HistoryGUI(addresLogin,controlPayment.listCheckout);
         history.show();
         hide();
     }//GEN-LAST:event_historyButtonActionPerformed
@@ -491,39 +491,39 @@ public class BuyerGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuyerGUI(alamatLogin, controlPembeli.listCheckout).setVisible(true);
+                new BuyerGUI(addresLogin, controlPayment.listCheckout).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BeliButton;
-    private javax.swing.JTextField CariBarangField;
-    private javax.swing.JLabel DaftarBarangField;
-    private javax.swing.JButton Troli;
+    private javax.swing.JButton addTroliButton;
     private javax.swing.JLabel backgroud;
     private javax.swing.JButton btnNoTroli;
     private javax.swing.JButton btnYesTroli;
+    private javax.swing.JButton buyButton;
     private javax.swing.JComboBox comboKategori;
-    private javax.swing.JDialog dialogKonfirmasi;
+    private javax.swing.JDialog dialogConfirm;
     private javax.swing.JDialog dialogTroli;
     private javax.swing.JLabel fjbTxt;
     private javax.swing.JButton historyButton;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton keluarButton;
-    private javax.swing.JLabel labelJudul;
+    private javax.swing.JLabel labelTitel;
+    private javax.swing.JLabel listProductField;
+    private javax.swing.JButton logOutButton;
     private javax.swing.JLabel nankatsuTxt;
     private javax.swing.JButton noBtn;
-    private javax.swing.JScrollPane paneDaftarBarang;
+    private javax.swing.JScrollPane paneListProduct;
+    private javax.swing.JPanel panelConfirm;
     private javax.swing.JPanel panelGuide;
     private javax.swing.JPanel panelListStuff;
+    private javax.swing.JPanel panelTroli;
+    private javax.swing.JScrollPane scrollPane;
     private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchProductField;
     private javax.swing.JTable tableProduk;
-    private javax.swing.JButton tambahTroliButton;
-    private javax.swing.JButton updateAkunButton;
+    private javax.swing.JButton troli;
+    private javax.swing.JButton updateAccountButton;
     private javax.swing.JButton yesBtn;
     // End of variables declaration//GEN-END:variables
 }

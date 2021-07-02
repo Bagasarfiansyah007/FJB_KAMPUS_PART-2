@@ -5,8 +5,8 @@
  */
 package Database;
 
-import Model.FakultasModel;
-import Model.ProdiModel;
+import Model.FacultyModel;
+import Model.StudyProgramModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,9 +26,9 @@ public class DBconnStudyProgram {
     static Statement stmt;
     static ResultSet rs;
     
-    public static List<ProdiModel> GetDataProdi(){
+    public static List<StudyProgramModel> getDataStudyProgram(){
         try{
-            ArrayList<ProdiModel> prodiList = new ArrayList<ProdiModel>();
+            ArrayList<StudyProgramModel> studyProgramList = new ArrayList<StudyProgramModel>();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
 
@@ -37,13 +37,13 @@ public class DBconnStudyProgram {
 
 
             while(rs.next()){
-                prodiList.add(new ProdiModel(rs.getString("kode_prodi"), rs.getString("kode_fakultas"),rs.getString("nama_prodi")));
+                studyProgramList.add(new StudyProgramModel(rs.getString("kode_prodi"), rs.getString("kode_fakultas"),rs.getString("nama_prodi")));
             }
 
             stmt.close();
             conn.close();
 
-            return prodiList;
+            return studyProgramList;
 
         }catch(Exception e){
             e.printStackTrace();

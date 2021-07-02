@@ -37,7 +37,7 @@ public class DBconnCheckOutTest {
     @Test
     public void testUpdateSaldoPayment() {
         DBconnCheckOut.updateSaldo(5000, "1302194007");
-        List <UserModel> test = DBconnUser.GetDataUser();
+        List <UserModel> test = DBconnUser.getDataUser();
 
         int expect = 5000;
         int actual = test.get(5).getSaldo();

@@ -6,7 +6,7 @@ import general.ConditionMethod;
 import general.DialogMessage;
 import java.util.List;
 import javax.swing.JOptionPane;
-import view.LogInAccountGUI;
+import view.MenuLogin;
 import view.LogInGUI;
 
 public class LoginControl <T>{
@@ -19,17 +19,17 @@ public class LoginControl <T>{
 
     // Constructor
     public LoginControl(T form){
-        user = DBconnUser.GetDataUser();
+        user = DBconnUser.getDataUser();
         this.form = form;
     }
     
     public LoginControl(){
-        user = DBconnUser.GetDataUser();
+        user = DBconnUser.getDataUser();
         this.form = form;
     }
     
     // Main procedure
-    public void cekDataUserLogin (LogInGUI login,String nim,String password){
+    public void findDataUserLogin (LogInGUI login,String nim,String password){
         if (ConditionMethod.isAllfieldIsemptyOnlogin(login) == true){
             
             DialogMessage.dialogFormWarning("Tolong isi field nim dan password", "Warning");
@@ -50,7 +50,7 @@ public class LoginControl <T>{
             if (find == true ) {
            
                 DialogMessage.dialogFormSucsess("sukses Login sebagai " + nim, "Suskses");
-                LogInAccountGUI menuHome = new LogInAccountGUI(index);
+                MenuLogin menuHome = new MenuLogin(index);
                 login.dispose();
                 menuHome.show();
                 
@@ -67,7 +67,8 @@ public class LoginControl <T>{
         boolean find = false;
         int index = 0;
         while (find == false & index < user.size()){
-            if (nim.intern() == user.get(index).getNim().intern() && password.intern() == user.get(index).getPassword().intern()){
+            if (nim.intern() == user.get(index).getNim().intern() && 
+                password.intern() == user.get(index).getPaswword().intern()){
                 find = true;
             }
             index = index + 1;
@@ -79,7 +80,8 @@ public class LoginControl <T>{
         boolean find = false;
         int index = 0;
         while (find == false & index < user.size()){
-            if (nim.intern() == user.get(index).getNim().intern() && password.intern() == user.get(index).getPassword().intern()){
+            if (nim.intern() == user.get(index).getNim().intern() 
+                && password.intern() == user.get(index).getPaswword().intern()){
                 find = true;
             }
             index = index + 1;

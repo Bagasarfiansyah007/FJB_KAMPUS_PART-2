@@ -13,8 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.RegisterGUI;
 import Database.DBconnUser;
-import Model.FakultasModel;
-import Model.ProdiModel;
+import Model.FacultyModel;
+import Model.StudyProgramModel;
 import general.ConditionMethod;
 import general.DialogMessage;
 import java.util.List;
@@ -26,16 +26,16 @@ import view.LogInGUI;
  */
 public class RegistrasiControl {
     public List <UserModel> user;
-    public List <FakultasModel> fakultas;
-    public List <ProdiModel> prodi;
+    public List <FacultyModel> fakultas;
+    public List <StudyProgramModel> prodi;
 
     RegisterGUI registerForm;
     
     // Constructor
     public RegistrasiControl(RegisterGUI register){
-        user = DBconnUser.GetDataUser();
-        fakultas = DBconnFaculty.GetDataFakultas() ;
-        prodi = DBconnStudyProgram.GetDataProdi();
+        user = DBconnUser.getDataUser();
+        fakultas = DBconnFaculty.getDataFakultas();
+        prodi = DBconnStudyProgram.getDataStudyProgram();
         this.registerForm = register;
     }
 
@@ -55,7 +55,7 @@ public class RegistrasiControl {
             
             if (ConditionMethod.isListEmpty(user)) {
                 
-                DBconnUser.InsertData(register);
+                DBconnUser.insertData(register);
                 DialogMessage.dialogFormSucsess(("sukses memasukan " + nim),"Suskses");
                 
             } else {

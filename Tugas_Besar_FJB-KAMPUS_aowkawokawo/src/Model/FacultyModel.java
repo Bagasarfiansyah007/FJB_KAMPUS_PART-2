@@ -9,12 +9,12 @@ package Model;
  *
  * @author AMS
  */
-public class FakultasModel {
+public class FacultyModel {
     private String idFaculty;
     private String nameFaculty;
     private String studyProgramCode;
 
-    public FakultasModel(String idFaculty, String nameFaculty) {
+    public FacultyModel(String idFaculty, String nameFaculty) {
         this.idFaculty = idFaculty;
         this.nameFaculty = nameFaculty;
         this.studyProgramCode = studyProgramCode;

@@ -7,7 +7,7 @@ package Database;
 
 import static Database.DBconnProduct.conn;
 import Model.CheckoutModel;
-import Model.FakultasModel;
+import Model.FacultyModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

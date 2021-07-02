@@ -47,10 +47,11 @@ public class LogIn_GUITest {
         int index = 0;
         String[] accountFind = new String[2];
         while (find == false & index < list.size()){
-            if (execute[0].intern() == list.get(index).getNim().intern() && execute[1].intern() == list.get(index).getPassword().intern()){
+            if (execute[0].intern() == list.get(index).getNim().intern() 
+                && execute[1].intern() == list.get(index).getPaswword().intern()){
                 find = true;
                 accountFind[0] = list.get(index).getNim().intern();
-                accountFind[1] = list.get(index).getPassword().intern();
+                accountFind[1] = list.get(index).getPaswword().intern();
             }
             index = index + 1;
         }
@@ -61,7 +62,8 @@ public class LogIn_GUITest {
         boolean find = false;
         int index = 0;
         while (find == false & index < user.size()){
-            if (nim.intern() == user.get(index).getNim().intern() && password.intern() == user.get(index).getPassword().intern()){
+            if (nim.intern() == user.get(index).getNim().intern()
+                && password.intern() == user.get(index).getPaswword().intern()){
                 find = true;
             }
             index = index + 1;

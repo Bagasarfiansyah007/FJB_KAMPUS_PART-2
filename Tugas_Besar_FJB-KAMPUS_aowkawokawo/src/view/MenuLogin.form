@@ -25,7 +25,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="loginPanel1">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -48,7 +48,7 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="loginPanel2">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -71,7 +71,7 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel3">
+    <Container class="javax.swing.JPanel" name="loginPanel3">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
@@ -87,16 +87,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnPenjual" min="-2" pref="222" max="-2" attributes="0"/>
-                      <Component id="btnPembeli" min="-2" pref="222" max="-2" attributes="0"/>
+                      <Component id="sellerBtn" min="-2" pref="222" max="-2" attributes="0"/>
+                      <Component id="buyyerBtn" min="-2" pref="222" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="196" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="namaTxt" alignment="1" max="32767" attributes="0"/>
-                      <Component id="nimTxt" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="nameLabel" alignment="1" max="32767" attributes="0"/>
+                      <Component id="nimLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="masukSebagaiLabel" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -106,22 +106,22 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="masukSebagaiLabel" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="namaTxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="nimTxt" min="-2" max="-2" attributes="0"/>
+                  <Component id="nimLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="btnPembeli" min="-2" pref="59" max="-2" attributes="0"/>
+                  <Component id="buyyerBtn" min="-2" pref="59" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnPenjual" min="-2" pref="59" max="-2" attributes="0"/>
+                  <Component id="sellerBtn" min="-2" pref="59" max="-2" attributes="0"/>
                   <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="masukSebagaiLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>
@@ -130,7 +130,7 @@
             <Property name="text" type="java.lang.String" value="Masuk Sebagai"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnPembeli">
+        <Component class="javax.swing.JButton" name="buyyerBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>
@@ -138,10 +138,10 @@
             <Property name="text" type="java.lang.String" value="Pembeli"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPembeliActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyyerBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnPenjual">
+        <Component class="javax.swing.JButton" name="sellerBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>
@@ -149,10 +149,10 @@
             <Property name="text" type="java.lang.String" value="Penjual"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPenjualActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sellerBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="namaTxt">
+        <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>
@@ -161,7 +161,7 @@
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nimTxt">
+        <Component class="javax.swing.JLabel" name="nimLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>

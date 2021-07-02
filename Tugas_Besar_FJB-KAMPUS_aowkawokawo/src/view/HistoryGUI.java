@@ -4,21 +4,21 @@ package view;
 import javax.swing.table.DefaultTableModel;
 import Database.DBconnCheckOut;
 import Model.CheckoutModel;
-import control.PembeliControl;
+import control.BuyerControl;
 import java.util.List;
 
 public class HistoryGUI extends javax.swing.JFrame {
 
     // Atribut
     public DefaultTableModel modelTable = new DefaultTableModel();
-    private static int alamatLogin;
-    static PembeliControl control;
+    private static int addresLogin;
+    static BuyerControl control;
     public HistoryGUI(int index, List<CheckoutModel> listInput) {
         initComponents();
-        alamatLogin = index;
-        control = new PembeliControl(this);
+        addresLogin = index;
+        control = new BuyerControl(this);
         setNameColumnTable();
-        control.GetDataProduk(this, alamatLogin);
+        control.getDataProduct(this, addresLogin);
         control.listCheckout = listInput;
     }
     
@@ -39,11 +39,11 @@ public class HistoryGUI extends javax.swing.JFrame {
 
         historyPane = new javax.swing.JPanel();
         historyTitle = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        listHistoryProduct = new javax.swing.JScrollPane();
         tableHistory = new javax.swing.JTable();
         fjbTxt = new javax.swing.JLabel();
         NankatsuTxt = new javax.swing.JLabel();
-        buttonMenu = new javax.swing.JButton();
+        menuBtn = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,7 +72,7 @@ public class HistoryGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tableHistory);
+        listHistoryProduct.setViewportView(tableHistory);
 
         fjbTxt.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         fjbTxt.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,10 +84,10 @@ public class HistoryGUI extends javax.swing.JFrame {
         NankatsuTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NankatsuTxt.setText("Nankatsu");
 
-        buttonMenu.setText("Menu");
-        buttonMenu.addActionListener(new java.awt.event.ActionListener() {
+        menuBtn.setText("Menu");
+        menuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMenuActionPerformed(evt);
+                menuBtnActionPerformed(evt);
             }
         });
 
@@ -101,14 +101,14 @@ public class HistoryGUI extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
             .addGroup(historyPaneLayout.createSequentialGroup()
                 .addGroup(historyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(menuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(historyPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(historyPaneLayout.createSequentialGroup()
                             .addGap(237, 237, 237)
                             .addComponent(historyTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(historyPaneLayout.createSequentialGroup()
                             .addGap(44, 44, 44)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(listHistoryProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(historyPaneLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(fjbTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -121,9 +121,9 @@ public class HistoryGUI extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(historyTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listHistoryProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonMenu)
+                .addComponent(menuBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(NankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -138,11 +138,11 @@ public class HistoryGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Main Procedure
-    private void buttonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMenuActionPerformed
-        BuyerGUI formPembeli = new BuyerGUI(alamatLogin,control.listCheckout);
-        formPembeli.show();
+    private void menuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBtnActionPerformed
+        BuyerGUI formBuyer = new BuyerGUI(addresLogin,control.listCheckout);
+        formBuyer.show();
         dispose();
-    }//GEN-LAST:event_buttonMenuActionPerformed
+    }//GEN-LAST:event_menuBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +175,7 @@ public class HistoryGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HistoryGUI(alamatLogin,control.listCheckout).setVisible(true);
+                new HistoryGUI(addresLogin,control.listCheckout).setVisible(true);
             }
         });
     }
@@ -183,11 +183,11 @@ public class HistoryGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NankatsuTxt;
     private javax.swing.JLabel background;
-    private javax.swing.JButton buttonMenu;
     private javax.swing.JLabel fjbTxt;
     private javax.swing.JPanel historyPane;
     private javax.swing.JLabel historyTitle;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane listHistoryProduct;
+    private javax.swing.JButton menuBtn;
     private javax.swing.JTable tableHistory;
     // End of variables declaration//GEN-END:variables
 }

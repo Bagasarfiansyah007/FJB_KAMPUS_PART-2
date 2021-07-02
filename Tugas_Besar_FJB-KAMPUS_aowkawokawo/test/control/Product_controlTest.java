@@ -23,7 +23,7 @@ public class Product_controlTest {
         BuyerGUI form = new BuyerGUI(0,null);
         
         String expected = "B18";
-        String actual = control.inputKodeProduk("");
+        String actual = control.inputCodeProduct("");
         
         assertEquals(expected,actual);
     }
@@ -33,8 +33,8 @@ public class Product_controlTest {
         ProductControl control = new ProductControl();
         
         String expected = "Iphon 20 Pro max +++";
-        List <Product> test = DBconnProduct.cariProduk(expected);
-        String actual = test.get(0).getNama();
+        List <Product> test = DBconnProduct.searchProduct(expected);
+        String actual = test.get(0).getProducrName();
         
         assertEquals(expected,actual);
         
@@ -45,8 +45,8 @@ public class Product_controlTest {
         ProductControl control = new ProductControl();
         
         String expected = "Elektronik";
-        List <Product> test = DBconnProduct.cariProdukKategori("Elektronik");
-        String actual = test.get(0).getKategori();
+        List <Product> test = DBconnProduct.searchProductCategory("Elektronik");
+        String actual = test.get(0).getProductCategory();
         
         assertEquals(expected,actual);
         

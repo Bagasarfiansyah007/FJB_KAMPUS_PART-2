@@ -5,7 +5,7 @@
  */
 package view;
 
-import Model.FakultasModel;
+import Model.FacultyModel;
 import control.RegistrasiControl;
 import general.DialogMessage;
 import javax.swing.ComboBoxModel;
@@ -17,15 +17,15 @@ public class RegisterGUI extends javax.swing.JFrame {
 
     // Atribut
     public static RegistrasiControl control;
-    private String fakultasKode;
+    private String codeFaculty;
 
 
     // Constructor
     public RegisterGUI() {
         initComponents();
         control = new RegistrasiControl(this);
-        setComboValueFakultas();
-        setComboValueProdi(fakultasKode);
+        setComboValueFaculty();
+        setComboValueStudyProgram(codeFaculty);
 
     }
 
@@ -37,24 +37,24 @@ public class RegisterGUI extends javax.swing.JFrame {
         guidePanel = new javax.swing.JPanel();
         registrasiTitle = new javax.swing.JLabel();
         dataGuidePanel = new javax.swing.JPanel();
-        nimTxt = new javax.swing.JLabel();
-        namaTxt = new javax.swing.JLabel();
-        fakultasTxt = new javax.swing.JLabel();
-        prodiTxt = new javax.swing.JLabel();
-        mailTxt = new javax.swing.JLabel();
-        telephoneTxt = new javax.swing.JLabel();
-        passwordTxt = new javax.swing.JLabel();
-        saldoTxt = new javax.swing.JLabel();
-        nimField = new javax.swing.JTextField();
-        namaField = new javax.swing.JTextField();
-        mailField = new javax.swing.JTextField();
-        telephoneField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JPasswordField();
-        saldoField = new javax.swing.JTextField();
-        registerButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
-        fakultasComboBox = new javax.swing.JComboBox();
-        prodiComboBox = new javax.swing.JComboBox();
+        nimLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        facultyLabel = new javax.swing.JLabel();
+        studyProgramLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        telephoneLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
+        saldoLabel = new javax.swing.JLabel();
+        nimTxt = new javax.swing.JTextField();
+        namaTxt = new javax.swing.JTextField();
+        emailTxt = new javax.swing.JTextField();
+        telephoneTxt = new javax.swing.JTextField();
+        passwordTxt = new javax.swing.JPasswordField();
+        saldoTxt = new javax.swing.JTextField();
+        registerBtn = new javax.swing.JButton();
+        cancelBtn = new javax.swing.JButton();
+        facultyCombo = new javax.swing.JComboBox();
+        studyProgramCombo = new javax.swing.JComboBox();
         background = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -89,39 +89,39 @@ public class RegisterGUI extends javax.swing.JFrame {
 
         dataGuidePanel.setOpaque(false);
 
-        nimTxt.setText("NIM");
+        nimLabel.setText("NIM");
 
-        namaTxt.setText("Nama");
+        nameLabel.setText("Nama");
 
-        fakultasTxt.setText("Fakultas");
+        facultyLabel.setText("Fakultas");
 
-        prodiTxt.setText("Prodi");
+        studyProgramLabel.setText("Prodi");
 
-        mailTxt.setText("Email");
+        emailLabel.setText("Email");
 
-        telephoneTxt.setText("Telephone");
+        telephoneLabel.setText("Telephone");
 
-        passwordTxt.setText("Password");
+        passwordLabel.setText("Password");
 
-        saldoTxt.setText("Saldo");
+        saldoLabel.setText("Saldo");
 
-        registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        registerBtn.setText("Register");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                registerBtnActionPerformed(evt);
             }
         });
 
-        cancelButton.setText("Cancel");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+        cancelBtn.setText("Cancel");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+                cancelBtnActionPerformed(evt);
             }
         });
 
-        fakultasComboBox.addActionListener(new java.awt.event.ActionListener() {
+        facultyCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fakultasComboBoxActionPerformed(evt);
+                facultyComboActionPerformed(evt);
             }
         });
 
@@ -132,34 +132,34 @@ public class RegisterGUI extends javax.swing.JFrame {
             .addGroup(dataGuidePanelLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nimTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(namaTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fakultasTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(prodiTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mailTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(telephoneTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(saldoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nimLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(facultyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(studyProgramLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(emailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(telephoneLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saldoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dataGuidePanelLayout.createSequentialGroup()
-                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(242, Short.MAX_VALUE))
                     .addGroup(dataGuidePanelLayout.createSequentialGroup()
                         .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mailField)
-                            .addComponent(telephoneField)
-                            .addComponent(passwordField)
-                            .addComponent(saldoField)
-                            .addComponent(namaField)
-                            .addComponent(nimField))
+                            .addComponent(emailTxt)
+                            .addComponent(telephoneTxt)
+                            .addComponent(passwordTxt)
+                            .addComponent(saldoTxt)
+                            .addComponent(namaTxt)
+                            .addComponent(nimTxt))
                         .addGap(57, 57, 57))
                     .addGroup(dataGuidePanelLayout.createSequentialGroup()
                         .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fakultasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(prodiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(facultyCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(studyProgramCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         dataGuidePanelLayout.setVerticalGroup(
@@ -167,40 +167,40 @@ public class RegisterGUI extends javax.swing.JFrame {
             .addGroup(dataGuidePanelLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nimTxt)
-                    .addComponent(nimField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nimLabel)
+                    .addComponent(nimTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(namaTxt))
+                    .addComponent(namaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fakultasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fakultasTxt))
+                    .addComponent(facultyCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facultyLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(prodiTxt)
-                    .addComponent(prodiComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studyProgramLabel)
+                    .addComponent(studyProgramCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mailTxt)
-                    .addComponent(mailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailLabel)
+                    .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(telephoneTxt)
-                    .addComponent(telephoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telephoneLabel)
+                    .addComponent(telephoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordTxt)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordLabel)
+                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saldoTxt)
-                    .addComponent(saldoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(saldoLabel)
+                    .addComponent(saldoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(dataGuidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerButton)
-                    .addComponent(cancelButton))
+                    .addComponent(registerBtn)
+                    .addComponent(cancelBtn))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
@@ -214,58 +214,58 @@ public class RegisterGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Main procedure
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         try {
             control.isiData(this);
         } catch (Exception e) {
             DialogMessage.dialogFormWarning("Tipe data yang dimasukan Salah !", "warning");
         }
-    }//GEN-LAST:event_registerButtonActionPerformed
+    }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         LogInGUI loginGui = new LogInGUI();
         loginGui.show();
         dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
-    private void fakultasComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fakultasComboBoxActionPerformed
-        prodiComboBox.removeAllItems();
-        fakultasKode = control.fakultas.get(fakultasComboBox.getSelectedIndex()).getId_fakultas();
-        setComboValueProdi (fakultasKode);
-    }//GEN-LAST:event_fakultasComboBoxActionPerformed
+    private void facultyComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facultyComboActionPerformed
+        studyProgramCombo.removeAllItems();
+        codeFaculty = control.fakultas.get(facultyCombo.getSelectedIndex()).getIdFaculty();
+        setComboValueStudyProgram (codeFaculty);
+    }//GEN-LAST:event_facultyComboActionPerformed
     
     
     // Getter
-    public String getComboFakultas() {
-        return fakultasComboBox.getSelectedItem().toString();
+    public String getComboFaculty() {
+        return facultyCombo.getSelectedItem().toString();
     }
 
-    public String getTxtNama() {
-        return namaField.getText();
+    public String getTxtName() {
+        return namaTxt.getText();
     }
 
     public String getTxtNim() {
-        return nimField.getText();
+        return nimTxt.getText();
     }
 
     public String getTxtPassword() {
-        return passwordField.getText();
+        return passwordTxt.getText();
     }
 
-    public String getComboProdi() {
-        return prodiComboBox.getSelectedItem().toString();
+    public String getComboStudyProgram() {
+        return studyProgramCombo.getSelectedItem().toString();
     }
     
     public String getTxtEmail(){
-        return mailField.getText();
+        return emailTxt.getText();
     }
     
     public int getTxtSaldo() {
-        return Integer.parseInt(saldoField.getText());
+        return Integer.parseInt(saldoTxt.getText());
     }
 
     public String getTxtTelphone() {
-        return telephoneField.getText();
+        return telephoneTxt.getText();
     }
 
     
@@ -274,22 +274,22 @@ public class RegisterGUI extends javax.swing.JFrame {
         registrasiTitle.setText(label);
     }
     
-    public void setComboValueFakultas (){
+    public void setComboValueFaculty (){
         for (int i = 0 ; i < control.fakultas.size();i++) {
-            fakultasComboBox.addItem(control.fakultas.get(i).getNama());
+            facultyCombo.addItem(control.fakultas.get(i).getNameFaculty());
         }
     }
     
-    public void setComboValueProdi (String fakultasKode){
-        if (fakultasKode == null) {
+    public void setComboValueStudyProgram (String codeFaculty){
+        if (codeFaculty == null) {
             for (int i = 0 ; i < control.prodi.size();i++) {
-                prodiComboBox.addItem(control.prodi.get(i).getNamaProdi());
+                studyProgramCombo.addItem(control.prodi.get(i).getStudyProgramName());
             }
         } else {
-            System.out.println(fakultasKode);
+            System.out.println(codeFaculty);
             for (int i = 0 ; i < control.prodi.size();i++) {
-                if (fakultasKode.intern() == control.prodi.get(i).getKodeFakultas().intern()){
-                    prodiComboBox.addItem(control.prodi.get(i).getNamaProdi());
+                if (codeFaculty.intern() == control.prodi.get(i).getFacultyCode().intern()){
+                    studyProgramCombo.addItem(control.prodi.get(i).getStudyProgramName());
                 }
             }
         }
@@ -329,27 +329,27 @@ public class RegisterGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton cancelBtn;
     private javax.swing.JPanel dataGuidePanel;
-    private javax.swing.JComboBox fakultasComboBox;
-    private javax.swing.JLabel fakultasTxt;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextField emailTxt;
+    private javax.swing.JComboBox facultyCombo;
+    private javax.swing.JLabel facultyLabel;
     private javax.swing.JPanel guidePanel;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JTextField mailField;
-    private javax.swing.JLabel mailTxt;
-    private javax.swing.JTextField namaField;
-    private javax.swing.JLabel namaTxt;
-    private javax.swing.JTextField nimField;
-    private javax.swing.JLabel nimTxt;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JLabel passwordTxt;
-    private javax.swing.JComboBox prodiComboBox;
-    private javax.swing.JLabel prodiTxt;
-    private javax.swing.JButton registerButton;
+    private javax.swing.JTextField namaTxt;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nimLabel;
+    private javax.swing.JTextField nimTxt;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JPasswordField passwordTxt;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JLabel registrasiTitle;
-    private javax.swing.JTextField saldoField;
-    private javax.swing.JLabel saldoTxt;
-    private javax.swing.JTextField telephoneField;
-    private javax.swing.JLabel telephoneTxt;
+    private javax.swing.JLabel saldoLabel;
+    private javax.swing.JTextField saldoTxt;
+    private javax.swing.JComboBox studyProgramCombo;
+    private javax.swing.JLabel studyProgramLabel;
+    private javax.swing.JLabel telephoneLabel;
+    private javax.swing.JTextField telephoneTxt;
     // End of variables declaration//GEN-END:variables
 }

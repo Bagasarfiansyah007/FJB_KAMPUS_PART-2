@@ -15,7 +15,7 @@ public class DBconnProductTest {
 
     @Test
     public void testInsertProduk() {
-        List<Product> test = DBconnProduct.GetDataProduk();
+        List<Product> test = DBconnProduct.getDataProduct();
         
         String expect = "B16";
         String actual = test.get(6).getProductCode();
@@ -25,7 +25,7 @@ public class DBconnProductTest {
 
     @Test
     public void testGetDataProduk() {
-        List<Product> test = DBconnProduct.GetDataProduk();
+        List<Product> test = DBconnProduct.getDataProduct();
         
         String expect = "B01";
         String actual = test.get(0).getProductCode();
@@ -35,7 +35,7 @@ public class DBconnProductTest {
 
     @Test
     public void testCariProduk() {
-        List<Product> test = DBconnProduct.cariProduk("Iphon 20 Pro max +++");
+        List<Product> test = DBconnProduct.searchProduct("Iphon 20 Pro max +++");
         
         String expect = "Iphon 20 Pro max +++";
         String actual = test.get(0).getProducrName();
@@ -45,7 +45,7 @@ public class DBconnProductTest {
 
     @Test
     public void testCariProdukKategori() {
-        List<Product> test = DBconnProduct.cariProdukKategori("Elektronik");
+        List<Product> test = DBconnProduct.searchProductCategory("Elektronik");
         
         String expect = "Elektronik";
         String actual = test.get(0).getProductCategory();

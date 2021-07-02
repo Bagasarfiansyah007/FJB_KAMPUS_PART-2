@@ -21,80 +21,80 @@ import view.RegisterGUI;
 public class ProductControl <T>{
     
     // Atribut
-    public List <Product> listProduk;
-    public List <Product> listProdukCari;
+    public List <Product> listProduct;
+    public List <Product> listProductSearch;
     public List <UserModel> listUser;
     T form;
     
     
     // Constructor
     public ProductControl(T form){
-        listProduk = DBconnProduct.GetDataProduk();
-        listUser = DBconnUser.GetDataUser();
+        listProduct = DBconnProduct.getDataProduct();
+        listUser = DBconnUser.getDataUser();
         this.form = form;
     }
     
     public ProductControl(){
-        listProduk = DBconnProduct.GetDataProduk();
-        listUser = DBconnUser.GetDataUser();
+        listProduct = DBconnProduct.getDataProduct();
+        listUser = DBconnUser.getDataUser();
         this.form = form;
     }
     
 
     
     // Main Procedure
-    public void GetDataProduk(ListOfStuff formDaftaBarang,int index){
+    public void getDataProduct(ListOfStuff formDaftaBarang,int index){
         formDaftaBarang.modelTable.getDataVector().removeAllElements();
         formDaftaBarang.modelTable.fireTableDataChanged();
         
         try{
             
            Object[] tabel = new Object[5];
-           inputDataTable (formDaftaBarang,listProduk,listUser,tabel,index);
+           inputDataTable (formDaftaBarang,listProduct,listUser,tabel,index);
         
         }catch(Exception e){
             DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
-    public void GetDataProduk(BuyerGUI pembeli){
-        pembeli.modelTable.getDataVector().removeAllElements();
-        pembeli.modelTable.fireTableDataChanged();
+    public void getDataProduct(BuyerGUI buyyer){
+        buyyer.modelTable.getDataVector().removeAllElements();
+        buyyer.modelTable.fireTableDataChanged();
         
         try{
             
            Object[] tabel = new Object[5];
-           inputDataTable (pembeli,listProduk,tabel);
+           inputDataTable (buyyer,listProduct,tabel);
 
         }catch(Exception e){
             DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
-    public void searchProduct(BuyerGUI pembeli,String nama){
-        pembeli.modelTable.getDataVector().removeAllElements();
-        pembeli.modelTable.fireTableDataChanged();
+    public void searchProduct(BuyerGUI buyyer,String name){
+        buyyer.modelTable.getDataVector().removeAllElements();
+        buyyer.modelTable.fireTableDataChanged();
         
         try{
             
-           listProdukCari = DBconnProduct.cariProduk(nama);
+           listProductSearch = DBconnProduct.searchProduct(name);
            Object[] tabel = new Object[5];
-           inputDataTable (pembeli,listProdukCari,tabel);
+           inputDataTable (buyyer,listProductSearch,tabel);
                 
         }catch(Exception e){
             DialogMessage.dialogFormWarning("Data Kosong dan belum masuk","warning");
         }
     }
     
-    public void searchProductCategory(BuyerGUI pembeli,String nama){
-        pembeli.modelTable.getDataVector().removeAllElements();
-        pembeli.modelTable.fireTableDataChanged();
+    public void searchProductCategory(BuyerGUI buyyer,String name){
+        buyyer.modelTable.getDataVector().removeAllElements();
+        buyyer.modelTable.fireTableDataChanged();
         
         try{
             
-           listProdukCari = DBconnProduct.cariProdukKategori(nama);
+           listProductSearch = DBconnProduct.searchProductCategory(name);
            Object[] tabel = new Object[5];
-           inputDataTable (pembeli,listProdukCari,tabel);
+           inputDataTable (buyyer,listProductSearch,tabel);
                 
         }catch(Exception e){
             System.out.println("Data Kosong dan belum masuk");
@@ -103,7 +103,7 @@ public class ProductControl <T>{
     }
     
     public void inputProductData(InputProduct input,int index){
-        String kodeProduk = "";
+        String codeProduct = "";
         String nim = "";
         
         if (ConditionMethod.isTextFieldEmpty(input) == true) {
@@ -112,56 +112,56 @@ public class ProductControl <T>{
         
         } else {
             
-            if (ConditionMethod.isListEmpty(listProduk) == true) {
+            if (ConditionMethod.isListEmpty(listProduct) == true) {
                 
-                kodeProduk = inputKodeProduk(kodeProduk);
+                codeProduct = inputCodeProduct(codeProduct);
                 nim = listUser.get(index).getNim();
-                DBconnProduct.insertProduk(input,kodeProduk,nim);
-                DialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
+                DBconnProduct.insertProduk(input,codeProduct,nim);
+                DialogMessage.dialogFormSucsess(("sukses memasukan " + codeProduct),"Suskses");
             
             } else {
                 
-                kodeProduk = inputKodeProduk(kodeProduk);
-                ConditionMethod.whenDataIsFind(listUser,index,kodeProduk,nim,this,input);
+                codeProduct = (codeProduct);
+                ConditionMethod.whenDataIsFind(listUser,index,codeProduct,nim,this,input);
                 
             }
         }
     }
     
-    public void EditDataBarang(EditProduct input,int index){
-        String kodeProduk = "";
+    public void editDataProduct(EditProduct input,int index){
+        String codeProduct = "";
         
         if (ConditionMethod.isTextFieldEmpty(input) == true) { 
             
             DialogMessage.dialogFormWarning ("Ada field yang masih kosong","Warning");
             
         } else {
-            if (ConditionMethod.isListEmpty(listProduk) == true) {
+            if (ConditionMethod.isListEmpty(listProduct) == true) {
                 
-                kodeProduk = listProduk.get(index).getKode_product();
-                DBconnProduct.EditProduk(input,kodeProduk);
-                DialogMessage.dialogFormSucsess(("sukses memasukan " + kodeProduk),"Suskses");
+                codeProduct = listProduct.get(index).getProductCode();
+                DBconnProduct.editProduct(input,codeProduct);
+                DialogMessage.dialogFormSucsess(("sukses memasukan " + codeProduct),"Suskses");
                 
             } else {
                 
-                kodeProduk = listProduk.get(index).getKode_product();
-                ConditionMethod.whenDataIsFind(kodeProduk,this,input);
+                codeProduct = listProduct.get(index).getProductCode();
+                ConditionMethod.whenDataIsFind(codeProduct,this,input);
                 
             }
         }
     }
     
     public void deleteProductData(ListOfStuff form,int index) {
-        String kodeProduk = "";
-        kodeProduk = form.modelTable.getValueAt(form.getTableProduk().getSelectedRow(),0).toString();
-        if (findDataCondition(kodeProduk) == false) {
-            DialogMessage.dialogFormWarning(("Data dengan kode " + kodeProduk + " tidak ada"),"Warning");
+        String codeProduct = "";
+        codeProduct = form.modelTable.getValueAt(form.getTableProduct().getSelectedRow(),0).toString();
+        if (findDataCondition(codeProduct) == false) {
+            DialogMessage.dialogFormWarning(("Data dengan kode " + codeProduct + " tidak ada"),"Warning");
         } else {
-            DBconnProduct.deleteData(kodeProduk);
+            DBconnProduct.deleteData(codeProduct);
             form.getDialogShow().dispose();
-            listProduk = DBconnProduct.GetDataProduk();
-            GetDataProduk(form,index);
-            DialogMessage.dialogFormSucsess(("sukses menghapus " + kodeProduk),"Suskses");
+            listProduct = DBconnProduct.getDataProduct();
+            getDataProduct(form,index);
+            DialogMessage.dialogFormSucsess(("sukses menghapus " + codeProduct),"Suskses");
         }
     }
     
@@ -171,12 +171,12 @@ public class ProductControl <T>{
     
     public void inputDataTable (ListOfStuff form,List <Product> list,List <UserModel> list2,Object[] tabel,int index) {
         for (int i = 0 ; i < list.size();i++){
-           if (list.get(i).getNim().intern() == list2.get(index).getNim().intern()) {
-               tabel[0] = list.get(i).getKode_product();
-               tabel[1] = list.get(i).getNama();
-               tabel[2] = list.get(i).getKategori();
+           if (list.get(i).getNimSeller().intern() == list2.get(index).getNim().intern()) {
+               tabel[0] = list.get(i).getProductCode();
+               tabel[1] = list.get(i).getProducrName();
+               tabel[2] = list.get(i).getProductCategory();
                tabel[3] = list.get(i).getStok();
-               tabel[4] = list.get(i).getHarga();
+               tabel[4] = list.get(i).getPrice();
                form.modelTable.addRow(tabel);
            }
         }
@@ -184,37 +184,37 @@ public class ProductControl <T>{
     
     public void inputDataTable (BuyerGUI form,List <Product> list,Object[] tabel) {
         for (int i = 0 ; i < list.size();i++){
-           tabel[0] = list.get(i).getKode_product();
-           tabel[1] = list.get(i).getNama();
-           tabel[2] = list.get(i).getKategori();
+           tabel[0] = list.get(i).getProductCode();
+           tabel[1] = list.get(i).getProducrName();
+           tabel[2] = list.get(i).getProductCategory();
            tabel[3] = list.get(i).getStok();
-           tabel[4] = list.get(i).getHarga();
+           tabel[4] = list.get(i).getPrice();
            form.modelTable.addRow(tabel);
         }
     }
   
-    public String inputKodeProduk (String kodeProduk){
-        String currentData = listProduk.get(listProduk.size()-1).getKode_product();
+    public String inputCodeProduct (String codeProduct){
+        String currentData = listProduct.get(listProduct.size()-1).getProductCode();
         int hitung;
         if (Integer.parseInt(currentData.substring(2)) == 9) {
             hitung = 1 + Integer.parseInt(currentData.substring(1));
-            kodeProduk = "B" + String.valueOf(hitung);
+            codeProduct = "B" + String.valueOf(hitung);
         } else if (Integer.parseInt(currentData.substring(1)) > 9){
             hitung = 1 + Integer.parseInt(currentData.substring(1));
-            kodeProduk = "B" + String.valueOf(hitung);
+            codeProduct = "B" + String.valueOf(hitung);
         }else {
             hitung = 1 + Integer.parseInt(currentData.substring(2));
-            kodeProduk = "B0" + String.valueOf(hitung);
+            codeProduct = "B0" + String.valueOf(hitung);
         }
 
-        return kodeProduk;
+        return codeProduct;
     }
     
-    public int findDatatIndex(String kodeProduk){
+    public int findDatatIndex(String codeProduct){
         boolean exist = false;
         int index = 0;
-        while (exist == false && index < listProduk.size()){
-            if (kodeProduk.intern() == listProduk.get(index).getKode_product().intern()) {
+        while (exist == false && index < listProduct.size()){
+            if (codeProduct.intern() == listProduct.get(index).getProductCode().intern()) {
                 exist = true;
             }
             index = index + 1;
@@ -223,11 +223,11 @@ public class ProductControl <T>{
         return index;
     }
     
-    public boolean findDataCondition(String kodeProduk){
+    public boolean findDataCondition(String codeProduct){
         boolean exist = false;
         int index = 0;
-        while (exist == false && index < listProduk.size()){
-            if (kodeProduk.intern() == listProduk.get(index).getKode_product().intern()) {
+        while (exist == false && index < listProduct.size()){
+            if (codeProduct.intern() == listProduct.get(index).getProductCode().intern()) {
                 exist = true;
             }
             index = index + 1;

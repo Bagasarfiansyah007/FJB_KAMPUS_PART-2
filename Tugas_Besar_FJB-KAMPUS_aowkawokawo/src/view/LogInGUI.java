@@ -23,11 +23,11 @@ public class LogInGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        masukBitton = new javax.swing.JButton();
-        registerButton = new javax.swing.JButton();
-        passwordField = new javax.swing.JPasswordField();
-        usernameField = new javax.swing.JTextField();
+        loginPanel = new javax.swing.JPanel();
+        enterBtn = new javax.swing.JButton();
+        registerBtn = new javax.swing.JButton();
+        passwordTxr = new javax.swing.JPasswordField();
+        usernameTxt = new javax.swing.JTextField();
         masukkanNimtitle = new javax.swing.JLabel();
         logInTitle = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
@@ -35,44 +35,44 @@ public class LogInGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setOpaque(false);
+        loginPanel.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 620, 250));
+        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 620, 250));
 
-        masukBitton.setBackground(new java.awt.Color(255, 204, 153));
-        masukBitton.setText("Login");
-        masukBitton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        masukBitton.addActionListener(new java.awt.event.ActionListener() {
+        enterBtn.setBackground(new java.awt.Color(255, 204, 153));
+        enterBtn.setText("Login");
+        enterBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        enterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                masukBittonActionPerformed(evt);
+                enterBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(masukBitton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 260, 40));
+        getContentPane().add(enterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 260, 40));
 
-        registerButton.setBackground(new java.awt.Color(255, 255, 255));
-        registerButton.setText("Register");
-        registerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 116, 114)));
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        registerBtn.setBackground(new java.awt.Color(255, 255, 255));
+        registerBtn.setText("Register");
+        registerBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 116, 114)));
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                registerBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 40));
-        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 260, 40));
+        getContentPane().add(registerBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 260, 40));
+        getContentPane().add(passwordTxr, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 260, 40));
 
-        usernameField.setName(""); // NOI18N
-        getContentPane().add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 260, 40));
+        usernameTxt.setName(""); // NOI18N
+        getContentPane().add(usernameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 260, 40));
 
         masukkanNimtitle.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         masukkanNimtitle.setForeground(new java.awt.Color(255, 85, 85));
@@ -92,23 +92,23 @@ public class LogInGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Main Procedure
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
        RegisterGUI formregister = new RegisterGUI();
        formregister.show();
        dispose();
-    }//GEN-LAST:event_registerButtonActionPerformed
+    }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void masukBittonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukBittonActionPerformed
-        control.cekDataUserLogin(this, getUsernameField(), getPasswordField());
-    }//GEN-LAST:event_masukBittonActionPerformed
+    private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
+        control.findDataUserLogin(this, getUsernameField(), getPasswordField());
+    }//GEN-LAST:event_enterBtnActionPerformed
 
     // Getter
     public String getUsernameField(){
-        return usernameField.getText();
+        return usernameTxt.getText();
     }
     
     public String getPasswordField(){
-        return passwordField.getText();
+        return passwordTxr.getText();
     }
     
    
@@ -123,12 +123,12 @@ public class LogInGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton enterBtn;
     private javax.swing.JLabel logInTitle;
-    private javax.swing.JButton masukBitton;
+    private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel masukkanNimtitle;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JButton registerButton;
-    private javax.swing.JTextField usernameField;
+    private javax.swing.JPasswordField passwordTxr;
+    private javax.swing.JButton registerBtn;
+    private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
 }

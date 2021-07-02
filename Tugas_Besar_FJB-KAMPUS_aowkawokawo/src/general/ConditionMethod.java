@@ -29,45 +29,45 @@ public class ConditionMethod {
         return list.isEmpty();
     }
     
-    public static void whenDataIsFind(String cari,ProductControl inputControl,EditProduct inputForm){
-        if (!inputControl.findDataCondition(cari)) {
+    public static void whenDataIsFind(String find,ProductControl inputControl,EditProduct inputForm){
+        if (!inputControl.findDataCondition(find)) {
                     
-            DialogMessage.dialogFormWarning(("Data dengan kode " + cari + " tidak ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan kode " + find + " tidak ada"),"Warning");
 
         } else {
 
-            DBconnProduct.EditProduk(inputForm,cari);
-            DialogMessage.dialogFormSucsess(("sukses mengedit " + cari),"Suskses");
+            DBconnProduct.editProduct(inputForm,find);
+            DialogMessage.dialogFormSucsess(("sukses mengedit " + find),"Suskses");
             
         }
     }
     
-    public static void whenDataIsFind(List list,String cari,RegistrasiControl inputControl,RegisterGUI inputForm){
-        if (!inputControl.findAccountIsAlreadyExist(list,cari)) {
+    public static void whenDataIsFind(List list,String find,RegistrasiControl inputControl,RegisterGUI inputForm){
+        if (!inputControl.findAccountIsAlreadyExist(list,find)) {
                     
-            DBconnUser.InsertData(inputForm);
-            DialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
+            DBconnUser.insertData(inputForm);
+            DialogMessage.dialogFormSucsess(("sukses memasukan " + find),"Suskses");
             LogInGUI formLogin = new LogInGUI();
             formLogin.show();
             inputForm.dispose();
 
         } else {
 
-            DialogMessage.dialogFormWarning(("Data dengan nim " + cari + " Sudah ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan nim " + find + " Sudah ada"),"Warning");
 
         }
     }
     
-    public static void whenDataIsFind(List <UserModel> listUser,int index,String cari,String nim,ProductControl inputControl,InputProduct inputForm) {
-        if (!inputControl.findDataCondition(cari)) {
+    public static void whenDataIsFind(List <UserModel> listUser,int index,String find,String nim,ProductControl inputControl,InputProduct inputForm) {
+        if (!inputControl.findDataCondition(find)) {
                     
             nim = listUser.get(index).getNim();
-            DBconnProduct.insertProduk(inputForm,cari,nim);
-            DialogMessage.dialogFormSucsess(("sukses memasukan " + cari),"Suskses");
+            DBconnProduct.insertProduk(inputForm,find,nim);
+            DialogMessage.dialogFormSucsess(("sukses memasukan " + find),"Suskses");
 
         } else {
 
-            DialogMessage.dialogFormWarning(("Data dengan kode " + cari + " Sudah ada"),"Warning");
+            DialogMessage.dialogFormWarning(("Data dengan kode " + find + " Sudah ada"),"Warning");
 
         }
     }
@@ -93,7 +93,7 @@ public class ConditionMethod {
     }
     
     public static boolean isTextFieldEmpty(RegisterGUI register) {
-        return register.getTxtNama().isEmpty() || register.getTxtPassword().isEmpty() || 
+        return register.getTxtName().isEmpty() || register.getTxtPassword().isEmpty() || 
                 String.valueOf(register.getTxtSaldo()).isEmpty() || register.getTxtTelphone().isEmpty() 
                 || register.getTxtEmail().isEmpty();
     }
@@ -101,7 +101,7 @@ public class ConditionMethod {
     
     // Condition for Produk Input form
     public static boolean isTextFieldEmpty (InputProduct input){
-        return input.getTxtNamaProduk().isEmpty() || input.getTxtHarga().isEmpty() || input.getTxtStok().isEmpty();
+        return input.getTxtNameProduct().isEmpty() || input.getTxtPrice().isEmpty() || input.getTxtStok().isEmpty();
     }
     
     public static boolean isTextFieldEmpty (EditProduct input){        

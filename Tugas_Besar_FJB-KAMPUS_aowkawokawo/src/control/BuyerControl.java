@@ -9,7 +9,7 @@ import Database.DBconnCheckOut;
 import Database.DBconnProduct;
 import Database.DBconnUser;
 import Model.CheckoutModel;
-import Model.FakultasModel;
+import Model.FacultyModel;
 import Model.Product;
 import Model.UserModel;
 import general.DialogMessage;
@@ -21,7 +21,7 @@ import view.ListOfStuff;
 import view.HistoryGUI;
 import view.BuyerGUI;
 
-public class PembeliControl <T>{
+public class BuyerControl <T>{
     
     // Attribute
     public List <CheckoutModel> listCheckout;
@@ -34,9 +34,9 @@ public class PembeliControl <T>{
     
     
     // Controller
-    public PembeliControl(T form){
-        listProduk = DBconnProduct.GetDataProduk();
-        listUser = DBconnUser.GetDataUser();
+    public BuyerControl(T form){
+        listProduk = DBconnProduct.getDataProduct();
+        listUser = DBconnUser.getDataUser();
         listCheckout = new ArrayList<CheckoutModel>();
         listCheckoutDb = DBconnCheckOut.getDataPayment();
         this.formPembeli = formPembeli;
@@ -46,20 +46,20 @@ public class PembeliControl <T>{
     
     // Main procedure
     public void inserListCheckout(int index,int alamatLogin){
-        String kodeBayar = "";
-        kodeBayar = inputIdListBayar(kodeBayar);
+        String codePayment = "";
+        codePayment = inputIdListBayar(codePayment);
         String nim = listUser.get(alamatLogin).getNim();
-        String namaPenjual = findNameSeller(index);
-        String kodeProduk = listProduk.get(index).getProductCode();
-        String namaProduk = listProduk.get(index).getProducrName();
-        int banyakBeli = 1;
-        int harga = listProduk.get(index).getPrice();
+        String sellerName = findNameSeller(index);
+        String productCode = listProduk.get(index).getProductCode();
+        String productName = listProduk.get(index).getProducrName();
+        int allProductBuy = 1;
+        int price = listProduk.get(index).getPrice();
         
-        listCheckout.add(new CheckoutModel(kodeBayar,nim,kodeProduk,namaPenjual,namaProduk,banyakBeli,harga));
-        DialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil ditambahkan","sukses");
+        listCheckout.add(new CheckoutModel(codePayment,nim,productCode,sellerName,productName,allProductBuy,price));
+        DialogMessage.dialogFormSucsess("Produk " + productName + " Berhasil ditambahkan","sukses");
     }
     
-    public void GetDataProduk(HistoryGUI formHistory,int index){
+    public void getDataProduct(HistoryGUI formHistory,int index){
         formHistory.modelTable.getDataVector().removeAllElements();
         formHistory.modelTable.fireTableDataChanged();
         
@@ -88,73 +88,73 @@ public class PembeliControl <T>{
     }
 
     public void insertDatabase(int index,int alamatLogin,List <CheckoutModel> listCheckout){
-        String kodeBayar = "";
-        kodeBayar = listCheckout.get(index).getIdPayment();
+        String codePayment = "";
+        codePayment = listCheckout.get(index).getIdPayment();
         String nim = listUser.get(alamatLogin).getNim();
-        String kodeProduk = listCheckout.get(index).getIdProduct();
-        String namaPenjual = findNameSeller(index);
-        String namaProduk = listCheckout.get(index).getNameProduct();
-        int banyakBeli = listCheckout.get(index).getTotalProductBuy();
-        int harga = listCheckout.get(index).getPrice();
+        String productCode = listCheckout.get(index).getIdProduct();
+        String sellerName = findNameSeller(index);
+        String productName = listCheckout.get(index).getNameProduct();
+        int allProductBuy = listCheckout.get(index).getTotalProductBuy();
+        int price = listCheckout.get(index).getPrice();
         
-        DBconnCheckOut.insertPayment(kodeBayar, nim, kodeProduk, namaPenjual, namaProduk, banyakBeli, harga);
-        DialogMessage.dialogFormSucsess("Produk " + namaProduk + " Berhasil Dibeli","sukses");
+        DBconnCheckOut.insertPayment(codePayment, nim, productCode, sellerName, productName, allProductBuy, price);
+        DialogMessage.dialogFormSucsess("Produk " + productName + " Berhasil Dibeli","sukses");
     }
     
     
     
     
-    public String inputIdListBayar(String kodeBayar){
+    public String inputIdListBayar(String codePayment){
         String currentData = "";
         if (listCheckout.size() == 0) {
             currentData = listCheckoutDb.get(listCheckoutDb.size()-1).getIdPayment();
             int hitung;
             if (Integer.parseInt(currentData.substring(2)) == 9) {
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
-                kodeBayar = "P" + String.valueOf(hitung);
+                codePayment = "P" + String.valueOf(hitung);
             } else if (Integer.parseInt(currentData.substring(1)) > 9){
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
-                kodeBayar = "P" + String.valueOf(hitung);
+                codePayment = "P" + String.valueOf(hitung);
             }else {
                 hitung = 1 + Integer.parseInt(currentData.substring(2));
-                kodeBayar = "P0" + String.valueOf(hitung);
+                codePayment = "P0" + String.valueOf(hitung);
             }
         } else {
             currentData = listCheckout.get(listCheckout.size()-1).getIdPayment();
             int hitung;
             if (Integer.parseInt(currentData.substring(2)) == 9) {
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
-                kodeBayar = "P" + String.valueOf(hitung);
+                codePayment = "P" + String.valueOf(hitung);
             } else if (Integer.parseInt(currentData.substring(1)) > 9){
                 hitung = 1 + Integer.parseInt(currentData.substring(1));
-                kodeBayar = "P" + String.valueOf(hitung);
+                codePayment = "P" + String.valueOf(hitung);
             }else {
                 hitung = 1 + Integer.parseInt(currentData.substring(2));
-                kodeBayar = "P0" + String.valueOf(hitung);
+                codePayment = "P0" + String.valueOf(hitung);
             }
         }
    
-        return kodeBayar;
+        return codePayment;
     }
     
     public String findNameSeller(int index){
         int i = 0;
-        String namaPenjual;
-        while (listProduk.get(index).getNim().intern() != listUser.get(i).getNim().intern()) {
+        String sellerName;
+        while (listProduk.get(index).getNimSeller().intern() != listUser.get(i).getNim().intern()) {
             i = i + 1;
         }
-        if (listProduk.get(index).getNim().intern() == listUser.get(i).getNim().intern()) {
-            namaPenjual = listUser.get(i).getNama();
+        if (listProduk.get(index).getNimSeller().intern() == listUser.get(i).getNim().intern()) {
+            sellerName = listUser.get(i).getName();
         } else {
-            namaPenjual = "Tidak ditemukan";
+            sellerName = "Tidak ditemukan";
         }
         
-        return namaPenjual;
+        return sellerName;
     }
     
     public int findeIndexProduct(String kode){
         int i = 0;
-        while (listProduk.get(i).getKode_product().intern() != kode.intern()) {
+        while (listProduk.get(i).getProductCode().intern() != kode.intern()) {
             i = i + 1;
         }
         return i; 

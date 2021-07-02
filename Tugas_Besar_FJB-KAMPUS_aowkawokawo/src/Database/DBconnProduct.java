@@ -21,17 +21,17 @@ public class DBconnProduct {
     static Statement stmt;
     static ResultSet rs;
     
-    public static void insertProduk(InputProduct input,String kodeProduk,String nim){
+    public static void insertProduk(InputProduct input,String codeProduct,String nim){
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
             
-            String nama = input.getTxtNamaProduk();
-            String kategori = input.getComKategori();
+            String nama = input.getTxtNameProduct();
+            String kategori = input.getComCategory();
             int Stok = Integer.parseInt(input.getTxtStok());
-            int Harga = Integer.parseInt(input.getTxtHarga());
+            int Harga = Integer.parseInt(input.getTxtPrice());
             
-            String sql = "INSERT INTO produk (kode_produk,nim,nama_produk,kategori,stok,harga)VALUES('"+kodeProduk+"','"+nim+"','"+nama+"','"+kategori+"','"+Stok+"','"+Harga+"')";
+            String sql = "INSERT INTO produk (kode_produk,nim,nama_produk,kategori,stok,harga)VALUES('"+codeProduct+"','"+nim+"','"+nama+"','"+kategori+"','"+Stok+"','"+Harga+"')";
             stmt.execute(sql);
             stmt.close();
             conn.close();
@@ -40,7 +40,7 @@ public class DBconnProduct {
         }
     }
     
-    public static void EditProduk(EditProduct input,String kodeProduk){
+    public static void editProduct(EditProduct input,String codeProduct){
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
@@ -55,7 +55,7 @@ public class DBconnProduct {
                 + kategori + "', stok ='"
                 + Stok + "', harga ='"
                 + Harga + "' WHERE kode_produk ='"
-                + kodeProduk + "'";
+                + codeProduct + "'";
             
             stmt.execute(sql);
             stmt.close();
@@ -65,10 +65,10 @@ public class DBconnProduct {
         }
     }
 
-    public static List<Product> GetDataProduk(){
+    public static List<Product> getDataProduct(){
 
         try{
-            ArrayList<Product> produkList = new ArrayList<Product>();
+            ArrayList<Product> productList = new ArrayList<Product>();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
 
@@ -76,32 +76,32 @@ public class DBconnProduct {
             rs = stmt.executeQuery(sql);
 
             while(rs.next()){
-                produkList.add(new Product(rs.getString("kode_produk"),rs.getString("nim"),rs.getString("nama_produk"), rs.getString("kategori")
+                productList.add(new Product(rs.getString("kode_produk"),rs.getString("nim"),rs.getString("nama_produk"), rs.getString("kategori")
                                ,rs.getInt("stok"),rs.getInt("harga")));   
             }
             
             stmt.close();
             conn.close();
-            return produkList;
+            return productList;
         }catch(Exception e){
             e.printStackTrace();
             return null;
         }
     }
     
-    public static List<Product> cariProduk(String nama){
+    public static List<Product> searchProduct(String name){
         
         try{
-           ArrayList<Product> produkList = new ArrayList<Product>();
+           ArrayList<Product> productList = new ArrayList<Product>();
            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
            stmt = conn.createStatement();
                 
                 
-           String sql = "SELECT * FROM produk WHERE nama_produk LIKE '%" + nama + "%' ";
+           String sql = "SELECT * FROM produk WHERE nama_produk LIKE '%" + name + "%' ";
            rs = stmt.executeQuery(sql);
            
            while(rs.next()){
-                produkList.add(new Product(rs.getString("kode_produk"),rs.getString("nim"),rs.getString("nama_produk"), rs.getString("kategori")
+                productList.add(new Product(rs.getString("kode_produk"),rs.getString("nim"),rs.getString("nama_produk"), rs.getString("kategori")
                                ,rs.getInt("stok"),rs.getInt("harga")));   
             }
                 
@@ -109,26 +109,26 @@ public class DBconnProduct {
            
            stmt.close();
            conn.close();
-           return produkList;
+           return productList;
         }catch(SQLException e){
             e.printStackTrace();
             return null;
         }
     }
     
-    public static List<Product> cariProdukKategori(String nama){
+    public static List<Product> searchProductCategory(String name){
         
         try{
-           ArrayList<Product> produkList = new ArrayList<Product>();
+           ArrayList<Product> productList = new ArrayList<Product>();
            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
            stmt = conn.createStatement();
                 
                 
-           String sql = "SELECT * FROM produk WHERE kategori LIKE '%" + nama + "%' ";
+           String sql = "SELECT * FROM produk WHERE kategori LIKE '%" + name + "%' ";
            rs = stmt.executeQuery(sql);
            
            while(rs.next()){
-                produkList.add(new Product(rs.getString("kode_produk"),rs.getString("nim"),rs.getString("nama_produk"), rs.getString("kategori")
+                productList.add(new Product(rs.getString("kode_produk"),rs.getString("nim"),rs.getString("nama_produk"), rs.getString("kategori")
                                ,rs.getInt("stok"),rs.getInt("harga")));   
             }
                 
@@ -136,20 +136,20 @@ public class DBconnProduct {
            
            stmt.close();
            conn.close();
-           return produkList;
+           return productList;
         }catch(SQLException e){
             e.printStackTrace();
             return null;
         }
     }
     
-    public static void deleteData(String kodeProduk){
+    public static void deleteData(String codeProduct){
         try{
              conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              stmt = conn.createStatement();
              
              String sql = "DELETE FROM produk WHERE"
-                + " kode_produk = '" + kodeProduk+ "'";
+                + " kode_produk = '" + codeProduct+ "'";
              
              stmt.execute(sql);
              

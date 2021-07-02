@@ -11,18 +11,18 @@ import javax.swing.JTextField;
 public class EditProduct extends javax.swing.JFrame {
 
     public static ProductControl <EditProduct> control;
-    private static int alamatLogin;
-    private static int alamatList;
+    private static int addresLogin;
+    private static int addresList;
     
-    public EditProduct(int alamat,int alamatListIndex) {
+    public EditProduct(int alamat,int addresListIndex) {
         initComponents();
         control = new ProductControl(this);
-        alamatLogin = alamat;
-        alamatList = alamatListIndex-1;
-        String nama = control.listProduk.get(alamatList).getNama();
-        String harga = String.valueOf(control.listProduk.get(alamatList).getHarga());
-        String stok = String.valueOf(control.listProduk.get(alamatList).getStok());
-        setTextField(nama,harga,stok);
+        addresLogin = alamat;
+        addresList = addresListIndex-1;
+        String name = control.listProduct.get(addresList).getProducrName();
+        String price = String.valueOf(control.listProduct.get(addresList).getPrice());
+        String stok = String.valueOf(control.listProduct.get(addresList).getStok());
+        setTextField(name,price,stok);
 
     }
 
@@ -34,16 +34,16 @@ public class EditProduct extends javax.swing.JFrame {
         fjbTxt = new javax.swing.JLabel();
         nankatsuTxt = new javax.swing.JLabel();
         editTitle = new javax.swing.JLabel();
-        namaPrdukTxt = new javax.swing.JLabel();
-        kategoriTxt = new javax.swing.JLabel();
-        stokTxt = new javax.swing.JLabel();
-        hargaTxt = new javax.swing.JLabel();
-        fieldNamaProduk = new javax.swing.JTextField();
-        comKategori = new javax.swing.JComboBox<>();
-        fieldStok = new javax.swing.JTextField();
-        fieldHarga = new javax.swing.JTextField();
-        buttonSimpan = new javax.swing.JButton();
-        buttonKembali = new javax.swing.JButton();
+        nameProductLabel = new javax.swing.JLabel();
+        categoryLabel = new javax.swing.JLabel();
+        stokLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        nameProductTxt = new javax.swing.JTextField();
+        comCategory = new javax.swing.JComboBox<String>();
+        stokTxt = new javax.swing.JTextField();
+        priceTxt = new javax.swing.JTextField();
+        saveBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         backgroud = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,27 +63,27 @@ public class EditProduct extends javax.swing.JFrame {
         editTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         editTitle.setText("Edit Produk");
 
-        namaPrdukTxt.setText("Nama Produk");
+        nameProductLabel.setText("Nama Produk");
 
-        kategoriTxt.setText("Kategori");
+        categoryLabel.setText("Kategori");
 
-        stokTxt.setText("Stok");
+        stokLabel.setText("Stok");
 
-        hargaTxt.setText("Harga");
+        priceLabel.setText("Harga");
 
-        comKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
+        comCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elektronik", "Fashion", "Alat Tulis Kerja", "Hobi", "Perabot Rumah Tangga" }));
 
-        buttonSimpan.setText("Simpan");
-        buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
+        saveBtn.setText("Simpan");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSimpanActionPerformed(evt);
+                saveBtnActionPerformed(evt);
             }
         });
 
-        buttonKembali.setText("Kembali");
-        buttonKembali.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setText("Kembali");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKembaliActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
 
@@ -103,9 +103,9 @@ public class EditProduct extends javax.swing.JFrame {
                                 .addComponent(fjbTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(editProductPaneLayout.createSequentialGroup()
                                 .addGap(164, 164, 164)
-                                .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 232, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(editProductPaneLayout.createSequentialGroup()
@@ -116,16 +116,16 @@ public class EditProduct extends javax.swing.JFrame {
                         .addComponent(editTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(editProductPaneLayout.createSequentialGroup()
                         .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(namaPrdukTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kategoriTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(stokTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hargaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nameProductLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(categoryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(stokLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fieldNamaProduk)
-                            .addComponent(comKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldStok)
-                            .addComponent(fieldHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(nameProductTxt)
+                            .addComponent(comCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stokTxt)
+                            .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         editProductPaneLayout.setVerticalGroup(
@@ -137,24 +137,24 @@ public class EditProduct extends javax.swing.JFrame {
                 .addComponent(editTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaPrdukTxt)
-                    .addComponent(fieldNamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameProductLabel)
+                    .addComponent(nameProductTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kategoriTxt)
-                    .addComponent(comKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(categoryLabel)
+                    .addComponent(comCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stokTxt)
-                    .addComponent(fieldStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stokLabel)
+                    .addComponent(stokTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hargaTxt)
-                    .addComponent(fieldHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priceLabel)
+                    .addComponent(priceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(editProductPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSimpan)
-                    .addComponent(buttonKembali))
+                    .addComponent(saveBtn)
+                    .addComponent(backBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addComponent(nankatsuTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -170,29 +170,29 @@ public class EditProduct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         try {
-            control.EditDataBarang(this,alamatList);
-            ListOfStuff formDaftar = new ListOfStuff(alamatLogin);
+            control.editDataProduct(this,addresList);
+            ListOfStuff formDaftar = new ListOfStuff(addresLogin);
             formDaftar.show();
             dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Tipe data yang dimasukan Salah !",
                     "warning",JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_buttonSimpanActionPerformed
+    }//GEN-LAST:event_saveBtnActionPerformed
 
-    private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
-        new SellerGUI(alamatLogin).setVisible(true);
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        new SellerGUI(addresLogin).setVisible(true);
         dispose();
-    }//GEN-LAST:event_buttonKembaliActionPerformed
+    }//GEN-LAST:event_backBtnActionPerformed
 
     
     // Setter
-    public void setTextField(String nama,String harga,String stok){
-        fieldHarga.setText(harga);
-        fieldNamaProduk.setText(nama);
-        fieldStok.setText(stok);
+    public void setTextField(String name,String price,String stok){
+        priceTxt.setText(price);
+        nameProductTxt.setText(name);
+        stokTxt.setText(stok);
     }
     
     
@@ -200,19 +200,19 @@ public class EditProduct extends javax.swing.JFrame {
    
     // Getter
     public String getComKategori() {
-        return comKategori.getSelectedItem().toString();
+        return comCategory.getSelectedItem().toString();
     }
 
     public String getTxtHarga() {
-        return fieldHarga.getText();
+        return priceTxt.getText();
     }
 
     public String getTxtNamaProduk() {
-        return fieldNamaProduk.getText();
+        return nameProductTxt.getText();
     }
 
     public String getTxtStok() {
-        return fieldStok.getText();
+        return stokTxt.getText();
     }
     
 
@@ -220,26 +220,26 @@ public class EditProduct extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditProduct(alamatLogin,alamatList).setVisible(true);
+                new EditProduct(addresLogin,addresList).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JLabel backgroud;
-    private javax.swing.JButton buttonKembali;
-    private javax.swing.JButton buttonSimpan;
-    private javax.swing.JComboBox<String> comKategori;
+    private javax.swing.JLabel categoryLabel;
+    private javax.swing.JComboBox<String> comCategory;
     private javax.swing.JPanel editProductPane;
     private javax.swing.JLabel editTitle;
-    private javax.swing.JTextField fieldHarga;
-    private javax.swing.JTextField fieldNamaProduk;
-    private javax.swing.JTextField fieldStok;
     private javax.swing.JLabel fjbTxt;
-    private javax.swing.JLabel hargaTxt;
-    private javax.swing.JLabel kategoriTxt;
-    private javax.swing.JLabel namaPrdukTxt;
+    private javax.swing.JLabel nameProductLabel;
+    private javax.swing.JTextField nameProductTxt;
     private javax.swing.JLabel nankatsuTxt;
-    private javax.swing.JLabel stokTxt;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JTextField priceTxt;
+    private javax.swing.JButton saveBtn;
+    private javax.swing.JLabel stokLabel;
+    private javax.swing.JTextField stokTxt;
     // End of variables declaration//GEN-END:variables
 }

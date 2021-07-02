@@ -8,31 +8,31 @@ package view;
 import Database.DBconnCheckOut;
 import Database.DBconnUser;
 import Model.CheckoutModel;
-import control.PembeliControl;
+import control.BuyerControl;
 import control.ProductControl;
 import general.DialogMessage;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.SpinnerNumberModel;
-import static view.BuyerGUI.controlPembeli;
+import static view.BuyerGUI.controlPayment;
 
 public class CheckOutGUI extends javax.swing.JFrame {
 
     // Atribut
-    private static int alamatLogin;
-    static PembeliControl <CheckOutGUI> control;
-    private int indexHapus;
+    private static int addresLogin;
+    static BuyerControl <CheckOutGUI> control;
+    private int indexDelete;
     DefaultListModel<String> ListCheckout =new DefaultListModel<String>();
-    private int Harga;
+    private int price;
     
     // Constructor
     public CheckOutGUI(int index,List <CheckoutModel> listInput) {
         initComponents();
-        alamatLogin = index;
-        control = new PembeliControl(this);
+        addresLogin = index;
+        control = new BuyerControl(this);
         control.listCheckout = listInput;
         setList();
-        setSemuaProdukHarga();
+        setAllProductPrice();
         if (control.listCheckout.size() != 0) {
             setTextDetail();
         }
@@ -67,24 +67,24 @@ public class CheckOutGUI extends javax.swing.JFrame {
         increasBtn = new javax.swing.JButton();
         paneCheckOut = new javax.swing.JPanel();
         paneDaftarBarang = new javax.swing.JScrollPane();
-        CheckOutTxt = new javax.swing.JLabel();
+        checkOutTxt = new javax.swing.JLabel();
         stuffScrollPane = new javax.swing.JScrollPane();
-        jListBarang = new javax.swing.JList<>();
+        jListBarang = new javax.swing.JList<String>();
         stuffPanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        totalProdukBuyLabel = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
         namaLabel = new javax.swing.JLabel();
-        totalHargaProduk = new javax.swing.JLabel();
-        hargaLabel = new javax.swing.JLabel();
-        txtBanyak = new javax.swing.JTextField();
+        totalPriceProduct = new javax.swing.JLabel();
+        priceValueLabel = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        totalSemuaProduk = new javax.swing.JLabel();
-        hapusBarangButton = new javax.swing.JButton();
-        pembayaranButton = new javax.swing.JButton();
-        keluarButton = new javax.swing.JButton();
+        totalAllProductPriceLabel = new javax.swing.JLabel();
+        totalAllProductPriceValueLabel = new javax.swing.JLabel();
+        deleteProductBtn = new javax.swing.JButton();
+        paymentBtn = new javax.swing.JButton();
+        exitBtn = new javax.swing.JButton();
         nankatsuTxt = new javax.swing.JLabel();
         fjbTxt = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
@@ -244,9 +244,9 @@ public class CheckOutGUI extends javax.swing.JFrame {
 
         paneCheckOut.setOpaque(false);
 
-        CheckOutTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        CheckOutTxt.setText("Check Out Barang");
-        paneDaftarBarang.setViewportView(CheckOutTxt);
+        checkOutTxt.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        checkOutTxt.setText("Check Out Barang");
+        paneDaftarBarang.setViewportView(checkOutTxt);
 
         jListBarang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -258,17 +258,17 @@ public class CheckOutGUI extends javax.swing.JFrame {
         stuffPanel.setBackground(new java.awt.Color(255, 255, 255));
         stuffPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
-        jLabel4.setText("Nama          : ");
+        nameLabel.setText("Nama          : ");
 
-        jLabel5.setText("Harga          :");
+        priceLabel.setText("Harga          :");
 
-        jLabel6.setText("Banyak Beli  :");
+        totalProdukBuyLabel.setText("Banyak Beli  :");
 
-        jLabel7.setText("Total Harga :");
+        totalPriceLabel.setText("Total Harga :");
 
-        txtBanyak.addActionListener(new java.awt.event.ActionListener() {
+        txtTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBanyakActionPerformed(evt);
+                txtTotalActionPerformed(evt);
             }
         });
 
@@ -279,7 +279,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Total Semua Produk  :");
+        totalAllProductPriceLabel.setText("Total Semua Produk  :");
 
         javax.swing.GroupLayout stuffPanelLayout = new javax.swing.GroupLayout(stuffPanel);
         stuffPanel.setLayout(stuffPanelLayout);
@@ -290,28 +290,28 @@ public class CheckOutGUI extends javax.swing.JFrame {
                 .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(stuffPanelLayout.createSequentialGroup()
                         .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(nameLabel)
+                            .addComponent(priceLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hargaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(priceValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(namaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stuffPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(totalPriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(totalHargaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(totalPriceProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(stuffPanelLayout.createSequentialGroup()
                         .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(stuffPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(totalProdukBuyLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBanyak, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(stuffPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(totalAllProductPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(totalSemuaProduk)))
+                                .addComponent(totalAllProductPriceValueLabel)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         stuffPanelLayout.setVerticalGroup(
@@ -319,49 +319,49 @@ public class CheckOutGUI extends javax.swing.JFrame {
             .addGroup(stuffPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(nameLabel)
                     .addComponent(namaLabel))
                 .addGap(12, 12, 12)
                 .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(hargaLabel))
+                    .addComponent(priceLabel)
+                    .addComponent(priceValueLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBanyak, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalProdukBuyLabel)
                     .addComponent(submitBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(totalHargaProduk))
+                    .addComponent(totalPriceLabel)
+                    .addComponent(totalPriceProduct))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(stuffPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(totalSemuaProduk))
+                    .addComponent(totalAllProductPriceLabel)
+                    .addComponent(totalAllProductPriceValueLabel))
                 .addGap(17, 17, 17))
         );
 
-        hapusBarangButton.setBackground(new java.awt.Color(255, 255, 255));
-        hapusBarangButton.setText("Hapus Barang");
-        hapusBarangButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteProductBtn.setBackground(new java.awt.Color(255, 255, 255));
+        deleteProductBtn.setText("Hapus Barang");
+        deleteProductBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hapusBarangButtonActionPerformed(evt);
+                deleteProductBtnActionPerformed(evt);
             }
         });
 
-        pembayaranButton.setBackground(new java.awt.Color(255, 153, 153));
-        pembayaranButton.setText("Pembayaran");
-        pembayaranButton.addActionListener(new java.awt.event.ActionListener() {
+        paymentBtn.setBackground(new java.awt.Color(255, 153, 153));
+        paymentBtn.setText("Pembayaran");
+        paymentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pembayaranButtonActionPerformed(evt);
+                paymentBtnActionPerformed(evt);
             }
         });
 
-        keluarButton.setBackground(new java.awt.Color(255, 255, 255));
-        keluarButton.setText("Keluar");
-        keluarButton.addActionListener(new java.awt.event.ActionListener() {
+        exitBtn.setBackground(new java.awt.Color(255, 255, 255));
+        exitBtn.setText("Keluar");
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keluarButtonActionPerformed(evt);
+                exitBtnActionPerformed(evt);
             }
         });
 
@@ -373,11 +373,11 @@ public class CheckOutGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(paneCheckOutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paneCheckOutLayout.createSequentialGroup()
-                        .addComponent(hapusBarangButton)
+                        .addComponent(deleteProductBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pembayaranButton))
+                        .addComponent(paymentBtn))
                     .addGroup(paneCheckOutLayout.createSequentialGroup()
                         .addComponent(paneDaftarBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -398,9 +398,9 @@ public class CheckOutGUI extends javax.swing.JFrame {
                     .addComponent(stuffScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneCheckOutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hapusBarangButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pembayaranButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteProductBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -429,9 +429,9 @@ public class CheckOutGUI extends javax.swing.JFrame {
         setTitelPreviewCheckout();
     }//GEN-LAST:event_jListBarangMousePressed
 
-    private void txtBanyakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBanyakActionPerformed
+    private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
         setTitelPreviewPriceProduct();
-    }//GEN-LAST:event_txtBanyakActionPerformed
+    }//GEN-LAST:event_txtTotalActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
        try {
@@ -442,35 +442,35 @@ public class CheckOutGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_submitBtnActionPerformed
 
-    private void keluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarButtonActionPerformed
-        BuyerGUI formPembeli = new BuyerGUI(alamatLogin,control.listCheckout);
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+        BuyerGUI formPembeli = new BuyerGUI(addresLogin,control.listCheckout);
         formPembeli.show();
         dispose();
-    }//GEN-LAST:event_keluarButtonActionPerformed
+    }//GEN-LAST:event_exitBtnActionPerformed
 
-    private void hapusBarangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusBarangButtonActionPerformed
+    private void deleteProductBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProductBtnActionPerformed
         setRefreshDataAfterDelete();
-    }//GEN-LAST:event_hapusBarangButtonActionPerformed
+    }//GEN-LAST:event_deleteProductBtnActionPerformed
 
     private void canelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canelBtnActionPerformed
         metodePembayaran.dispose();
     }//GEN-LAST:event_canelBtnActionPerformed
 
-    private void pembayaranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pembayaranButtonActionPerformed
+    private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         metodePembayaran.setLocationRelativeTo(null);
         metodePembayaran.show();
-    }//GEN-LAST:event_pembayaranButtonActionPerformed
+    }//GEN-LAST:event_paymentBtnActionPerformed
 
     private void bankBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankBtnActionPerformed
         try {
             for (int i = 0; i < control.listCheckout.size();i++){
-                control.insertDatabase(i, alamatLogin, control.listCheckout);
+                control.insertDatabase(i, addresLogin, control.listCheckout);
             }
             for (int i = 0; i < control.listCheckout.size();i++){
-                control.listCheckout.remove(indexHapus);
+                control.listCheckout.remove(indexDelete);
                 ListCheckout.clear();
             }
-            setSemuaProdukHarga();jListBarang.setModel(ListCheckout);;
+            setAllProductPrice();jListBarang.setModel(ListCheckout);;
             metodePembayaran.dispose();
         } catch (Exception e){
             DialogMessage.dialogFormWarning("Data tidak masuk", "Warning");
@@ -479,14 +479,14 @@ public class CheckOutGUI extends javax.swing.JFrame {
 
     private void ewalletBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ewalletBtnActionPerformed
         setSaldoTxt();
-        setHargaTxt();
+        setPriceTxt();
         dialogEwallet.setLocationRelativeTo(null);
         dialogEwallet.show();
         metodePembayaran.dispose();
     }//GEN-LAST:event_ewalletBtnActionPerformed
 
     private void btnBayarSekarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBayarSekarangActionPerformed
-        if (Harga > getSaldo()) {
+        if (price > getSaldo()) {
             DialogMessage.dialogFormWarning("Maaf Saldo anda tidak cukup untuk melakukan pembelian", "warning");
         } else {
             try {
@@ -528,13 +528,13 @@ public class CheckOutGUI extends javax.swing.JFrame {
     // Procedur 
     public void inputHistoryPayment(){
         for (int i = 0; i < getSizeList();i++){
-            control.insertDatabase(i, alamatLogin, control.listCheckout);
+            control.insertDatabase(i, addresLogin, control.listCheckout);
         }
     }
     
     public void clearListCheckout(){
         for (int i = 0; i < getSizeList();i++){
-            control.listCheckout.remove(indexHapus);
+            control.listCheckout.remove(indexDelete);
             ListCheckout.clear();
         }
     }
@@ -544,97 +544,98 @@ public class CheckOutGUI extends javax.swing.JFrame {
     // Setter
     public void setList(){
         for (int i = 0; i < control.listCheckout.size();i++){
-            ListCheckout.addElement(control.listCheckout.get(i).getNamaProduk());
+            ListCheckout.addElement(control.listCheckout.get(i).getNameProduct());
             jListBarang.setModel(ListCheckout);
         }
     }
     
-    public void setSemuaProdukHarga(){
-        Harga = 0;
+    public void setAllProductPrice(){
+        price = 0;
         for (int i = 0;i < control.listCheckout.size() ; i ++) {
-            Harga = Harga + (control.listCheckout.get(i).getHarga() * control.listCheckout.get(i).getBanyakBeli());
+            price = price + (control.listCheckout.get(i).getPrice() 
+                             * control.listCheckout.get(i).getTotalProductBuy());
         }
         
-        totalSemuaProduk.setText(String.valueOf(Harga));
+        totalAllProductPriceValueLabel.setText(String.valueOf(price));
     }
     
     public void setTextDetail(){
-        String setBanyak = String.valueOf(control.listCheckout.get(0).getBanyakBeli());
-        txtBanyak.setText(setBanyak);
-        namaLabel.setText(control.listCheckout.get(0).getNamaProduk());
-        hargaLabel.setText(String.valueOf(control.listCheckout.get(0).getHarga()));
+        String setTotalProduct = String.valueOf(control.listCheckout.get(0).getTotalProductBuy());
+        txtTotal.setText(setTotalProduct);
+        namaLabel.setText(control.listCheckout.get(0).getNameProduct());
+        priceValueLabel.setText(String.valueOf(control.listCheckout.get(0).getPrice()));
     }
     
-    public void setHargaTxt(){
-        hargaTxt.setText("Kamu akan membayar total harga Rp." +  String.valueOf(Harga));
+    public void setPriceTxt(){
+        hargaTxt.setText("Kamu akan membayar total harga Rp." +  String.valueOf(price));
     }
     
     public void setSaldoTxt(){
-        saldoTxt.setText("Saldo Anda : Rp." +  String.valueOf(control.listUser.get(alamatLogin).getSaldo()));
+        saldoTxt.setText("Saldo Anda : Rp." +  String.valueOf(control.listUser.get(addresLogin).getSaldo()));
     }
     
     public void setTxtSaldoDialog (){
-        saldoSekarang.setText("Saldo Anda : Rp." +  String.valueOf(control.listUser.get(alamatLogin).getSaldo()));
+        saldoSekarang.setText("Saldo Anda : Rp." +  String.valueOf(control.listUser.get(addresLogin).getSaldo()));
     }
     
     public void setTitelPreviewCheckout(){
-        String setBanyak = String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getBanyakBeli());
-        txtBanyak.setText(setBanyak);
-        indexHapus = jListBarang.getSelectedIndex();
-        int totalBanyak = Integer.parseInt(setBanyak);
-        namaLabel.setText(control.listCheckout.get(jListBarang.getSelectedIndex()).getNamaProduk());
-        hargaLabel.setText(String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getHarga()));
-        int totalHarga = control.listCheckout.get(jListBarang.getSelectedIndex()).getHarga() * totalBanyak;
-        totalHargaProduk.setText(String.valueOf(totalHarga));
+        String setTotalProduct = String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getTotalProductBuy());
+        txtTotal.setText(setTotalProduct);
+        indexDelete = jListBarang.getSelectedIndex();
+        int totalProduct = Integer.parseInt(setTotalProduct);
+        namaLabel.setText(control.listCheckout.get(jListBarang.getSelectedIndex()).getNameProduct());
+        priceValueLabel.setText(String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getPrice()));
+        int totalprice = control.listCheckout.get(jListBarang.getSelectedIndex()).getPrice()* totalProduct;
+        totalPriceProduct.setText(String.valueOf(totalprice));
     }
     
     public void setTitelPreviewPriceProduct(){
-        String setBanyak = String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getBanyakBeli());
-        txtBanyak.setText(setBanyak);
-        int totalBanyak = Integer.parseInt(setBanyak);
-        int totalHarga = control.listCheckout.get(jListBarang.getSelectedIndex()).getHarga() * totalBanyak;
-        totalHargaProduk.setText(String.valueOf(totalHarga));
+        String setTotalProduct = String.valueOf(control.listCheckout.get(jListBarang.getSelectedIndex()).getTotalProductBuy());
+        txtTotal.setText(setTotalProduct);
+        int totalProduct = Integer.parseInt(setTotalProduct);
+        int totalprice = control.listCheckout.get(jListBarang.getSelectedIndex()).getPrice()* totalProduct;
+        totalPriceProduct.setText(String.valueOf(totalprice));
     }
     
     public void setTitelPreviewPriceAllProduct(){
         int allStockOnDatabase = control.listProduk.get(jListBarang.getSelectedIndex()).getStok();
-        int totalBanyak = Integer.parseInt(txtBanyak.getText());
-        System.out.println(totalBanyak);
+        int totalProduct = Integer.parseInt(txtTotal.getText());
+        System.out.println(totalProduct);
         
-        if (totalBanyak >= allStockOnDatabase){
-            control.listCheckout.get(jListBarang.getSelectedIndex()).setBanyakBeli(totalBanyak);
-            int totalHarga = control.listCheckout.get(jListBarang.getSelectedIndex()).getHarga() * totalBanyak;
-            setSemuaProdukHarga();
-            totalHargaProduk.setText(String.valueOf(totalHarga));
+        if (totalProduct >= allStockOnDatabase){
+            control.listCheckout.get(jListBarang.getSelectedIndex()).setTotalProductBuy(totalProduct);
+            int totalprice = control.listCheckout.get(jListBarang.getSelectedIndex()).getPrice()* totalProduct;
+            setAllProductPrice();
+            totalPriceProduct.setText(String.valueOf(totalprice));
         } else {
             DialogMessage.dialogFormWarning("Stok Produk Melebihi kapasitas !", "warning");
         }
     }
     
     public void setRefreshDataAfterDelete(){
-        control.listCheckout.remove(indexHapus);
+        control.listCheckout.remove(indexDelete);
         ListCheckout.clear();
-        setSemuaProdukHarga();
+        setAllProductPrice();
         setList();
     }
     
     public void setTotalSaldo(int totalSaldo){
-        if (control.listUser.get(alamatLogin).getSaldo() > Harga) {
-            totalSaldo = control.listUser.get(alamatLogin).getSaldo() - Harga;
+        if (control.listUser.get(addresLogin).getSaldo() > price) {
+            totalSaldo = control.listUser.get(addresLogin).getSaldo() - price;
         } else {
-            totalSaldo = Harga - control.listUser.get(alamatLogin).getSaldo() ;
+            totalSaldo = price - control.listUser.get(addresLogin).getSaldo() ;
         }
-        DBconnCheckOut.updateSaldo(totalSaldo,control.listUser.get(alamatLogin).getNim());
-        control.listUser = DBconnUser.GetDataUser();
-        setSemuaProdukHarga();
+        DBconnCheckOut.updateSaldo(totalSaldo,control.listUser.get(addresLogin).getNim());
+        control.listUser = DBconnUser.getDataUser();
+        setAllProductPrice();
         jListBarang.setModel(ListCheckout);
     }
     
     public void setNewSaldo(){
-        int saldoTambah = Integer.parseInt(txtTambahSaldo.getText());
-        int saldoTotal = control.listUser.get(alamatLogin).getSaldo() + saldoTambah;
-        DBconnCheckOut.updateSaldo(saldoTotal,control.listUser.get(alamatLogin).getNim());
-        control.listUser = DBconnUser.GetDataUser();
+        int saldoIncrease = Integer.parseInt(txtTambahSaldo.getText());
+        int saldoTotal = control.listUser.get(addresLogin).getSaldo() + saldoIncrease;
+        DBconnCheckOut.updateSaldo(saldoTotal,control.listUser.get(addresLogin).getNim());
+        control.listUser = DBconnUser.getDataUser();
         DialogMessage.dialogFormSucsess("Saldo berhasil ditambahkan menjadi " + String.valueOf(saldoTotal), "suksess");
         tambahSaldo.dispose();
         dialogEwallet.show();
@@ -644,7 +645,7 @@ public class CheckOutGUI extends javax.swing.JFrame {
     
     // Getter
     public int getSaldo(){
-        return control.listUser.get(alamatLogin).getSaldo();
+        return control.listUser.get(addresLogin).getSaldo();
     }
     
     public int getSizeList(){
@@ -680,55 +681,55 @@ public class CheckOutGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CheckOutGUI(alamatLogin,control.listCheckout).setVisible(true);
+                new CheckOutGUI(addresLogin,control.listCheckout).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CheckOutTxt;
     private javax.swing.JLabel background;
     private javax.swing.JButton bankBtn;
     private javax.swing.JButton btnBayarSekarang;
     private javax.swing.JButton btnPerbarui;
     private javax.swing.JButton btnTambah1;
     private javax.swing.JButton canelBtn;
+    private javax.swing.JLabel checkOutTxt;
+    private javax.swing.JButton deleteProductBtn;
     private javax.swing.JDialog dialogEwallet;
     private javax.swing.JButton ewalletBtn;
+    private javax.swing.JButton exitBtn;
     private javax.swing.JLabel fjbTxt;
-    private javax.swing.JButton hapusBarangButton;
-    private javax.swing.JLabel hargaLabel;
     private javax.swing.JLabel hargaTxt;
     private javax.swing.JButton increasBtn;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jListBarang;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JButton keluarButton;
     private javax.swing.JDialog metodePembayaran;
     private javax.swing.JLabel namaLabel;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nankatsuTxt;
     private javax.swing.JPanel paneCheckOut;
     private javax.swing.JScrollPane paneDaftarBarang;
-    private javax.swing.JButton pembayaranButton;
+    private javax.swing.JButton paymentBtn;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel priceValueLabel;
     private javax.swing.JLabel saldoSekarang;
     private javax.swing.JLabel saldoTxt;
     private javax.swing.JPanel stuffPanel;
     private javax.swing.JScrollPane stuffScrollPane;
     private javax.swing.JButton submitBtn;
     private javax.swing.JDialog tambahSaldo;
-    private javax.swing.JLabel totalHargaProduk;
-    private javax.swing.JLabel totalSemuaProduk;
-    private javax.swing.JTextField txtBanyak;
+    private javax.swing.JLabel totalAllProductPriceLabel;
+    private javax.swing.JLabel totalAllProductPriceValueLabel;
+    private javax.swing.JLabel totalPriceLabel;
+    private javax.swing.JLabel totalPriceProduct;
+    private javax.swing.JLabel totalProdukBuyLabel;
     private javax.swing.JTextField txtTambahSaldo;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
