@@ -11,9 +11,9 @@ import view.BuyerGUI;
  *
  * @author AMS
  */
-public class Product_controlTest {
+public class ProductControlTest {
     
-    public Product_controlTest() {
+    public ProductControlTest() {
     }
 
 
